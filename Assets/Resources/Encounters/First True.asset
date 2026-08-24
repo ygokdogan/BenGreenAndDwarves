@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: First True
   m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.TrueEncounterData
   vendor: {fileID: 11400000, guid: 71c4c5cfd560a2446ae1b02b716314c8, type: 2}
-  saleText: 
+  saleText: "\u015Eampuan\t"
+  acceptResultText: "\u015Fampuan ald\u0131n\nmutluluk +20"
+  rejectResultText: 
   revealDelay: 0
   rejectedEffects: []
   effects:

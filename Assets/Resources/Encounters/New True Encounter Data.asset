@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: New True Encounter Data
   m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.TrueEncounterData
   vendor: {fileID: 11400000, guid: 9386dc074ef47ae44adebd47c7665c86, type: 2}
-  saleText: 
+  saleText: soyucam seni
+  acceptResultText: 'soydum
+
+    para -25'
+  rejectResultText: 
   revealDelay: 0
   rejectedEffects: []
   effects:

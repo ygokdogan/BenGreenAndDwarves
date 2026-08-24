@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: New Lie Encounter Data
   m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.LieEncounterData
   vendor: {fileID: 11400000, guid: a36ea64820963094389269cfa6cc0962, type: 2}
-  saleText: 
+  saleText: "\xE7antan\u0131 \xE7alacam "
+  acceptResultText: "\xE7ald\u0131m\ndepo -30"
+  rejectResultText: 
   revealDelay: 0
   rejectedEffects: []
   claimedEffects: []
