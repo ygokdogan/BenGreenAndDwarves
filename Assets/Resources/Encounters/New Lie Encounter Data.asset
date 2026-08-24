@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5d0471b0cbf4c6ebae6eb977f88ebd0, type: 3}
   m_Name: New Lie Encounter Data
   m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.LieEncounterData
-  vendor: {fileID: 0}
+  vendor: {fileID: 11400000, guid: a36ea64820963094389269cfa6cc0962, type: 2}
   saleText: 
   revealDelay: 0
   rejectedEffects: []
   claimedEffects: []
-  actualEffects: []
+  actualEffects:
+  - type: 2
+    amount: -30

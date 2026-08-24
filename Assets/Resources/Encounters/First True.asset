@@ -12,12 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dc5331b40204628afa94f7e24f8e5c2, type: 3}
   m_Name: First True
   m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.TrueEncounterData
-  vendor: {fileID: 0}
+  vendor: {fileID: 11400000, guid: 71c4c5cfd560a2446ae1b02b716314c8, type: 2}
   saleText: 
-  rejectedEffect:
-    type: 0
-    amount: 0
   revealDelay: 0
-  effect:
-    type: 0
-    amount: 0
+  rejectedEffects: []
+  effects:
+  - type: 0
+    amount: 20
