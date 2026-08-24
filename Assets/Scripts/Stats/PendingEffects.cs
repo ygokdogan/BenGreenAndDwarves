@@ -35,9 +35,10 @@ namespace Stats
             int triggerHour = TimeManager.Instance.TotalHoursElapsed + hoursAfter;
             pending.Add(new PendingEffect{ effect = effect, triggerHour = triggerHour });
         }
-
+    
         private void CheckAndApply()
         {
+            Debug.Log("");
             int now = TimeManager.Instance.TotalHoursElapsed;
             for (int i = 0; i < pending.Count - 1; i++)
             {
