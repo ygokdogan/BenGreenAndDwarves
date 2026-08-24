@@ -33,12 +33,18 @@ public class StatManager : MonoBehaviour
         Debug.Log($"Cash: {stats[StatType.Cash]}");
     }
 
-    public void ApplyEffect(StatEffect[] effects)
+    public void ApplyEffects(StatEffect[] effects)
     {
         foreach (StatEffect effect in effects)
         {
             stats[effect.type] = Mathf.Clamp(stats[effect.type] + effect.amount, 0, 100);
         }
+        CheckGameOver();
+    }
+
+    public void ApplyEffect(StatEffect effect)
+    {
+        stats[effect.type] = Mathf.Clamp(stats[effect.type] + effect.amount, 0, 100);
         CheckGameOver();
     }
 

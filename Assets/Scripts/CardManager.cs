@@ -74,6 +74,7 @@ public class CardManager : MonoBehaviour
     // "Devam Et" butonuna basıldığında tetiklenecek fonksiyon
     public void OnContinueButtonClicked()
     {
+        TimeManager.Instance.AdvanceHour();
         LoadRandomOffer(); // Sonraki dealer'ı çağır ve döngüyü başa sar
     }
 }

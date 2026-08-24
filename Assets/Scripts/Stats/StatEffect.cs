@@ -5,6 +5,8 @@ namespace Stats
     {
         public StatType type;
         public int amount;
+        public int revealDelay;
+        public bool Instant => revealDelay > 0;
     }
 
     public enum StatType

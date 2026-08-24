@@ -23,17 +23,21 @@ public class GameManager : MonoBehaviour
     {
         if (accepted)
         {
-            if (encounter.revealDelay <= 0)
+            foreach (StatEffect effect in encounter.GetActualEffects())
             {
-                StatManager.Instance.ApplyEffect(encounter.GetActualEffects());
-                return;
+                if (effect.Instant)
+                {
+                    StatManager.Instance.ApplyEffect(effect);
+                }
+                else
+                {
+                    PendingEffects.Instance.Schedule(effect, effect.revealDelay);
+                }
             }
-            
-            //PendingEffects.Instance.Schedule(encounter.GetActualEffects(), encounter.revealDelay);
         }
         else
         {
-            StatManager.Instance.ApplyEffect(encounter.GetActualEffects());
+            StatManager.Instance.ApplyEffects(encounter.GetActualEffects());
         }
     }
 

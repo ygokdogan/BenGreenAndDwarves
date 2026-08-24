@@ -9,8 +9,7 @@ namespace ScriptableObjects
         [TextArea] public string saleText;
         [TextArea] public string acceptResultText;
         [TextArea] public string rejectResultText;
-
-        public int revealDelay = 0;
+        
         [Space]
         public StatEffect[] rejectedEffects;
 
