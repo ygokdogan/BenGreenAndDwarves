@@ -711,6 +711,8 @@ GameObject:
   - component: {fileID: 556807393}
   - component: {fileID: 556807394}
   - component: {fileID: 556807395}
+  - component: {fileID: 556807396}
+  - component: {fileID: 556807397}
   m_Layer: 0
   m_Name: System
   m_TagString: Untagged
@@ -794,6 +796,31 @@ MonoBehaviour:
   healthSlider: {fileID: 68346038}
   storageSlider: {fileID: 1982180559}
   cashSlider: {fileID: 816931590}
+--- !u!114 &556807396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 556807389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e503758baac41c6b089d38928be43db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TimeManager
+--- !u!114 &556807397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 556807389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b837bd8f5a684f27aed1a036817e67ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Stats.PendingEffects
+  pending: []
 --- !u!1 &587820748
 GameObject:
   m_ObjectHideFlags: 0

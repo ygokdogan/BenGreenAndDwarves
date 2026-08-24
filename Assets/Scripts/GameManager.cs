@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            StatManager.Instance.ApplyEffects(encounter.GetActualEffects());
+            StatManager.Instance.ApplyEffects(encounter.rejectedEffects);
         }
     }
 
