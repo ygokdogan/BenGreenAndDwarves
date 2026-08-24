@@ -26,13 +26,16 @@ namespace Stats
             
             Instance = this;
             DontDestroyOnLoad(gameObject);
+        }
 
+        private void Start()
+        {
             TimeManager.Instance.OnHourChanged += _ => CheckAndApply();
         }
 
         public void Schedule(StatEffect effect, int hoursAfter)
         {
-            int triggerHour = TimeManager.Instance.TotalHoursElapsed + hoursAfter;
+            int triggerHour = TimeManager.Instance.TotalHoursElapsed + hoursAfter + 1;
             pending.Add(new PendingEffect{ effect = effect, triggerHour = triggerHour });
         }
     
@@ -40,7 +43,7 @@ namespace Stats
         {
             Debug.Log("");
             int now = TimeManager.Instance.TotalHoursElapsed;
-            for (int i = 0; i < pending.Count - 1; i++)
+            for (int i = 0; i < pending.Count; i++)
             {
                 if (pending[i].triggerHour <= now)
                 {
