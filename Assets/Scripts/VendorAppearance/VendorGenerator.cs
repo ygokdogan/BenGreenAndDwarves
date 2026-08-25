@@ -48,31 +48,46 @@ namespace VendorAppearance
                 data = new VendorData
                 {
                     vendorName = RandomName(),
-                    bodyIndex = Random.Range(0, bodies.Length),
-                    faceIndex = Random.Range(0, faces.Length),
-                    hairIndex = Random.Range(0, hairs.Length),
-                    hatIndex = Random.Range(0, hats.Length),
-                    mustacheIndex = Random.Range(0, mustaches.Length),
-                    bagIndex = Random.Range(0, bags.Length),
+                    bodyIndex = GetRandomIndex(bodies),
+                    faceIndex = GetRandomIndex(faces),
+                    hairIndex = GetRandomIndex(hairs),
+                    hatIndex = GetRandomIndex(hats),
+                    mustacheIndex = GetRandomIndex(mustaches),
+                    bagIndex = GetRandomIndex(bags),
                 };
+                safety++;
             } while (used.Contains(data) && safety < 100);
             
             used.Add(data);
             return data;
         }
 
+        private int GetRandomIndex(Sprite[] array)
+        {
+            if (array == null || array.Length == 0) return -1;
+            return Random.Range(0, array.Length);
+        }
+
         private string RandomName()
         {
+            if (firstNames == null || firstNames.Length == 0 || lastNames == null || lastNames.Length == 0)
+                return "Unknown Vendor";
             var first = firstNames[Random.Range(0, firstNames.Length)];
             var last = lastNames[Random.Range(0, lastNames.Length)];
             return $"{first} {last}";
         }
 
-        public Sprite GetBody(int i) => bodies[i];
-        public Sprite GetFace(int i) => faces[i];
-        public Sprite GetHair(int i) => hairs[i];
-        public Sprite GetHat(int i) => hats[i];
-        public Sprite GetMustache(int i) => mustaches[i];
-        public Sprite GetBag(int i) => bags[i];
+        public Sprite GetBody(int i) => GetSpriteSafe(bodies, i);
+        public Sprite GetFace(int i) => GetSpriteSafe(faces, i);
+        public Sprite GetHair(int i) => GetSpriteSafe(hairs, i);
+        public Sprite GetHat(int i) => GetSpriteSafe(hats, i);
+        public Sprite GetMustache(int i) => GetSpriteSafe(mustaches, i);
+        public Sprite GetBag(int i) => GetSpriteSafe(bags, i);
+
+        private Sprite GetSpriteSafe(Sprite[] array, int index)
+        {
+            if (array == null || index < 0 || index >= array.Length) return null;
+            return array[index];
+        }
     }
 }

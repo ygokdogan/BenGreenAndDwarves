@@ -11,13 +11,13 @@ namespace VendorAppearance
 
         public void ApplyAppearance(VendorData data, VendorGenerator gen)
         {
-            bodyRenderer.sprite = gen.GetBody(data.bodyIndex);
-            //faceRenderer.sprite = gen.GetFace(data.faceIndex);
-            //mustacheRenderer.sprite = gen.GetMustache(data.mustacheIndex);
-            bagRenderer.sprite = gen.GetBag(data.bagIndex);
-            //hatRenderer.sprite = gen.GetHat(data.hatIndex);
-            //hairRenderer.sprite = gen.GetHair(data.hairIndex);
-            nameText.text = data.vendorName;
+            if (bodyRenderer) bodyRenderer.sprite = gen.GetBody(data.bodyIndex);
+            if (faceRenderer) faceRenderer.sprite = gen.GetFace(data.faceIndex);
+            if (mustacheRenderer) mustacheRenderer.sprite = gen.GetMustache(data.mustacheIndex);
+            if (bagRenderer) bagRenderer.sprite = gen.GetBag(data.bagIndex);
+            if (hatRenderer) hatRenderer.sprite = gen.GetHat(data.hatIndex);
+            if (hairRenderer) hairRenderer.sprite = gen.GetHair(data.hairIndex);
+            if (nameText) nameText.text = data.vendorName;
         }
     }
 }

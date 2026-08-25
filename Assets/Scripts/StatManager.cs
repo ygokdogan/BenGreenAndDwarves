@@ -8,6 +8,8 @@ public class StatManager : MonoBehaviour
     public static StatManager Instance;
     public Dictionary<StatType, int> stats = new Dictionary<StatType, int>();
 
+    public event Action<StatType, int> OnStatChanged;
+
     private void Awake()
     {
         if (Instance)
@@ -34,7 +36,7 @@ public class StatManager : MonoBehaviour
     {
         foreach (StatEffect effect in effects)
         {
-            stats[effect.type] = Mathf.Clamp(stats[effect.type] + effect.amount, 0, 100);
+            ApplyEffect(effect);
         }
         CheckGameOver();
     }
@@ -42,7 +44,21 @@ public class StatManager : MonoBehaviour
     public void ApplyEffect(StatEffect effect)
     {
         stats[effect.type] = Mathf.Clamp(stats[effect.type] + effect.amount, 0, 100);
+        OnStatChanged?.Invoke(effect.type, stats[effect.type]);
         CheckGameOver();
+    }
+
+    public void ResetStats(int happiness = 50, int health = 50, int storage = 50, int cash = 50)
+    {
+        stats[StatType.Happiness] = happiness;
+        stats[StatType.Health] = health;
+        stats[StatType.Storage] = storage;
+        stats[StatType.Cash] = cash;
+
+        foreach (var stat in stats)
+        {
+            OnStatChanged?.Invoke(stat.Key, stat.Value);
+        }
     }
 
     public void CheckGameOver()
@@ -51,7 +67,8 @@ public class StatManager : MonoBehaviour
         {
             if (stat.Value <= 0 || stat.Value >= 100)
             {
-                GameManager.Instance.EndGame(stat.Key);
+                GameManager.Instance.EndGame(stat.Key, stat.Value <= 0);
+                break;
             }
         }
     }

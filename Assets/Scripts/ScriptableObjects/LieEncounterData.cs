@@ -10,5 +10,6 @@ namespace ScriptableObjects
         public StatEffect[] actualEffects;
         
         public override StatEffect[] GetActualEffects() => actualEffects;
+        public override StatEffect[] GetClaimedEffects() => claimedEffects;
     }
 }

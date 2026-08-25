@@ -18,8 +18,13 @@ namespace UI
         [Header("Result Panel UI")]
         public TextMeshProUGUI resultBodyText;
 
-        public void ShowEncounterPanel(EncounterData currentEncounter)
+        private EncounterData currentEncounter;
+
+        public void ShowEncounterPanel(EncounterData encounter)
         {
+            currentEncounter = encounter;
+            if (StatUIManager.Instance != null) StatUIManager.Instance.ClearPreview();
+
             resultPanel.SetActive(false);
             vendorNamePanel.SetActive(true);
             encounterPanel.SetActive(true);
@@ -30,6 +35,8 @@ namespace UI
         
         public void ShowResultPanel(string resultMessage)
         {
+            if (StatUIManager.Instance != null) StatUIManager.Instance.ClearPreview();
+
             encounterPanel.SetActive(false);
             vendorNamePanel.SetActive(true);
             resultPanel.SetActive(true);
@@ -39,9 +46,35 @@ namespace UI
 
         public void HideAllPanels()
         {
+            if (StatUIManager.Instance != null) StatUIManager.Instance.ClearPreview();
+
             vendorNamePanel.SetActive(false);
             encounterPanel.SetActive(false);
             resultPanel.SetActive(false);
+        }
+
+        public void OnAcceptHoverEnter()
+        {
+            if (currentEncounter != null && StatUIManager.Instance != null)
+            {
+                StatUIManager.Instance.ShowPreview(currentEncounter.GetClaimedEffects());
+            }
+        }
+
+        public void OnRejectHoverEnter()
+        {
+            if (currentEncounter != null && StatUIManager.Instance != null)
+            {
+                StatUIManager.Instance.ShowPreview(currentEncounter.rejectedEffects);
+            }
+        }
+
+        public void OnHoverExit()
+        {
+            if (StatUIManager.Instance != null)
+            {
+                StatUIManager.Instance.ClearPreview();
+            }
         }
     }
 }

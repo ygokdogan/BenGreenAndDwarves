@@ -9,6 +9,8 @@ using Random = UnityEngine.Random;
 
 public class EncounterManager : MonoBehaviour
 {
+    public static EncounterManager Instance;
+
     public EncounterUIManager encounterUI;
     
     private PendingEffects pendingEffects;
@@ -18,16 +20,24 @@ public class EncounterManager : MonoBehaviour
     public List<EncounterData> allEncounters;
     private EncounterData currentEncounter;
     
-    [Header("Vendor Generator")]
-    public VendorGenerator vendorGenerator;
-
-    public bool waitingForPendingEffects = false;
+    private VendorGenerator vendorGenerator;
+    private bool waitingForPendingEffects = false;
 
     private void Awake()
     {
+        if (Instance)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+
         timeManager = GetComponent<TimeManager>();
         pendingEffects = GetComponent<PendingEffects>();
-        pendingEffects.OnEffectsTriggered += ShowPendingEffects;
+        vendorGenerator = GetComponent<VendorGenerator>();
+        
+        if (pendingEffects) pendingEffects.OnEffectsTriggered += ShowPendingEffects;
     }
 
     private void Start()
@@ -55,6 +65,10 @@ public class EncounterManager : MonoBehaviour
         encounterUI.ShowEncounterPanel(currentEncounter);
     }
     
+    public EncounterData GetCurrentEncounter() => currentEncounter;
+
+    public void LoadNextEncounter() => LoadRandomEncounter();
+
     public void OnYesButtonClicked()
     {
         GameManager.Instance.ResolveEncounter(currentEncounter, true);
@@ -70,7 +84,7 @@ public class EncounterManager : MonoBehaviour
     public void OnContinueButtonClicked()
     {
         timeManager.AdvanceHour();
-        if (!waitingForPendingEffects)
+        if (!waitingForPendingEffects && timeManager.CurrentHour < 21)
         {
             LoadRandomEncounter();
         }

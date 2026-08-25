@@ -41,8 +41,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void EndGame(StatType stat)
+    public void EndGame(StatType stat, bool isZero = true)
     {
-        Debug.Log($"Game Ended: {stat}");
+        Debug.Log($"Game Ended: {stat} (isZero: {isZero})");
+        if (UI.GameOverUIManager.Instance != null)
+        {
+            UI.GameOverUIManager.Instance.ShowGameOver(stat, isZero);
+        }
     }
 }

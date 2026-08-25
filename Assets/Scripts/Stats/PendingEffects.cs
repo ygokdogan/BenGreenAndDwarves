@@ -44,7 +44,6 @@ namespace Stats
     
         private void CheckAndApply()
         {
-            Debug.Log("");
             int now = TimeManager.Instance.TotalHoursElapsed;
             triggeredEffects.Clear();
             

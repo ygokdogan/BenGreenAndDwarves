@@ -11,7 +11,7 @@ namespace UI
     {
         public static PendingEffectPopup Instance;
 
-        private EncounterUIManager encounterUI;
+        public EncounterUIManager encounterUI;
 
         public GameObject popupRoot;
         public TextMeshProUGUI bodyText;
@@ -27,8 +27,6 @@ namespace UI
             
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            
-            encounterUI = GetComponent<EncounterUIManager>();
         }
 
         public void Show(List<StatEffect> effects, Action closed)
