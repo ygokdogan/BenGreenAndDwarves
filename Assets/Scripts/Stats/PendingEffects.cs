@@ -14,7 +14,10 @@ namespace Stats
     public class PendingEffects : MonoBehaviour
     {
         public static PendingEffects Instance;
+        public event Action<List<StatEffect>> OnEffectsTriggered;
+        
         public List<PendingEffect> pending = new List<PendingEffect>();
+        private List<StatEffect> triggeredEffects = new List<StatEffect>();
 
         private void Awake()
         {
@@ -42,13 +45,22 @@ namespace Stats
         private void CheckAndApply()
         {
             int now = TimeManager.Instance.TotalHoursElapsed;
-            for (int i = 0; i < pending.Count; i++)
+            triggeredEffects.Clear();
+            
+            for (int i = pending.Count -1; i >= 0; i--)
             {
                 if (pending[i].triggerHour <= now)
                 {
                     StatManager.Instance.ApplyEffect(pending[i].effect);
+                    triggeredEffects.Add(pending[i].effect);
                     pending.RemoveAt(i);
                 }
+            }
+
+            if (triggeredEffects.Count > 0)
+            {
+                triggeredEffects.Reverse();
+                OnEffectsTriggered?.Invoke(triggeredEffects);
             }
         }
     }

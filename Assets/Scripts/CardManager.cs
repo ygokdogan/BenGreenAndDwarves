@@ -1,8 +1,11 @@
+using System;
 using UnityEngine;
 using TMPro; 
 using System.Collections.Generic;
 using ScriptableObjects;
-using VendorAppearance; // Senin oluşturduğun verilere ulaşmak için gerekli
+using Stats;
+using VendorAppearance;
+using Random = UnityEngine.Random; // Senin oluşturduğun verilere ulaşmak için gerekli
 
 public class CardManager : MonoBehaviour
 {
@@ -11,76 +14,85 @@ public class CardManager : MonoBehaviour
     public GameObject resultPanel; // Sonuç metni ve Devam butonunu taşıyan ana obje
 
     [Header("Teklif Ekranı UI (Offer)")]
-    public TextMeshProUGUI dealerNameText; //[cite: 6]
-    public TextMeshProUGUI offerBodyText; //[cite: 6]
+    public TextMeshProUGUI dealerNameText;
+    public TextMeshProUGUI offerBodyText;
     
     [Header("Sonuç Ekranı UI (Result)")]
-    public TextMeshProUGUI resultBodyText; // Oyuncuya sonucu açıklayacak metin
+    public TextMeshProUGUI resultBodyText;
 
     [Header("Teklif Veritabanı")]
-    public List<EncounterData> allEncounters; // Sahnede kullanacağın tüm kartlar[cite: 6]
-    private EncounterData currentEncounter; //[cite: 6]
+    public List<EncounterData> allEncounters;
+    private EncounterData currentEncounter;
     
     [Header("Vendor Generator")]
     public VendorGenerator vendorGenerator;
 
+    public bool waitingForPendingEffects = false;
+
     private void Start()
     {
-        LoadRandomOffer(); //[cite: 6]
+        PendingEffects.Instance.OnEffectsTriggered += ShowPendingEffects;
+        LoadRandomOffer();
     }
 
-    // Yeni bir teklif yükler
-    public void LoadRandomOffer() //[cite: 6]
+    private void OnDestroy()
     {
-        if (allEncounters.Count == 0) return; //[cite: 6]
+        if (!PendingEffects.Instance) return;
+        
+        PendingEffects.Instance.OnEffectsTriggered -= ShowPendingEffects;
+    }
 
-        int randomIndex = Random.Range(0, allEncounters.Count); //[cite: 6]
-        currentEncounter = allEncounters[randomIndex]; //[cite: 6]
+    public void LoadRandomOffer()
+    {
+        if (allEncounters.Count == 0) return;
+
+        int randomIndex = Random.Range(0, allEncounters.Count);
+        currentEncounter = allEncounters[randomIndex];
+        
         var generatedVendor = vendorGenerator.Generate();
         currentEncounter.vendor = generatedVendor;
-
-        // Yeni dealer geldiğinde teklif ekranını aç, sonuç ekranını gizle
+        
         offerPanel.SetActive(true);
         resultPanel.SetActive(false);
-
-        // Arayüzü güncelle
-        dealerNameText.text = currentEncounter.vendor.vendorName; //[cite: 6]
-        offerBodyText.text = currentEncounter.saleText; //[cite: 6]
-    }
-
-    // EVET butonuna basıldığında çağrılacak
-    public void OnYesButtonClicked() //[cite: 6]
-    {
-        // GameManager üzerinden senin yazdığın stat güncelleme fonksiyonunu çalıştır
-        GameManager.Instance.ResolveEncounter(currentEncounter, true); //[cite: 6]
         
-        // Sonuç ekranına geç ve kabul etme metnini (acceptResultText) göster
+        dealerNameText.text = currentEncounter.vendor.vendorName;
+        offerBodyText.text = currentEncounter.saleText;
+    }
+    
+    public void OnYesButtonClicked()
+    {
+        GameManager.Instance.ResolveEncounter(currentEncounter, true);
+        
         ShowResult(currentEncounter.acceptResultText); 
     }
-
-    // HAYIR butonuna basıldığında çağrılacak
+    
     public void OnNoButtonClicked() //[cite: 6]
     {
         // GameManager üzerinden statları güncelle
-        GameManager.Instance.ResolveEncounter(currentEncounter, false); //[cite: 6]
+        GameManager.Instance.ResolveEncounter(currentEncounter, false);
         
-        // Sonuç ekranına geç ve reddetme metnini (rejectResultText) göster
         ShowResult(currentEncounter.rejectResultText); 
     }
-
-    // Arayüzü sonuç ekranına çeviren özel fonksiyon
+    
     private void ShowResult(string resultMessage)
     {
-        offerPanel.SetActive(false); // Soru sorma panelini kapat
-        resultPanel.SetActive(true); // Sonuç gösterme panelini aç
+        offerPanel.SetActive(false);
+        resultPanel.SetActive(true);
         
-        resultBodyText.text = resultMessage; // Ekrana sonucu yaz
+        resultBodyText.text = resultMessage;
     }
-
-    // "Devam Et" butonuna basıldığında tetiklenecek fonksiyon
+    
     public void OnContinueButtonClicked()
     {
         TimeManager.Instance.AdvanceHour();
-        LoadRandomOffer(); // Sonraki dealer'ı çağır ve döngüyü başa sar
+        if (!waitingForPendingEffects)
+        {
+            LoadRandomOffer();
+        }
+    }
+
+    private void ShowPendingEffects(List<StatEffect> effectsTriggered)
+    {
+        waitingForPendingEffects = true;
     }
 }
