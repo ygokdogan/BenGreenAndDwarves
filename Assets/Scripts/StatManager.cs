@@ -19,18 +19,15 @@ public class StatManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
         
-        stats.Add(StatType.Happiness, 50);
-        stats.Add(StatType.Health, 50);
-        stats.Add(StatType.Storage, 50);
-        stats.Add(StatType.Cash, 50);
+        InitializeStats(50,50,50,50);
     }
 
-    private void Update()
+    private void InitializeStats(int happiness, int health, int storage, int cash)
     {
-        Debug.Log($"Happiness: {stats[StatType.Happiness]}");
-        Debug.Log($"Health: {stats[StatType.Health]}");
-        Debug.Log($"Storage: {stats[StatType.Storage]}");
-        Debug.Log($"Cash: {stats[StatType.Cash]}");
+        stats.Add(StatType.Happiness, happiness);
+        stats.Add(StatType.Health, health);
+        stats.Add(StatType.Storage, storage);
+        stats.Add(StatType.Cash, cash);
     }
 
     public void ApplyEffects(StatEffect[] effects)
