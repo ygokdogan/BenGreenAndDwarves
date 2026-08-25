@@ -1,7 +1,8 @@
 using UnityEngine;
 using TMPro; 
 using System.Collections.Generic;
-using ScriptableObjects; // Senin oluşturduğun verilere ulaşmak için gerekli
+using ScriptableObjects;
+using VendorAppearance; // Senin oluşturduğun verilere ulaşmak için gerekli
 
 public class CardManager : MonoBehaviour
 {
@@ -19,6 +20,9 @@ public class CardManager : MonoBehaviour
     [Header("Teklif Veritabanı")]
     public List<EncounterData> allEncounters; // Sahnede kullanacağın tüm kartlar[cite: 6]
     private EncounterData currentEncounter; //[cite: 6]
+    
+    [Header("Vendor Generator")]
+    public VendorGenerator vendorGenerator;
 
     private void Start()
     {
@@ -32,6 +36,8 @@ public class CardManager : MonoBehaviour
 
         int randomIndex = Random.Range(0, allEncounters.Count); //[cite: 6]
         currentEncounter = allEncounters[randomIndex]; //[cite: 6]
+        var generatedVendor = vendorGenerator.Generate();
+        currentEncounter.vendor = generatedVendor;
 
         // Yeni dealer geldiğinde teklif ekranını aç, sonuç ekranını gizle
         offerPanel.SetActive(true);

@@ -2,10 +2,18 @@ using UnityEngine;
 
 namespace ScriptableObjects
 {
-    [CreateAssetMenu(fileName = "New Vendor", menuName = "Data/Vendor")]
-    public class VendorData : ScriptableObject
+    public struct VendorData
     {
         public string vendorName;
-        public Sprite visual;
+        public int bodyIndex, faceIndex, hairIndex, hatIndex, mustacheIndex, bagIndex;
+        
+        public override bool Equals(object obj) => 
+            obj is VendorData o && 
+            vendorName == o.vendorName &&
+            bodyIndex == o.bodyIndex && faceIndex == o.faceIndex && 
+            hairIndex == o.hairIndex && hatIndex == o.hatIndex && 
+            mustacheIndex == o.mustacheIndex && bagIndex == o.bagIndex;
+        
+        public override int GetHashCode() => (bodyIndex, faceIndex, hairIndex, hatIndex, mustacheIndex, bagIndex).GetHashCode();
     }
 }

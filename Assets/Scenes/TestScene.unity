@@ -713,6 +713,7 @@ GameObject:
   - component: {fileID: 556807395}
   - component: {fileID: 556807396}
   - component: {fileID: 556807397}
+  - component: {fileID: 556807398}
   m_Layer: 0
   m_Name: System
   m_TagString: Untagged
@@ -738,9 +739,8 @@ MonoBehaviour:
   offerBodyText: {fileID: 1843459366}
   resultBodyText: {fileID: 1148204541}
   allEncounters:
-  - {fileID: 11400000, guid: 9662f6a013adb45969d5814d3e2ed24a, type: 2}
-  - {fileID: 11400000, guid: 34ccaa1a0a75e564eaa880ce86d78d39, type: 2}
-  - {fileID: 11400000, guid: 4297bdfccfebc754ea22ee3a6b4a5aa0, type: 2}
+  - {fileID: 11400000, guid: b975c074de46f4082b1f6ae5805c6e59, type: 2}
+  vendorGenerator: {fileID: 556807398}
 --- !u!4 &556807392
 Transform:
   m_ObjectHideFlags: 0
@@ -821,6 +821,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Stats.PendingEffects
   pending: []
+--- !u!114 &556807398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 556807389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 938017a728f94e848121a95d06e7d23d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VendorAppearance.VendorGenerator
 --- !u!1 &587820748
 GameObject:
   m_ObjectHideFlags: 0
