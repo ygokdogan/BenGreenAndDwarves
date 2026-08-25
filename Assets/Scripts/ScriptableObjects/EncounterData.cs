@@ -14,5 +14,6 @@ namespace ScriptableObjects
         public StatEffect[] rejectedEffects;
 
         public abstract StatEffect[] GetActualEffects();
+        public abstract StatEffect[] GetClaimedEffects();
     }
 }

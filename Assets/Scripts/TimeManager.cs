@@ -13,6 +13,7 @@ public class TimeManager : MonoBehaviour
 
     public event Action<int> OnDayChanged;
     public event Action<int> OnHourChanged;
+    public event Action<int> OnDayEnded; // Triggered at end of day (21:00) before advancing
 
     private void Awake()
     {
@@ -25,6 +26,11 @@ public class TimeManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
         
+        ResetTime();
+    }
+
+    public void ResetTime()
+    {
         CurrentHour = startHour;
         CurrentDay = 1;
         TotalHoursElapsed = 0;
@@ -37,11 +43,19 @@ public class TimeManager : MonoBehaviour
 
         if (CurrentHour >= endHour)
         {
-            CurrentHour = startHour;
-            CurrentDay++;
-            OnDayChanged?.Invoke(CurrentDay);
+            OnDayEnded?.Invoke(CurrentDay);
         }
-        
+        else
+        {
+            OnHourChanged?.Invoke(CurrentHour);
+        }
+    }
+
+    public void StartNextDay()
+    {
+        CurrentHour = startHour;
+        CurrentDay++;
+        OnDayChanged?.Invoke(CurrentDay);
         OnHourChanged?.Invoke(CurrentHour);
     }
 }
