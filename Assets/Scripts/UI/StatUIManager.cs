@@ -50,7 +50,7 @@ namespace UI
             if (!StatManager.Instance) return;
             foreach (var stat in StatManager.Instance.stats)
             {
-                SetBarValue(stat.Key, stat.Value, stat.Value);
+                SetBarValue(stat.Key, stat.Value, 0);
             }
         }
 

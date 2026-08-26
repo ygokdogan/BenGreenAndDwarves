@@ -92,7 +92,7 @@ namespace UI.StatBar
             c.a = 1f;
             outlineHighlight.color = c;
             
-            outlineHighlight.DOFade(0.8f, 0.6f)
+            outlineHighlight.DOFade(0.7f, 0.7f)
                 .SetLoops(-1, LoopType.Yoyo)
                 .SetEase(Ease.InOutSine);
         }
