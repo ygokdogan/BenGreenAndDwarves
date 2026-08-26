@@ -4,6 +4,7 @@ using System.Text;
 using Stats;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace UI
 {
@@ -29,7 +30,7 @@ namespace UI
             DontDestroyOnLoad(gameObject);
         }
 
-        public void Show(List<StatEffect> effects, Action closed)
+        public void Show(List<PendingEffect> effects, Action closed)
         {
             encounterUI.HideAllPanels();
             popupRoot.SetActive(true);
@@ -45,17 +46,17 @@ namespace UI
             callback?.Invoke();
         }
         
-        private string BuildEffectText(IReadOnlyList<StatEffect> effects)
+        private string BuildEffectText(IReadOnlyList<PendingEffect> effects)
         {
             StringBuilder builder = new StringBuilder("Results of your previous choices has appeared:\n");
-            foreach (StatEffect effect in effects)
+            foreach (PendingEffect pendingEffect in effects)
             {
-                string sign = effect.amount >= 0 ? "+" : string.Empty;
-                builder.Append("\n• ")
-                    .Append(GetStatName(effect.type))
+                string sign = pendingEffect.effect.amount >= 0 ? "+" : string.Empty;
+                builder.Append($"{pendingEffect.triggerText}").Append("\n• ")
+                    .Append(GetStatName(pendingEffect.effect.type))
                     .Append(" ")
                     .Append(sign)
-                    .Append(effect.amount);
+                    .Append(pendingEffect.effect.amount);
             }
 
             return builder.ToString();

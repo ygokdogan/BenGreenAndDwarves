@@ -11,6 +11,7 @@ namespace UI
         public static DayEndUIManager Instance;
 
         [Header("UI References")]
+        public GameObject gameplayUI;
         public GameObject dayEndPanel;
         public TextMeshProUGUI dayTitleText;
         public TextMeshProUGUI summaryBodyText;
@@ -53,6 +54,7 @@ namespace UI
         public void ShowDayEndSummary(int completedDay)
         {
             if (dayEndPanel) dayEndPanel.SetActive(true);
+            if (gameplayUI) gameplayUI.SetActive(false);
 
             if (dayTitleText)
             {
@@ -67,8 +69,8 @@ namespace UI
                 new StatEffect { type = StatType.Storage, amount = dailyStorageCost }
             };
 
-            // Apply multi-stat deductions
-            StatManager.Instance.ApplyEffects(upkeepEffects);
+            // Apply multi-stat deductions without triggering immediate game over
+            StatManager.Instance.ApplyEffects(upkeepEffects, checkGameOver: false);
 
             if (summaryBodyText)
             {
@@ -83,6 +85,13 @@ namespace UI
         public void OnStartNextDayClicked()
         {
             if (dayEndPanel) dayEndPanel.SetActive(false);
+
+            if (StatManager.Instance != null && StatManager.Instance.CheckGameOver())
+            {
+                return;
+            }
+
+            if (gameplayUI) gameplayUI.SetActive(true);
             TimeManager.Instance.StartNextDay();
             EncounterManager.Instance?.LoadNextEncounter();
         }

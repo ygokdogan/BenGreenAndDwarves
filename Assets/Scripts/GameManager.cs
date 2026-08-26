@@ -16,7 +16,6 @@ public class GameManager : MonoBehaviour
         }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject);
     }
 
     public void ResolveEncounter(EncounterData encounter, bool accepted)
@@ -31,7 +30,7 @@ public class GameManager : MonoBehaviour
                 }
                 else
                 {
-                    PendingEffects.Instance.Schedule(effect, effect.revealDelay);
+                    PendingEffects.Instance.Schedule(effect, effect.revealDelay, encounter.delayedText);
                 }
             }
         }

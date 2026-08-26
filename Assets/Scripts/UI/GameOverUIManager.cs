@@ -10,6 +10,7 @@ namespace UI
         public static GameOverUIManager Instance;
 
         [Header("UI References")]
+        public GameObject gameplayUI;
         public GameObject gameOverPanel;
         public TextMeshProUGUI titleText;
         public TextMeshProUGUI reasonText;
@@ -36,6 +37,11 @@ namespace UI
             if (PendingEffectPopup.Instance != null && PendingEffectPopup.Instance.popupRoot != null)
             {
                 PendingEffectPopup.Instance.popupRoot.SetActive(false);
+            }
+
+            if (gameplayUI)
+            {
+                gameplayUI.SetActive(false);
             }
 
             if (gameOverPanel) gameOverPanel.SetActive(true);
@@ -82,6 +88,7 @@ namespace UI
         public void RestartGame()
         {
             if (gameOverPanel) gameOverPanel.SetActive(false);
+            if (gameplayUI) gameplayUI.SetActive(true);
             TimeManager.Instance?.ResetTime();
             StatManager.Instance?.ResetStats();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

@@ -54,8 +54,9 @@ public class EncounterManager : MonoBehaviour
 
     private void LoadRandomEncounter()
     {
+        waitingForPendingEffects = false;
         if (allEncounters.Count == 0) return;
-
+        
         int randomIndex = Random.Range(0, allEncounters.Count);
         currentEncounter = allEncounters[randomIndex];
         
@@ -90,9 +91,22 @@ public class EncounterManager : MonoBehaviour
         }
     }
 
-    private void ShowPendingEffects(List<StatEffect> effectsTriggered)
+    private void ShowPendingEffects(List<PendingEffect> effectsTriggered)
     {
         waitingForPendingEffects = true;
-        PendingEffectPopup.Instance.Show(effectsTriggered, LoadRandomEncounter);
+        PendingEffectPopup.Instance.Show(effectsTriggered, OnPendingEffectsClosed);
+    }
+
+    private void OnPendingEffectsClosed()
+    {
+        if (StatManager.Instance != null && StatManager.Instance.CheckGameOver())
+        {
+            return;
+        }
+
+        if (timeManager != null && timeManager.CurrentHour < 21)
+        {
+            LoadRandomEncounter();
+        }
     }
 }

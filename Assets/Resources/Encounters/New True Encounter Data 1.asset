@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dc5331b40204628afa94f7e24f8e5c2, type: 3}
   m_Name: New True Encounter Data 1
   m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.TrueEncounterData
-  vendor: {fileID: 11400000, guid: 298399ebb25d24970a7e89190f8b1a2c, type: 2}
   saleText: 2 saat sonra aminakoycam
   acceptResultText: "adamsin\t"
   rejectResultText: vay pic
+  delayedText: valla yapti dedigini
   rejectedEffects: []
   effects:
   - type: 1
