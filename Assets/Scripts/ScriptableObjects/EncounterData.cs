@@ -9,6 +9,8 @@ namespace ScriptableObjects
         [TextArea] public string saleText;
         [TextArea] public string acceptResultText;
         [TextArea] public string rejectResultText;
+        [Tooltip("Only for delayed effects")]
+        [TextArea] public string delayedText;
         
         [Space]
         public StatEffect[] rejectedEffects;

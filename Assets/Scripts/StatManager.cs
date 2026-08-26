@@ -19,7 +19,6 @@ public class StatManager : MonoBehaviour
         }
             
         Instance = this;
-        DontDestroyOnLoad(gameObject);
         
         InitializeStats(50,50,50,50);
     }
@@ -32,20 +31,26 @@ public class StatManager : MonoBehaviour
         stats.Add(StatType.Cash, cash);
     }
 
-    public void ApplyEffects(StatEffect[] effects)
+    public void ApplyEffects(StatEffect[] effects, bool checkGameOver = true)
     {
         foreach (StatEffect effect in effects)
         {
-            ApplyEffect(effect);
+            ApplyEffect(effect, checkGameOver);
         }
-        CheckGameOver();
+        if (checkGameOver)
+        {
+            CheckGameOver();
+        }
     }
 
-    public void ApplyEffect(StatEffect effect)
+    public void ApplyEffect(StatEffect effect, bool checkGameOver = true)
     {
         stats[effect.type] = Mathf.Clamp(stats[effect.type] + effect.amount, 0, 100);
         OnStatChanged?.Invoke(effect.type, stats[effect.type]);
-        CheckGameOver();
+        if (checkGameOver)
+        {
+            CheckGameOver();
+        }
     }
 
     public void ResetStats(int happiness = 50, int health = 50, int storage = 50, int cash = 50)
@@ -61,15 +66,17 @@ public class StatManager : MonoBehaviour
         }
     }
 
-    public void CheckGameOver()
+    public bool CheckGameOver()
     {
         foreach (var stat in stats)
         {
             if (stat.Value <= 0 || stat.Value >= 100)
             {
                 GameManager.Instance.EndGame(stat.Key, stat.Value <= 0);
-                break;
+                return true;
             }
         }
+
+        return false;
     }
 }

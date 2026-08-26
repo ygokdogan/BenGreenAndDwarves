@@ -9,15 +9,16 @@ namespace Stats
     {
         public StatEffect effect;
         public int triggerHour;
+        public string triggerText;
     }
     
     public class PendingEffects : MonoBehaviour
     {
         public static PendingEffects Instance;
-        public event Action<List<StatEffect>> OnEffectsTriggered;
+        public event Action<List<PendingEffect>> OnEffectsTriggered;
         
         public List<PendingEffect> pending = new List<PendingEffect>();
-        private List<StatEffect> triggeredEffects = new List<StatEffect>();
+        private List<PendingEffect> triggeredEffects = new List<PendingEffect>();
 
         private void Awake()
         {
@@ -28,18 +29,35 @@ namespace Stats
             }
             
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
 
         private void Start()
         {
-            TimeManager.Instance.OnHourChanged += _ => CheckAndApply();
+            if (TimeManager.Instance != null)
+            {
+                TimeManager.Instance.OnHourChanged += OnTimeAdvanced;
+                TimeManager.Instance.OnDayEnded += OnTimeAdvanced;
+            }
         }
 
-        public void Schedule(StatEffect effect, int hoursAfter)
+        private void OnDestroy()
+        {
+            if (TimeManager.Instance != null)
+            {
+                TimeManager.Instance.OnHourChanged -= OnTimeAdvanced;
+                TimeManager.Instance.OnDayEnded -= OnTimeAdvanced;
+            }
+        }
+
+        private void OnTimeAdvanced(int currentVal)
+        {
+            CheckAndApply();
+        }
+
+        public void Schedule(StatEffect effect, int hoursAfter, string triggerText)
         {
             int triggerHour = TimeManager.Instance.TotalHoursElapsed + hoursAfter + 1;
-            pending.Add(new PendingEffect{ effect = effect, triggerHour = triggerHour });
+            pending.Add(new PendingEffect{ effect = effect, triggerHour = triggerHour, triggerText = triggerText });
         }
     
         private void CheckAndApply()
@@ -51,8 +69,8 @@ namespace Stats
             {
                 if (pending[i].triggerHour <= now)
                 {
-                    StatManager.Instance.ApplyEffect(pending[i].effect);
-                    triggeredEffects.Add(pending[i].effect);
+                    StatManager.Instance.ApplyEffect(pending[i].effect, checkGameOver: false);
+                    triggeredEffects.Add(pending[i]);
                     pending.RemoveAt(i);
                 }
             }
