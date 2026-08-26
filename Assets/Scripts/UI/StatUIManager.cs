@@ -9,17 +9,11 @@ namespace UI
     {
         public static StatUIManager Instance;
 
-        [Header("UI Barları")]
-        public Slider happinessSlider;
-        public Slider healthSlider;
-        public Slider storageSlider;
-        public Slider cashSlider;
-
-        [Header("Stat Indicators (Preview Icons / Dots)")]
-        public GameObject happinessIndicator;
-        public GameObject healthIndicator;
-        public GameObject storageIndicator;
-        public GameObject cashIndicator;
+        [Header("UI Bars")]
+        public StatBar.StatBar happinessBar;
+        public StatBar.StatBar healthBar;
+        public StatBar.StatBar storageBar;
+        public StatBar.StatBar cashBar;
 
         private void Awake()
         {
@@ -34,14 +28,9 @@ namespace UI
 
         private void Start()
         {
-            if (happinessSlider) { happinessSlider.minValue = 0; happinessSlider.maxValue = 100; }
-            if (healthSlider) { healthSlider.minValue = 0; healthSlider.maxValue = 100; }
-            if (storageSlider) { storageSlider.minValue = 0; storageSlider.maxValue = 100; }
-            if (cashSlider) { cashSlider.minValue = 0; cashSlider.maxValue = 100; }
-
-            if (StatManager.Instance != null)
+            if (StatManager.Instance)
             {
-                StatManager.Instance.OnStatChanged += SetSliderValue;
+                StatManager.Instance.OnStatChanged += SetBarValue;
                 RefreshAllSliders();
             }
 
@@ -50,29 +39,29 @@ namespace UI
 
         private void OnDestroy()
         {
-            if (StatManager.Instance != null)
+            if (StatManager.Instance)
             {
-                StatManager.Instance.OnStatChanged -= SetSliderValue;
+                StatManager.Instance.OnStatChanged -= SetBarValue;
             }
         }
 
         public void RefreshAllSliders()
         {
-            if (StatManager.Instance == null) return;
+            if (!StatManager.Instance) return;
             foreach (var stat in StatManager.Instance.stats)
             {
-                SetSliderValue(stat.Key, stat.Value);
+                SetBarValue(stat.Key, stat.Value, 0);
             }
         }
 
-        private void SetSliderValue(StatType type, int value)
+        private void SetBarValue(StatType type, int newValue, int oldValue)
         {
             switch (type)
             {
-                case StatType.Happiness: if (happinessSlider) happinessSlider.value = value; break;
-                case StatType.Health: if (healthSlider) healthSlider.value = value; break;
-                case StatType.Storage: if (storageSlider) storageSlider.value = value; break;
-                case StatType.Cash: if (cashSlider) cashSlider.value = value; break;
+                case StatType.Happiness: if (happinessBar) happinessBar.SetValue(newValue, oldValue); break;
+                case StatType.Health: if (healthBar) healthBar.SetValue(newValue, oldValue); break;
+                case StatType.Storage: if (storageBar) storageBar.SetValue(newValue, oldValue); break;
+                case StatType.Cash: if (cashBar) cashBar.SetValue(newValue, oldValue); break;
                 default: break;
             }
         }
@@ -100,10 +89,10 @@ namespace UI
         {
             switch (type)
             {
-                case StatType.Happiness: if (happinessIndicator) happinessIndicator.SetActive(active); break;
-                case StatType.Health: if (healthIndicator) healthIndicator.SetActive(active); break;
-                case StatType.Storage: if (storageIndicator) storageIndicator.SetActive(active); break;
-                case StatType.Cash: if (cashIndicator) cashIndicator.SetActive(active); break;
+                case StatType.Happiness: if (happinessBar) happinessBar.Highlight(active); break;
+                case StatType.Health: if (healthBar) healthBar.Highlight(active); break;
+                case StatType.Storage: if (storageBar) storageBar.Highlight(active); break;
+                case StatType.Cash: if (cashBar) cashBar.Highlight(active); break;
             }
         }
     }

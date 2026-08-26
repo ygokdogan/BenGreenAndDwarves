@@ -8,7 +8,7 @@ public class StatManager : MonoBehaviour
     public static StatManager Instance;
     public Dictionary<StatType, int> stats = new Dictionary<StatType, int>();
 
-    public event Action<StatType, int> OnStatChanged;
+    public event Action<StatType, int, int> OnStatChanged;
 
     private void Awake()
     {
@@ -45,8 +45,9 @@ public class StatManager : MonoBehaviour
 
     public void ApplyEffect(StatEffect effect, bool checkGameOver = true)
     {
+        var oldValue= stats[effect.type];
         stats[effect.type] = Mathf.Clamp(stats[effect.type] + effect.amount, 0, 100);
-        OnStatChanged?.Invoke(effect.type, stats[effect.type]);
+        OnStatChanged?.Invoke(effect.type, stats[effect.type], oldValue);
         if (checkGameOver)
         {
             CheckGameOver();
@@ -62,7 +63,7 @@ public class StatManager : MonoBehaviour
 
         foreach (var stat in stats)
         {
-            OnStatChanged?.Invoke(stat.Key, stat.Value);
+            OnStatChanged?.Invoke(stat.Key, stat.Value, stat.Value);
         }
     }
 
