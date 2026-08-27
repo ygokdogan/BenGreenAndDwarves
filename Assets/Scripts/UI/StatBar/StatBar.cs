@@ -54,8 +54,8 @@ namespace UI.StatBar
             //DAMAGE
             if (diff < 0)
             {
-                fill.DOValue(v, .3f).SetEase(Ease.OutCubic);
-                chunk.DOValue(v, .35f).SetDelay(.4f).SetEase(Ease.OutCubic);
+                fill.DOValue(v, .6f).SetEase(Ease.OutCubic);
+                chunk.DOValue(v - 0.035f, .7f).SetDelay(.8f).SetEase(Ease.OutCubic);
                 
                 bar.DOShakeAnchorPos(.1f, new Vector2(12, 5), 20);
                 bar.DOPunchScale(new Vector3(0.03f, .25f, 0f), .3f);
@@ -64,8 +64,8 @@ namespace UI.StatBar
             }
             else // HEAL
             {
-                chunk.DOValue(v, .15f).SetEase(Ease.OutQuad);
-                fill.DOValue(v, .45f).SetDelay(.15f).SetEase(Ease.OutQuad);
+                chunk.DOValue(v - 0.035f, .3f).SetEase(Ease.OutQuad);
+                fill.DOValue(v, .6f).SetDelay(.6f).SetEase(Ease.OutQuad);
                 
                 bar.DOPunchScale(new Vector3(0.02f, .1f, 0f), .3f);
             }
@@ -119,8 +119,8 @@ namespace UI.StatBar
             c.a = 1f;
             valuePopup.color = c;
             
-            valuePopup.rectTransform.DOAnchorPosY(popupY + 70f, .85f).SetEase(Ease.OutCubic).OnComplete(ResetPopup);
-            valuePopup.DOFade(0f, 0.35f).SetDelay(0.3f);
+            valuePopup.rectTransform.DOAnchorPosY(popupY + 20f, 1.85f).SetEase(Ease.OutCubic).OnComplete(ResetPopup);
+            valuePopup.DOFade(0f, 0.35f).SetDelay(1.5f);
         }
 
         private void ResetPopup()

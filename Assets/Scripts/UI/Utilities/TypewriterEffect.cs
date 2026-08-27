@@ -71,7 +71,6 @@ namespace UI.Utilities
             fullText = text ?? string.Empty;
             targetText.text = fullText;
             
-            // Metni atadıktan sonra mesh'i güncelleyerek TextMeshPro'nun yeni font boyutunu hesaplamasını sağlıyoruz.
             targetText.ForceMeshUpdate();
 
             onCompleteCallback = onComplete;

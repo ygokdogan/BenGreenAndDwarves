@@ -15,8 +15,10 @@ MonoBehaviour:
   vendorName: Scrapper Steve
   offerText: I'll give you crisp cash right now if you let me haul away that massive
     pile of broken electronics.
-  acceptResultText: 
-  rejectResultText: 
+  acceptResultText: I'll give you crisp cash right now if you let me haul away that
+    massive pile of broken electronics.
+  rejectResultText: The pile of electronics collapses, pinning your leg and ruining
+    your day.
   delayedText: 
   rejectedEffects:
   - type: 3
