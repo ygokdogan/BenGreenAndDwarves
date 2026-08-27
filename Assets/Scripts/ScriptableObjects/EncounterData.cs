@@ -11,7 +11,9 @@ namespace ScriptableObjects
         [TextArea] public string acceptResultText;
         [TextArea] public string rejectResultText;
         [Tooltip("Only for delayed effects")]
-        [TextArea] public string delayedText;
+        [TextArea] public string acceptedDelayedText;
+        [TextArea] public string rejectedDelayedText;
+        [HideInInspector] public bool accepted;
         
         [Space]
         public StatEffect[] rejectedEffects;

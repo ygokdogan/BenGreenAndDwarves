@@ -145,7 +145,7 @@ namespace UI
             builder.AppendLine(commonText);
             builder.AppendLine();
 
-            string delayedText = group[0].encounter.delayedText;
+            string delayedText = group[0].encounter.acceptedDelayedText;
             builder.AppendLine(delayedText);
 
             return builder.ToString().TrimEnd();

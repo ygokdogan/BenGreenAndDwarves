@@ -21,6 +21,8 @@ public class EncounterManager : MonoBehaviour
     public List<EncounterData> allEncounters = new List<EncounterData>();
     private EncounterData currentEncounter;
     
+    private List<EncounterData> seenEncounters = new List<EncounterData>();
+    
     private VendorGenerator vendorGenerator;
     private bool waitingForPendingEffects = false;
     public bool IsWaitingForPendingEffects => waitingForPendingEffects;
@@ -40,6 +42,7 @@ public class EncounterManager : MonoBehaviour
         vendorGenerator = GetComponent<VendorGenerator>();
         
         allEncounters.Clear();
+        seenEncounters.Clear();
         allEncounters = Resources.LoadAll<EncounterData>("Encounters/Truths").ToList();
         allEncounters.AddRange(Resources.LoadAll<EncounterData>("Encounters/Lies").ToList());
         
