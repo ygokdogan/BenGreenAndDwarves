@@ -40,7 +40,17 @@ public class GameManager : MonoBehaviour
         else
         {
             encounter.accepted = false;
-            StatManager.Instance.ApplyEffects(encounter.rejectedEffects, checkGameOver: false);
+            foreach (StatEffect effect in encounter.rejectedEffects)
+            {
+                if (effect.Instant)
+                {
+                    StatManager.Instance.ApplyEffect(effect, checkGameOver: false);
+                }
+                else
+                {
+                    PendingEffects.Instance.Schedule(encounter, effect, effect.revealDelay);
+                }
+            }
         }
     }
 

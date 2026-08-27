@@ -65,9 +65,16 @@ public class EncounterManager : MonoBehaviour
     {
         waitingForPendingEffects = false;
         if (allEncounters.Count == 0) return;
+        if (seenEncounters.Count == allEncounters.Count)
+            seenEncounters.Clear();
+
+        do
+        {
+            int randomIndex = Random.Range(0, allEncounters.Count);
+            currentEncounter = allEncounters[randomIndex];
+        } while (seenEncounters.Contains(currentEncounter));
         
-        int randomIndex = Random.Range(0, allEncounters.Count);
-        currentEncounter = allEncounters[randomIndex];
+        seenEncounters.Add(currentEncounter);
         
         var generatedVendor = vendorGenerator.Generate();
         generatedVendor.vendorName = currentEncounter.vendorName;
