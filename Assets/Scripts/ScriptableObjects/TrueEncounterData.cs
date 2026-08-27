@@ -1,4 +1,4 @@
-using Stats;
+using Effects;
 using UnityEngine;
 
 namespace ScriptableObjects

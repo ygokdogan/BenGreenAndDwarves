@@ -1,15 +1,17 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using Effects;
 using ScriptableObjects;
-using Stats;
 using UnityEditor;
 using UnityEngine;
 
 /// <summary>Creates fully configured encounter assets in Resources/Encounters.</summary>
 public sealed class EncounterCreatorWindow : EditorWindow
 {
-    private const string DestinationFolder = "Assets/Resources/Encounters";
+    private const string EncountersFolder = "Assets/Resources/Encounters";
+    private const string TruthsFolder = EncountersFolder + "/Truths";
+    private const string LiesFolder = EncountersFolder + "/Lies";
 
     private enum EncounterType { True, Lie }
 
@@ -69,7 +71,8 @@ public sealed class EncounterCreatorWindow : EditorWindow
         BeginSection("01  IDENTITY");
         vendorName = EditorGUILayout.TextField(new GUIContent("Vendor Name", "Also becomes the asset file name."), vendorName);
         encounterType = (EncounterType)EditorGUILayout.EnumPopup("Encounter Type", encounterType);
-        EditorGUILayout.HelpBox($"Saved automatically to {DestinationFolder}. The asset name will be the vendor name.", MessageType.None);
+        var destination = encounterType == EncounterType.True ? TruthsFolder : LiesFolder;
+        EditorGUILayout.HelpBox($"Saved automatically to {destination}. The asset name will be the vendor name.", MessageType.None);
         EndSection();
     }
 
@@ -163,7 +166,9 @@ public sealed class EncounterCreatorWindow : EditorWindow
             lieEncounter.actualEffects = ToEffects(acceptedEffects);
         }
 
-        var requestedPath = Path.Combine(DestinationFolder, filename + ".asset").Replace("\\", "/");
+        var destinationFolder = encounterType == EncounterType.True ? TruthsFolder : LiesFolder;
+        EnsureFolderExists(destinationFolder);
+        var requestedPath = Path.Combine(destinationFolder, filename + ".asset").Replace("\\", "/");
         AssetDatabase.CreateAsset(encounter, AssetDatabase.GenerateUniqueAssetPath(requestedPath));
         AssetDatabase.SaveAssets();
         Selection.activeObject = encounter;
@@ -214,5 +219,14 @@ public sealed class EncounterCreatorWindow : EditorWindow
     {
         foreach (var invalidCharacter in Path.GetInvalidFileNameChars()) value = value.Replace(invalidCharacter.ToString(), string.Empty);
         return value;
+    }
+
+    private static void EnsureFolderExists(string folderPath)
+    {
+        if (AssetDatabase.IsValidFolder(folderPath)) return;
+
+        var parentFolder = Path.GetDirectoryName(folderPath)?.Replace("\\", "/");
+        if (!string.IsNullOrEmpty(parentFolder)) EnsureFolderExists(parentFolder);
+        AssetDatabase.CreateFolder(parentFolder, Path.GetFileName(folderPath));
     }
 }

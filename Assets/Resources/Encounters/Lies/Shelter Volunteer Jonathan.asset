@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5d0471b0cbf4c6ebae6eb977f88ebd0, type: 3}
+  m_Name: Shelter Volunteer Jonathan
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.LieEncounterData
+  vendorName: Shelter Volunteer Jonathan
+  offerText: We are overflowing! Could you foster this precious, tiny kitten for
+    just one weekend? She's an absolute angel and so small.
+  acceptResultText: The kitten is cute, but destroys your curtains, requires a massive
+    scratching post, and reveals you have a severe, previously unknown cat allergy.
+  rejectResultText: Oh... okay. I'll just tell her nobody wanted her.
+  delayedText: 
+  rejectedEffects:
+  - type: 0
+    amount: -15
+    revealDelay: 0
+  claimedEffects:
+  - type: 0
+    amount: 15
+    revealDelay: 0
+  - type: 2
+    amount: 5
+    revealDelay: 0
+  actualEffects:
+  - type: 0
+    amount: 10
+    revealDelay: 0
+  - type: 2
+    amount: 15
+    revealDelay: 0
+  - type: 3
+    amount: -10
+    revealDelay: 0

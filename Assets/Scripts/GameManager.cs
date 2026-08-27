@@ -1,6 +1,6 @@
 using System;
+using Effects;
 using ScriptableObjects;
-using Stats;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
                 }
                 else
                 {
-                    PendingEffects.Instance.Schedule(effect, effect.revealDelay, encounter.delayedText);
+                    PendingEffects.Instance.Schedule(encounter, effect, effect.revealDelay, encounter.delayedText);
                 }
             }
         }

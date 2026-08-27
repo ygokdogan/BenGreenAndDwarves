@@ -10,33 +10,40 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5d0471b0cbf4c6ebae6eb977f88ebd0, type: 3}
-  m_Name: Shelter Volunteer Sarah
+  m_Name: Gym Bro Gary
   m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.LieEncounterData
-  vendorName: Shelter Volunteer Sarah
-  offerText: We are overflowing! Could you foster this precious, tiny kitten for
-    just one weekend? She's an absolute angel and so small.
-  acceptResultText: The kitten is cute, but destroys your curtains, requires a massive
-    scratching post, and reveals you have a severe, previously unknown cat allergy.
-  rejectResultText: Oh... okay. I'll just tell her nobody wanted her.
+  vendorName: Gym Bro Gary
+  offerText: Buy my glowing protein powder! Costs a little cash, takes zero space,
+    and you'll feel incredibly healthy and happy!
+  acceptResultText: You drink it. It's battery acid and green food coloring. You
+    vomit immediately, out of pocket and feeling awful.
+  rejectResultText: Gary calls you weak. Your muscles ache terribly from yesterday's
+    workout.
   delayedText: 
   rejectedEffects:
+  - type: 3
+    amount: -10
+    revealDelay: 0
   - type: 0
-    amount: -15
+    amount: -5
     revealDelay: 0
   claimedEffects:
-  - type: 0
-    amount: 15
+  - type: 1
+    amount: -5
     revealDelay: 0
-  - type: 2
-    amount: 5
-    revealDelay: 0
-  actualEffects:
   - type: 0
     amount: 10
     revealDelay: 0
-  - type: 2
+  - type: 3
     amount: 15
     revealDelay: 0
+  actualEffects:
+  - type: 1
+    amount: -5
+    revealDelay: 0
   - type: 3
-    amount: -10
+    amount: -15
+    revealDelay: 0
+  - type: 0
+    amount: -15
     revealDelay: 0

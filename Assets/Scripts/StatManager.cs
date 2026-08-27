@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using Stats;
+using Effects;
 using UnityEngine;
 
 public class StatManager : MonoBehaviour

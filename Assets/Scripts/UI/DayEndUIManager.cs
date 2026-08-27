@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
-using Stats;
 using TMPro;
 using UI.Utilities;
 using UnityEngine;
 using DG.Tweening;
+using Effects;
 
 namespace UI
 {
