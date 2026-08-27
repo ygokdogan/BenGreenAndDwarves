@@ -1,4 +1,3 @@
-using System;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -21,6 +20,13 @@ namespace UI.StatBar
         public Slider chunk;
         public Image flash;
         public Image outlineHighlight;
+        public Image dangerHighlight;
+
+        private const int DangerLow  = 15;
+        private const int DangerHigh = 85;
+
+        private static readonly Color32 DangerColor = new Color32(255, 40, 40, 255);
+        private bool _inDanger;
 
         private void Awake()
         {
@@ -36,11 +42,20 @@ namespace UI.StatBar
                 outlineHighlight.color = c;
                 outlineHighlight.gameObject.SetActive(false);
             }
+
+            if (dangerHighlight)
+            {
+                Color c = dangerHighlight.color;
+                c.a = 0f;
+                dangerHighlight.color = c;
+                dangerHighlight.gameObject.SetActive(false);
+            }
         }
 
         public void SetValue(float newValue, float oldValue)
         {
             HideHighlight();
+            UpdateDangerZone((int)newValue);
             
             var diff = newValue - oldValue;
 
@@ -106,6 +121,47 @@ namespace UI.StatBar
             outlineHighlight.DOFade(0f, 0.2f).OnComplete(() => 
             {
                 outlineHighlight.gameObject.SetActive(false);
+            });
+        }
+
+        // ── Danger Zone ──────────────────────────────────────────────
+
+        private void UpdateDangerZone(int value)
+        {
+            bool danger = value <= DangerLow || value >= DangerHigh;
+
+            if (danger == _inDanger) return;
+            _inDanger = danger;
+
+            if (danger)
+                ShowDangerHighlight();
+            else
+                HideDangerHighlight();
+        }
+
+        private void ShowDangerHighlight()
+        {
+            if (!dangerHighlight) return;
+
+            dangerHighlight.color = DangerColor;
+            dangerHighlight.gameObject.SetActive(true);
+            dangerHighlight.DOKill();
+
+            // Fast aggressive pulse: 0.85 → 0.15 alpha, looping
+            dangerHighlight.DOFade(0.15f, 0.4f)
+                .From(0.85f)
+                .SetLoops(-1, LoopType.Yoyo)
+                .SetEase(Ease.InOutSine);
+        }
+
+        private void HideDangerHighlight()
+        {
+            if (!dangerHighlight) return;
+
+            dangerHighlight.DOKill();
+            dangerHighlight.DOFade(0f, 0.25f).OnComplete(() =>
+            {
+                dangerHighlight.gameObject.SetActive(false);
             });
         }
 
