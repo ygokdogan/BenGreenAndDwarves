@@ -75,7 +75,8 @@ namespace UI.StatBar
                 bar.DOShakeAnchorPos(.1f, new Vector2(12, 5), 20);
                 bar.DOPunchScale(new Vector3(0.03f, .25f, 0f), .3f);
                 
-                flash.DOFade(0.85f, 0.04f).SetLoops(2, LoopType.Yoyo);
+                flash.gameObject.SetActive(true);
+                flash.DOFade(0.85f, 0.04f).SetLoops(2, LoopType.Yoyo).OnComplete(() => flash.gameObject.SetActive(false));
             }
             else // HEAL
             {

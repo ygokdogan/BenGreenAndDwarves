@@ -49,7 +49,11 @@ namespace UI
                 DayEndUIManager.Instance.dayEndPanel.SetActive(false);
             }
             if (encounterUI != null) encounterUI.HideAllPanels();
-            onClosed = closed;
+            
+            // onClosed sadece popup tamamen kapandığında çağrılır; yeni callback'i zaten aktifse üzerine yazma
+            if (onClosed == null) onClosed = closed;
+
+            bool wasAlreadyOpen = popupRoot != null && popupRoot.activeSelf;
             
             Dictionary<EncounterData, List<PendingEffect>> groupedEffects = new Dictionary<EncounterData, List<PendingEffect>>();
             List<PendingEffect> nullEncounters = new List<PendingEffect>();
@@ -70,7 +74,7 @@ namespace UI
                 }
             }
             
-            _effectGroupsQueue.Clear();
+            // Kuyruğu sıfırlamak yerine yeni grupları kuyruğun sonuna ekle
             foreach (var group in groupedEffects.Values)
             {
                 _effectGroupsQueue.Enqueue(group);
@@ -80,7 +84,11 @@ namespace UI
                 _effectGroupsQueue.Enqueue(nullEncounters);
             }
             
-            ShowNextGroup();
+            // Popup zaten açıksa ShowNextGroup'u tekrar çağırma; mevcut grup bitince sıradaki otomatik gösterilir
+            if (!wasAlreadyOpen)
+            {
+                ShowNextGroup();
+            }
         }
 
         private void ShowNextGroup()

@@ -7,7 +7,7 @@ using DG.Tweening;
 
 namespace UI.Utilities
 {
-    public class SwipeableCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler
+    public class SwipeableCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
     {
         [Header("Drag & Swipe Settings")]
         [Tooltip("Distance in canvas units dragged to trigger selection action")]
@@ -72,6 +72,7 @@ namespace UI.Utilities
         private int originalSiblingIndex;
 
         private bool isDragging = false;
+        private bool _didDrag   = false;   // true once OnBeginDrag fires after a press
         private bool isBeyondThreshold = false;
         private Coroutine returnCoroutine;
         private Canvas parentCanvas;
@@ -234,6 +235,7 @@ namespace UI.Utilities
             if (!isDragging)
             {
                 onHoverEnter?.Invoke();
+                CursorManager.Instance?.OnHoverEnter();
             }
         }
 
@@ -242,12 +244,31 @@ namespace UI.Utilities
             if (!isDragging)
             {
                 onHoverExit?.Invoke();
+                CursorManager.Instance?.OnHoverExit();
             }
+        }
+
+        public void OnPointerDown(PointerEventData eventData)
+        {
+            _didDrag = false;
+            CursorManager.Instance?.OnPressDown();
+        }
+
+        public void OnPointerUp(PointerEventData eventData)
+        {
+            // Only handle cursor here for simple click (no drag).
+            // If a drag occurred, OnEndDrag already handled cursor cleanup.
+            if (!_didDrag)
+            {
+                CursorManager.Instance?.OnPressUp();
+            }
+            _didDrag = false;
         }
 
         public void OnBeginDrag(PointerEventData eventData)
         {
             isDragging = true;
+            _didDrag   = true;
             isBeyondThreshold = false;
             
             transform.SetAsLastSibling();
@@ -303,11 +324,18 @@ namespace UI.Utilities
 
             if (isBeyondThreshold)
             {
+                // Card is being dismissed — cursor is no longer over anything interactive.
+                CursorManager.Instance?.OnDragEnd(stillOverCard: false);
                 GameManager.Instance.uiButtonSource.PlayOneShot(triggerSound);
                 onSwipedUp?.Invoke();
             }
             else
             {
+                // Card snaps back — check if pointer is still over the card rect.
+                bool stillOverCard = RectTransformUtility.RectangleContainsScreenPoint(
+                    rectTransform, eventData.position, eventData.pressEventCamera);
+                CursorManager.Instance?.OnDragEnd(stillOverCard);
+
                 if (gameObject.activeInHierarchy)
                 {
                     returnCoroutine = StartCoroutine(SmoothReturn());
@@ -318,6 +346,7 @@ namespace UI.Utilities
                 }
             }
         }
+
 
         private IEnumerator SmoothReturn()
         {
