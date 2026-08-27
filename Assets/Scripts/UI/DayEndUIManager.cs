@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using Stats;
 using TMPro;
+using UI.Utilities;
 using UnityEngine;
+using DG.Tweening;
 
 namespace UI
 {
@@ -15,6 +17,7 @@ namespace UI
         public GameObject dayEndPanel;
         public TextMeshProUGUI dayTitleText;
         public TextMeshProUGUI summaryBodyText;
+        public TypewriterEffect summaryTypewriter;
 
         [Header("Daily Upkeep Costs (Negative amounts)")]
         public int dailyCashCost = -10;
@@ -33,6 +36,12 @@ namespace UI
             }
 
             Instance = this;
+
+            if (summaryBodyText != null && summaryTypewriter == null)
+            {
+                summaryTypewriter = summaryBodyText.GetComponent<TypewriterEffect>();
+                if (summaryTypewriter == null) summaryTypewriter = summaryBodyText.gameObject.AddComponent<TypewriterEffect>();
+            }
         }
 
         private void Start()
@@ -53,7 +62,14 @@ namespace UI
 
         public void ShowDayEndSummary(int completedDay)
         {
-            if (dayEndPanel) dayEndPanel.SetActive(true);
+            if (dayEndPanel != null)
+            {
+                dayEndPanel.transform.DOKill();
+                dayEndPanel.transform.localScale = Vector3.zero;
+                dayEndPanel.SetActive(true);
+                dayEndPanel.transform.DOScale(Vector3.one, 0.4f).SetEase(Ease.OutBack);
+            }
+            if (summaryBodyText) summaryBodyText.gameObject.SetActive(true);
             if (gameplayUI) gameplayUI.SetActive(false);
 
             if (dayTitleText)
@@ -72,18 +88,30 @@ namespace UI
             // Apply multi-stat deductions without triggering immediate game over
             StatManager.Instance.ApplyEffects(upkeepEffects, checkGameOver: false);
 
-            if (summaryBodyText)
+            string summaryText = $"Daily Expenses & Fatigue:\n" +
+                                 $"• Rent & Bills: Cash {dailyCashCost}\n" +
+                                 $"• Fatigue: Health {dailyHealthCost}\n" +
+                                 $"• Stress: Happiness {dailyHappinessCost}\n" +
+                                 $"• Maintenance: Storage {dailyStorageCost}";
+
+            if (summaryTypewriter != null)
             {
-                summaryBodyText.text = $"Daily Expenses & Fatigue:\n" +
-                                       $"• Rent & Bills: Cash {dailyCashCost}\n" +
-                                       $"• Fatigue: Health {dailyHealthCost}\n" +
-                                       $"• Stress: Happiness {dailyHappinessCost}\n" +
-                                       $"• Maintenance: Storage {dailyStorageCost}";
+                summaryTypewriter.Play(summaryText);
+            }
+            else if (summaryBodyText != null)
+            {
+                summaryBodyText.text = summaryText;
             }
         }
 
         public void OnStartNextDayClicked()
         {
+            if (summaryTypewriter != null && summaryTypewriter.IsTyping)
+            {
+                summaryTypewriter.Skip();
+                return;
+            }
+
             if (dayEndPanel) dayEndPanel.SetActive(false);
 
             if (StatManager.Instance != null && StatManager.Instance.CheckGameOver())
@@ -97,3 +125,4 @@ namespace UI
         }
     }
 }
+
