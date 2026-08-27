@@ -9,11 +9,6 @@ public class GameManager : MonoBehaviour
 
     public AudioSource uiButtonSource;
 
-    public Texture2D baseCursor;
-    public Texture2D swipeHoverCursor;
-    public Texture2D swipeHoldCursor;
-    public Texture2D clickCursor;
-
     private void Awake()
     {
         if (Instance)
