@@ -119,7 +119,7 @@ namespace UI.StatBar
             c.a = 1f;
             valuePopup.color = c;
             
-            valuePopup.rectTransform.DOAnchorPosY(popupY + 70f, .65f).SetEase(Ease.OutCubic).OnComplete(ResetPopup);
+            valuePopup.rectTransform.DOAnchorPosY(popupY + 70f, .85f).SetEase(Ease.OutCubic).OnComplete(ResetPopup);
             valuePopup.DOFade(0f, 0.35f).SetDelay(0.3f);
         }
 

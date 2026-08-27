@@ -61,6 +61,7 @@ public class EncounterManager : MonoBehaviour
         currentEncounter = allEncounters[randomIndex];
         
         var generatedVendor = vendorGenerator.Generate();
+        generatedVendor.vendorName = currentEncounter.vendorName;
         currentEncounter.vendor = generatedVendor;
         
         encounterUI.ShowEncounterPanel(currentEncounter);

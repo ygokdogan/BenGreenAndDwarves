@@ -10,19 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4dc5331b40204628afa94f7e24f8e5c2, type: 3}
-  m_Name: New True Encounter Data
+  m_Name: Honest Herb
   m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.TrueEncounterData
-  saleText: soyucam seni
-  acceptResultText: 'soydum
-
-    para -25'
-  rejectResultText: 
+  vendorName: Honest Herb
+  offerText: "Look, I\u2019ll take a fair chunk of cash off your hands, but in exchange,
+    I'll haul away this giant, heavy wardrobe that's been hogging all your room."
+  acceptResultText: Herb muscles the heavy wardrobe out of your apartment. Suddenly,
+    your bedroom actually looks breathable.
+  rejectResultText: Keep tripping over it then.
   delayedText: 
-  rejectedEffects: []
+  rejectedEffects:
+  - type: 2
+    amount: 0
+    revealDelay: 0
   effects:
   - type: 1
-    amount: -20
+    amount: -15
     revealDelay: 0
   - type: 2
-    amount: 20
+    amount: -20
     revealDelay: 0
