@@ -145,7 +145,8 @@ namespace UI
             builder.AppendLine(commonText);
             builder.AppendLine();
 
-            string delayedText = group[0].encounter.acceptedDelayedText;
+            var currentEncounter = group[0].encounter;
+            string delayedText = currentEncounter.accepted ? currentEncounter.acceptedDelayedText : currentEncounter.rejectedDelayedText;
             builder.AppendLine(delayedText);
 
             return builder.ToString().TrimEnd();
