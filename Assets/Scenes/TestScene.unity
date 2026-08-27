@@ -284,7 +284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8347b183ec6fd474894153e995e7d4c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIButtonSound
-  clickSound: {fileID: 8300000, guid: d055a964faf12064981cc7aeff3bab0c, type: 3}
+  clickSound: {fileID: 8300000, guid: 7bab2847bb4286d40a3bdd697faf590e, type: 3}
   audioSource: {fileID: 129732904}
 --- !u!114 &362760600 stripped
 MonoBehaviour:
@@ -333,7 +333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8347b183ec6fd474894153e995e7d4c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIButtonSound
-  clickSound: {fileID: 8300000, guid: d055a964faf12064981cc7aeff3bab0c, type: 3}
+  clickSound: {fileID: 8300000, guid: 041671e5149198f47987840ec92a9ac9, type: 3}
   audioSource: {fileID: 129732904}
 --- !u!1 &550114120
 GameObject:
@@ -460,7 +460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8347b183ec6fd474894153e995e7d4c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIButtonSound
-  clickSound: {fileID: 8300000, guid: d055a964faf12064981cc7aeff3bab0c, type: 3}
+  clickSound: {fileID: 8300000, guid: a14395820fe279f46950ca6cdffb361d, type: 3}
   audioSource: {fileID: 129732904}
 --- !u!1 &1378049279
 GameObject:
