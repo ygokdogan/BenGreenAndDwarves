@@ -1,8 +1,8 @@
 using System;
 using UnityEngine;
 using System.Collections.Generic;
+using Effects;
 using ScriptableObjects;
-using Stats;
 using UI;
 using VendorAppearance;
 using Random = UnityEngine.Random;
@@ -61,6 +61,7 @@ public class EncounterManager : MonoBehaviour
         currentEncounter = allEncounters[randomIndex];
         
         var generatedVendor = vendorGenerator.Generate();
+        generatedVendor.vendorName = currentEncounter.vendorName;
         currentEncounter.vendor = generatedVendor;
         
         encounterUI.ShowEncounterPanel(currentEncounter);

@@ -1,4 +1,4 @@
-namespace Stats
+namespace Effects
 {
     [System.Serializable]
     public struct StatEffect

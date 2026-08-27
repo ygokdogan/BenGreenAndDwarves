@@ -62,11 +62,11 @@ namespace UI
 
             if (dealTypewriter != null)
             {
-                dealTypewriter.Play(currentEncounter.saleText);
+                dealTypewriter.Play(currentEncounter.offerText);
             }
             else if (dealBodyText != null)
             {
-                dealBodyText.text = currentEncounter.saleText;
+                dealBodyText.text = currentEncounter.offerText;
             }
         }
 

@@ -1,4 +1,4 @@
-using Stats;
+using Effects;
 using UnityEngine;
 
 namespace ScriptableObjects
@@ -6,7 +6,8 @@ namespace ScriptableObjects
     public abstract class EncounterData : ScriptableObject
     {
         public VendorData vendor;
-        [TextArea] public string saleText;
+        public string vendorName;
+        [TextArea] public string offerText;
         [TextArea] public string acceptResultText;
         [TextArea] public string rejectResultText;
         [Tooltip("Only for delayed effects")]

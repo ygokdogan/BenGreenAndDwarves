@@ -1,5 +1,5 @@
 using System;
-using Stats;
+using Effects;
 using UnityEngine;
 using UnityEngine.UI;
 

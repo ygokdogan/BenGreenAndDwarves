@@ -1,9 +1,9 @@
-using Stats;
 using TMPro;
 using UI.Utilities;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
+using Effects;
 
 namespace UI
 {

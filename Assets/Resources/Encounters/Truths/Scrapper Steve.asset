@@ -10,14 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4dc5331b40204628afa94f7e24f8e5c2, type: 3}
-  m_Name: First True
+  m_Name: Scrapper Steve
   m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.TrueEncounterData
-  vendor: {fileID: 11400000, guid: 71c4c5cfd560a2446ae1b02b716314c8, type: 2}
-  saleText: "\u015Eampuan\t"
-  acceptResultText: "\u015Fampuan ald\u0131n\nmutluluk +20"
+  vendorName: Scrapper Steve
+  offerText: I'll give you crisp cash right now if you let me haul away that massive
+    pile of broken electronics.
+  acceptResultText: 
   rejectResultText: 
-  revealDelay: 0
-  rejectedEffects: []
-  effects:
+  delayedText: 
+  rejectedEffects:
+  - type: 3
+    amount: -10
+    revealDelay: 0
   - type: 0
-    amount: 20
+    amount: -10
+    revealDelay: 0
+  effects:
+  - type: 1
+    amount: 15
+    revealDelay: 0
+  - type: 2
+    amount: -15
+    revealDelay: 0

@@ -1,12 +1,14 @@
 using System;
 using System.Collections.Generic;
+using ScriptableObjects;
 using UnityEngine;
 
-namespace Stats
+namespace Effects
 {
     [System.Serializable]
     public struct PendingEffect
     {
+        public EncounterData encounter;
         public StatEffect effect;
         public int triggerHour;
         public string triggerText;
@@ -54,10 +56,10 @@ namespace Stats
             CheckAndApply();
         }
 
-        public void Schedule(StatEffect effect, int hoursAfter, string triggerText)
+        public void Schedule(EncounterData encounter, StatEffect effect, int hoursAfter, string triggerText)
         {
             int triggerHour = TimeManager.Instance.TotalHoursElapsed + hoursAfter + 1;
-            pending.Add(new PendingEffect{ effect = effect, triggerHour = triggerHour, triggerText = triggerText });
+            pending.Add(new PendingEffect{ encounter = encounter, effect = effect, triggerHour = triggerHour, triggerText = triggerText });
         }
     
         private void CheckAndApply()

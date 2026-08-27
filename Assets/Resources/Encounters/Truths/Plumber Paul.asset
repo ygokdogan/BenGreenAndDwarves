@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dc5331b40204628afa94f7e24f8e5c2, type: 3}
+  m_Name: Plumber Paul
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.TrueEncounterData
+  vendorName: Plumber Paul
+  offerText: Your sink is leaking black sludge. Pay my fee, and I'll clean it up
+    before it makes you sick.
+  acceptResultText: Paul fixes the pipes swiftly. The air clears up, and you feel
+    much safer and healthier.
+  rejectResultText: The sludge overflows, ruining your floor and making you violently
+    ill.
+  delayedText: 
+  rejectedEffects:
+  - type: 3
+    amount: -15
+    revealDelay: 0
+  - type: 0
+    amount: -10
+    revealDelay: 0
+  effects:
+  - type: 1
+    amount: -10
+    revealDelay: 0
+  - type: 3
+    amount: 15
+    revealDelay: 0
+  - type: 0
+    amount: 10
+    revealDelay: 0

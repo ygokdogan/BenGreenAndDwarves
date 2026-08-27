@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5d0471b0cbf4c6ebae6eb977f88ebd0, type: 3}
+  m_Name: App Developer Dan
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.LieEncounterData
+  vendorName: App Developer Dan
+  offerText: Sign up for a 30-day free trial of our revolutionary mindfulness app!
+    It requires a credit card, but you won't be charged today. Guaranteed to lower
+    your stress!
+  acceptResultText: You felt relaxed for a week, then completely forgot about it.
+    Six months later, you realize you've been auto-billed for the premium tier.
+  rejectResultText: Suit yourself! Enjoy your unregulated cortisol levels.
+  delayedText: 
+  rejectedEffects:
+  - type: 0
+    amount: -5
+    revealDelay: 0
+  claimedEffects:
+  - type: 0
+    amount: 10
+    revealDelay: 0
+  actualEffects:
+  - type: 1
+    amount: -15
+    revealDelay: 0
+  - type: 0
+    amount: -5
+    revealDelay: 0

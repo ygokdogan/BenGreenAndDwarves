@@ -2,11 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
-using Stats;
 using TMPro;
 using UI.Utilities;
 using UnityEngine;
 using DG.Tweening;
+using Effects;
+using ScriptableObjects;
 
 namespace UI
 {
@@ -20,6 +21,8 @@ namespace UI
         public TextMeshProUGUI bodyText;
         public TypewriterEffect typewriterEffect;
         private Action onClosed;
+        
+        private Queue<List<PendingEffect>> _effectGroupsQueue = new Queue<List<PendingEffect>>();
 
         private void Awake()
         {
@@ -42,18 +45,64 @@ namespace UI
         public void Show(List<PendingEffect> effects, Action closed)
         {
             encounterUI.HideAllPanels();
+            onClosed = closed;
+            
+            Dictionary<EncounterData, List<PendingEffect>> groupedEffects = new Dictionary<EncounterData, List<PendingEffect>>();
+            List<PendingEffect> nullEncounters = new List<PendingEffect>();
 
-            if (popupRoot != null)
+            foreach (var effect in effects)
+            {
+                if (effect.encounter != null)
+                {
+                    if (!groupedEffects.ContainsKey(effect.encounter))
+                    {
+                        groupedEffects[effect.encounter] = new List<PendingEffect>();
+                    }
+                    groupedEffects[effect.encounter].Add(effect);
+                }
+                else
+                {
+                    nullEncounters.Add(effect);
+                }
+            }
+            
+            _effectGroupsQueue.Clear();
+            foreach (var group in groupedEffects.Values)
+            {
+                _effectGroupsQueue.Enqueue(group);
+            }
+            if (nullEncounters.Count > 0)
+            {
+                _effectGroupsQueue.Enqueue(nullEncounters);
+            }
+            
+            ShowNextGroup();
+        }
+
+        private void ShowNextGroup()
+        {
+            if (_effectGroupsQueue.Count == 0)
+            {
+                popupRoot.SetActive(false);
+                Action callback = onClosed;
+                onClosed = null;
+                callback?.Invoke();
+                return;
+            }
+            
+            List<PendingEffect> currentGroup = _effectGroupsQueue.Dequeue();
+            
+            if (popupRoot != null && !popupRoot.activeSelf)
             {
                 popupRoot.transform.DOKill();
                 popupRoot.transform.localScale = Vector3.zero;
                 popupRoot.SetActive(true);
                 popupRoot.transform.DOScale(Vector3.one, 0.4f).SetEase(Ease.OutBack);
             }
+            
             if (bodyText != null) bodyText.gameObject.SetActive(true);
-            onClosed = closed;
-
-            string fullText = BuildEffectText(effects);
+            
+            string fullText = BuildGroupText(currentGroup);
 
             if (typewriterEffect != null)
             {
@@ -80,27 +129,22 @@ namespace UI
                 typewriterEffect.Skip();
                 return;
             }
-
-            popupRoot.SetActive(false);
-            Action callback = onClosed;
-            onClosed = null;
-            callback?.Invoke();
+            
+            ShowNextGroup();
         }
         
-        private string BuildEffectText(IReadOnlyList<PendingEffect> effects)
+        private string BuildGroupText(IReadOnlyList<PendingEffect> group)
         {
-            StringBuilder builder = new StringBuilder("Results of your previous choices has appeared:\n");
-            foreach (PendingEffect pendingEffect in effects)
-            {
-                string sign = pendingEffect.effect.amount >= 0 ? "+" : string.Empty;
-                builder.Append($"{pendingEffect.triggerText}").Append("\n• ")
-                    .Append(GetStatName(pendingEffect.effect.type))
-                    .Append(" ")
-                    .Append(sign)
-                    .Append(pendingEffect.effect.amount);
-            }
+            string commonText = "Results of your previous choices has appeared:";
 
-            return builder.ToString();
+            StringBuilder builder = new StringBuilder();
+            builder.AppendLine(commonText);
+            builder.AppendLine();
+
+            string delayedText = group[0].encounter.delayedText;
+            builder.AppendLine(delayedText);
+
+            return builder.ToString().TrimEnd();
         }
 
         private string GetStatName(StatType type)
