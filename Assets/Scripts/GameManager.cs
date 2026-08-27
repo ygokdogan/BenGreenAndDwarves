@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
             {
                 if (effect.Instant)
                 {
-                    StatManager.Instance.ApplyEffect(effect);
+                    StatManager.Instance.ApplyEffect(effect, checkGameOver: false);
                 }
                 else
                 {
@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            StatManager.Instance.ApplyEffects(encounter.rejectedEffects);
+            StatManager.Instance.ApplyEffects(encounter.rejectedEffects, checkGameOver: false);
         }
     }
 

@@ -56,6 +56,17 @@ namespace Effects
             CheckAndApply();
         }
 
+        public bool HasPendingEffectsForCurrentTime()
+        {
+            if (TimeManager.Instance == null) return false;
+            int now = TimeManager.Instance.TotalHoursElapsed;
+            for (int i = 0; i < pending.Count; i++)
+            {
+                if (pending[i].triggerHour <= now) return true;
+            }
+            return false;
+        }
+
         public void Schedule(EncounterData encounter, StatEffect effect, int hoursAfter, string triggerText)
         {
             int triggerHour = TimeManager.Instance.TotalHoursElapsed + hoursAfter + 1;

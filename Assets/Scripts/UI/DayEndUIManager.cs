@@ -62,6 +62,16 @@ namespace UI
 
         public void ShowDayEndSummary(int completedDay)
         {
+            if (PendingEffects.Instance != null && PendingEffects.Instance.HasPendingEffectsForCurrentTime())
+            {
+                return;
+            }
+
+            if (PendingEffectPopup.Instance != null && PendingEffectPopup.Instance.popupRoot != null)
+            {
+                PendingEffectPopup.Instance.popupRoot.SetActive(false);
+            }
+
             if (dayEndPanel != null)
             {
                 dayEndPanel.transform.DOKill();
@@ -121,7 +131,11 @@ namespace UI
 
             if (gameplayUI) gameplayUI.SetActive(true);
             TimeManager.Instance.StartNextDay();
-            EncounterManager.Instance?.LoadNextEncounter();
+            
+            if (EncounterManager.Instance != null && !EncounterManager.Instance.IsWaitingForPendingEffects)
+            {
+                EncounterManager.Instance.LoadNextEncounter();
+            }
         }
     }
 }

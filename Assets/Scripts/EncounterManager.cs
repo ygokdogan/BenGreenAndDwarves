@@ -23,6 +23,7 @@ public class EncounterManager : MonoBehaviour
     
     private VendorGenerator vendorGenerator;
     private bool waitingForPendingEffects = false;
+    public bool IsWaitingForPendingEffects => waitingForPendingEffects;
 
     private void Awake()
     {
@@ -90,7 +91,13 @@ public class EncounterManager : MonoBehaviour
     
     public void OnContinueButtonClicked()
     {
+        if (StatManager.Instance != null && StatManager.Instance.CheckGameOver())
+        {
+            return;
+        }
+
         timeManager.AdvanceHour();
+        
         if (!waitingForPendingEffects && timeManager.CurrentHour < 21)
         {
             LoadRandomEncounter();
@@ -105,6 +112,8 @@ public class EncounterManager : MonoBehaviour
 
     private void OnPendingEffectsClosed()
     {
+        waitingForPendingEffects = false;
+
         if (StatManager.Instance != null && StatManager.Instance.CheckGameOver())
         {
             return;
@@ -113,6 +122,10 @@ public class EncounterManager : MonoBehaviour
         if (timeManager != null && timeManager.CurrentHour < 21)
         {
             LoadRandomEncounter();
+        }
+        else if (timeManager != null && timeManager.CurrentHour >= 21)
+        {
+            UI.DayEndUIManager.Instance?.ShowDayEndSummary(timeManager.CurrentDay);
         }
     }
 }
