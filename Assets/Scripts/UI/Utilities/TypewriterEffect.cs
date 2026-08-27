@@ -12,6 +12,11 @@ namespace UI.Utilities
         [SerializeField] private float charactersPerSecond = 40f;
         [SerializeField] private bool playOnEnable = false;
 
+        [Header("Auto Sizing")]
+        [SerializeField] private bool autoSizeText = true;
+        [SerializeField] private float minFontSize = 18f;
+        [SerializeField] private float maxFontSize = 72f;
+
         [Header("Audio (Optional)")]
         [SerializeField] private AudioSource audioSource;
         [SerializeField] private AudioClip typingSound;
@@ -27,6 +32,7 @@ namespace UI.Utilities
         private void Awake()
         {
             targetText = GetComponent<TMP_Text>();
+            ApplyAutoSizing();
         }
 
         private void OnEnable()
@@ -42,15 +48,30 @@ namespace UI.Utilities
             StopTyping();
         }
 
+        private void ApplyAutoSizing()
+        {
+            if (targetText != null && autoSizeText)
+            {
+                targetText.enableAutoSizing = true;
+                targetText.fontSizeMin = minFontSize;
+                targetText.fontSizeMax = maxFontSize;
+            }
+        }
+
         public void Play(string text, float? customSpeed = null, Action onComplete = null)
         {
             if (targetText == null)
+            {
                 targetText = GetComponent<TMP_Text>();
+                ApplyAutoSizing();
+            }
 
             StopTyping();
 
             fullText = text ?? string.Empty;
             targetText.text = fullText;
+            
+            // Metni atadıktan sonra mesh'i güncelleyerek TextMeshPro'nun yeni font boyutunu hesaplamasını sağlıyoruz.
             targetText.ForceMeshUpdate();
 
             onCompleteCallback = onComplete;
@@ -128,4 +149,3 @@ namespace UI.Utilities
         }
     }
 }
-
