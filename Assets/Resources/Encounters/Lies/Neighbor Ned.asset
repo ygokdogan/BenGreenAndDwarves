@@ -38,3 +38,6 @@ MonoBehaviour:
   - type: 2
     amount: 15
     revealDelay: 2
+  - type: 1
+    amount: 10
+    revealDelay: 0

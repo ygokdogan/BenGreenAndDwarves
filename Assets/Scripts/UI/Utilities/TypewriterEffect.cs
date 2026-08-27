@@ -15,7 +15,7 @@ namespace UI.Utilities
         [Header("Auto Sizing")]
         [SerializeField] private bool autoSizeText = true;
         [SerializeField] private float minFontSize = 18f;
-        [SerializeField] private float maxFontSize = 72f;
+        [SerializeField] private float maxFontSize = 35f;
 
         [Header("Audio (Optional)")]
         [SerializeField] private AudioSource audioSource;
