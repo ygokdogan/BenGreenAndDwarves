@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dc5331b40204628afa94f7e24f8e5c2, type: 3}
+  m_Name: Analyst Aaron
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.TrueEncounterData
+  vendorName: Analyst Aaron
+  offerText: "The market is shifting. Pay my consultation fee now, and I\u2019ll
+    restructure your portfolio to ensure you sleep soundly tonight."
+  acceptResultText: You pay Aaron to handle the paperwork. Knowing your finances
+    are secure lifts a massive weight off your shoulders.
+  rejectResultText: You decide to manage your own money, saving the consulting fee.
+  acceptedDelayedText: 
+  rejectedDelayedText: You realize you made a terrible math error on your taxes.
+    The stress causes a panic attack.
+  accepted: 0
+  rejectedEffects:
+  - type: 0
+    amount: 5
+    revealDelay: 0
+  - type: 3
+    amount: -5
+    revealDelay: 1
+  - type: 0
+    amount: -15
+    revealDelay: 1
+  effects:
+  - type: 1
+    amount: -10
+    revealDelay: 0
+  - type: 0
+    amount: 5
+    revealDelay: 0

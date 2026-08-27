@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dc5331b40204628afa94f7e24f8e5c2, type: 3}
+  m_Name: Clockmaker Cornelius
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.TrueEncounterData
+  vendorName: Clockmaker Cornelius
+  offerText: I offer you a grand, grandfather clock at a steep discount. It demands
+    a vast amount of floor space, but its rhythmic ticking screams sophistication.
+  acceptResultText: The massive clock is installed. It looks incredibly elegant,
+    though you can barely walk around it.
+  rejectResultText: You refuse the bulky monstrosity. Feeling liberated by your minimalist
+    choice, you finally throw away some old boxes, making the room feel incredibly
+    spacious.
+  acceptedDelayedText: The clock's ticking grows maddeningly loud, echoing in your
+    skull and completely preventing you from resting.
+  rejectedDelayedText: 
+  accepted: 0
+  rejectedEffects:
+  - type: 2
+    amount: -10
+    revealDelay: 0
+  - type: 0
+    amount: 10
+    revealDelay: 0
+  effects:
+  - type: 1
+    amount: -10
+    revealDelay: 0
+  - type: 2
+    amount: 15
+    revealDelay: 0
+  - type: 0
+    amount: 10
+    revealDelay: 0
+  - type: 0
+    amount: -5
+    revealDelay: 2
+  - type: 3
+    amount: -5
+    revealDelay: 2

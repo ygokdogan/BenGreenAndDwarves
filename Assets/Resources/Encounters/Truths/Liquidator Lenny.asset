@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dc5331b40204628afa94f7e24f8e5c2, type: 3}
+  m_Name: Liquidator Lenny
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.TrueEncounterData
+  vendorName: Liquidator Lenny
+  offerText: "That old, oversized dining table is simply gathering dust. Let my movers
+    take it off your hands right now, and I\u2019ll leave you with a thick envelope
+    of cash."
+  acceptResultText: "Lenny\u2019s men carry the heavy table out. You pocket the cash
+    and enjoy the sudden, refreshing open space in your room."
+  rejectResultText: You refuse the offer. Ten minutes later, you brutally stub your
+    toe on the table's wooden leg, cursing your cluttered room.
+  acceptedDelayedText: 
+  rejectedDelayedText: 
+  accepted: 0
+  rejectedEffects:
+  - type: 3
+    amount: -5
+    revealDelay: 0
+  effects:
+  - type: 0
+    amount: 5
+    revealDelay: 0
+  - type: 1
+    amount: 10
+    revealDelay: 0
+  - type: 2
+    amount: -10
+    revealDelay: 0

@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dc5331b40204628afa94f7e24f8e5c2, type: 3}
+  m_Name: Tailor Reginald
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.TrueEncounterData
+  vendorName: Tailor Reginald
+  offerText: Your wardrobe is utterly tragic, sir. Pay my exorbitant fee, and I shall
+    leave you with a massive, heavily starched coat that will grant you an air of
+    pure authority.
+  acceptResultText: You pay the tailor and don the heavy coat. You look remarkably
+    distinguished in the mirror.
+  rejectResultText: You laugh at his arrogant sales pitch and throw him out. Feeling
+    incredibly empowered, you spend the hour happily throwing away old clothes you
+    no longer need.
+  acceptedDelayedText: 
+  rejectedDelayedText: 
+  accepted: 0
+  rejectedEffects:
+  - type: 0
+    amount: 15
+    revealDelay: 0
+  - type: 2
+    amount: -5
+    revealDelay: 0
+  effects:
+  - type: 1
+    amount: -15
+    revealDelay: 0
+  - type: 2
+    amount: 5
+    revealDelay: 0
+  - type: 0
+    amount: 10
+    revealDelay: 0

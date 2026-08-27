@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5d0471b0cbf4c6ebae6eb977f88ebd0, type: 3}
+  m_Name: Advisor Clive
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.LieEncounterData
+  vendorName: Advisor Clive
+  offerText: Crime is rising in the city, sir. Allow me to install this solid steel
+    personal vault. It requires a fair investment and a sturdy corner, but the peace
+    of mind is absolutely unparalleled.
+  acceptResultText: The movers drop the massive steel box directly on your foot.
+    The lock immediately jams, leaving you with a throbbing toe and a useless, immovable
+    iron cube.
+  rejectResultText: Clive tips his hat and mutters about your lack of foresight.
+    You spend the hour jumping at every creak in the floorboards.
+  delayedText: 
+  rejectedEffects:
+  - type: 0
+    amount: -15
+    revealDelay: 0
+  claimedEffects:
+  - type: 1
+    amount: 1
+    revealDelay: 0
+  - type: 2
+    amount: 1
+    revealDelay: 0
+  - type: 0
+    amount: 1
+    revealDelay: 0
+  actualEffects:
+  - type: 0
+    amount: -15
+    revealDelay: 0
+  - type: 1
+    amount: -15
+    revealDelay: 0
+  - type: 2
+    amount: 15
+    revealDelay: 0
+  - type: 3
+    amount: -10
+    revealDelay: 0

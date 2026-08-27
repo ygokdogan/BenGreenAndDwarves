@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dc5331b40204628afa94f7e24f8e5c2, type: 3}
+  m_Name: Banker Sterling
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.TrueEncounterData
+  vendorName: Banker Sterling
+  offerText: I represent an anonymous trust that wishes to use your personal accounts
+    to park a rather staggering sum of capital. We just need you to hold it for a
+    few hours.
+  acceptResultText: Your bank account balance balloons to a number you have never
+    seen before. You feel like an absolute titan of industry!
+  rejectResultText: Sterling adjusts his silk tie and walks away. You spend the next
+    hour anxiously checking your meager, pathetic bank balance.
+  acceptedDelayedText: Federal agents freeze all your accounts due to offshore money
+    laundering. You are left entirely penniless and terrified of going to prison.
+  rejectedDelayedText: You saw Sterling is captured by federal agents and you're
+    glad you did not help him.
+  accepted: 1
+  rejectedEffects:
+  - type: 0
+    amount: -10
+    revealDelay: 0
+  - type: 0
+    amount: 25
+    revealDelay: 3
+  effects:
+  - type: 1
+    amount: 40
+    revealDelay: 0
+  - type: 1
+    amount: -50
+    revealDelay: 3
+  - type: 0
+    amount: -20
+    revealDelay: 3

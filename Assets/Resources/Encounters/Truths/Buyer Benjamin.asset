@@ -10,25 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4dc5331b40204628afa94f7e24f8e5c2, type: 3}
-  m_Name: Honest Herb
+  m_Name: Buyer Benjamin
   m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.TrueEncounterData
-  vendorName: Honest Herb
-  offerText: "Look, I\u2019ll take a fair chunk of cash off your hands, but in exchange,
-    I'll haul away this giant, heavy wardrobe that's been hogging all your room."
-  acceptResultText: Herb muscles the heavy wardrobe out of your apartment. Suddenly,
-    your bedroom actually looks breathable.
-  rejectResultText: Keep tripping over it then.
+  vendorName: Buyer Benjamin
+  offerText: That crumbling grand piano is simply a tragedy. I will write you a check
+    right now to have my men carry it out of your sight.
+  acceptResultText: "Benjamin\u2019s men carefully remove the heavy piano. You pocket
+    a thick envelope of cash and your room feels twice as large."
+  rejectResultText: You stubbornly refuse. When you look at the piano, you remember
+    the real owners of the piano and relive the memories of your grandparents.
   acceptedDelayedText: 
   rejectedDelayedText: 
   accepted: 0
   rejectedEffects:
-  - type: 3
-    amount: 0
+  - type: 0
+    amount: 15
     revealDelay: 0
   effects:
   - type: 1
-    amount: -15
+    amount: 10
     revealDelay: 0
   - type: 2
-    amount: -20
+    amount: -10
     revealDelay: 0

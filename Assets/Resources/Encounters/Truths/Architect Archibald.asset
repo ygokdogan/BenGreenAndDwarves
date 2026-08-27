@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dc5331b40204628afa94f7e24f8e5c2, type: 3}
+  m_Name: Architect Archibald
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.TrueEncounterData
+  vendorName: Architect Archibald
+  offerText: Allow me to install my masterwork indoor fountain in your living quarters.
+    It requires an extraordinary amount of floor space, but the soothing ambiance
+    is simply transcendent.
+  acceptResultText: The massive stone fountain dominates the room. The cascading
+    water sounds like pure heaven, washing all of your earthly stress away entirely.
+  rejectResultText: Archibald calls your taste boring but you don't agree with him.
+    You look inside of your house and it it fills your heart with peace.
+  acceptedDelayedText: The poorly engineered fountain ruptures. A tidal wave of water
+    destroys your electronics and triggers an electrical fire, leaving you coughing
+    on thick smoke.
+  rejectedDelayedText: 
+  accepted: 0
+  rejectedEffects:
+  - type: 0
+    amount: 5
+    revealDelay: 0
+  - type: 3
+    amount: 5
+    revealDelay: 0
+  effects:
+  - type: 2
+    amount: 40
+    revealDelay: 0
+  - type: 0
+    amount: 40
+    revealDelay: 0
+  - type: 1
+    amount: -30
+    revealDelay: 2
+  - type: 0
+    amount: -30
+    revealDelay: 2

@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dc5331b40204628afa94f7e24f8e5c2, type: 3}
+  m_Name: Handyman Harrison
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.TrueEncounterData
+  vendorName: Handyman Harrison
+  offerText: Your windows are rattling terribly in the wind. Pay my hourly rate,
+    and I will seal them up so you can actually enjoy some peace and warmth.
+  acceptResultText: Harrison works quickly. The awful draft stops completely, and
+    your room becomes wonderfully quiet and cozy.
+  rejectResultText: You refuse to pay him. A gust of wind shatters a loose pane of
+    glass, leaving you shivering in the freezing cold.
+  acceptedDelayedText: 
+  rejectedDelayedText: 
+  accepted: 1
+  rejectedEffects:
+  - type: 0
+    amount: -10
+    revealDelay: 0
+  - type: 3
+    amount: -5
+    revealDelay: 0
+  effects:
+  - type: 0
+    amount: 10
+    revealDelay: 0
+  - type: 1
+    amount: -10
+    revealDelay: 0
+  - type: 3
+    amount: 5
+    revealDelay: 0

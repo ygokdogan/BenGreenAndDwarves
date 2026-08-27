@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dc5331b40204628afa94f7e24f8e5c2, type: 3}
+  m_Name: Merchant Montague
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.TrueEncounterData
+  vendorName: Merchant Montague
+  offerText: I have procured a crate of highly experimental herbal tea. Pay the rather
+    steep import tax today, and a brewed cup later will ensure your physical constitution
+    remains absolutely impenetrable.
+  acceptResultText: You hand over the funds and secure the exotic leaves. You prepare
+    a pot, hoping for the best.
+  rejectResultText: You dismiss the merchant, preferring to trust your own natural
+    immune system and keeping your wallet heavy.
+  acceptedDelayedText: Montague's tea takes full effect. A rush of pure vitality
+    flushes through your veins, entirely curing your fatigue!
+  rejectedDelayedText: A sudden and vicious flu sweeps through the building. Without
+    Montague's tea to protect you, you fall terribly ill.
+  accepted: 0
+  rejectedEffects:
+  - type: 3
+    amount: -10
+    revealDelay: 2
+  - type: 0
+    amount: -5
+    revealDelay: 2
+  effects:
+  - type: 1
+    amount: -10
+    revealDelay: 0
+  - type: 0
+    amount: 10
+    revealDelay: 2
+  - type: 3
+    amount: 15
+    revealDelay: 2

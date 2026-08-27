@@ -18,8 +18,10 @@ MonoBehaviour:
   acceptResultText: You shove the loud box in your closet and pocket the cash.
   rejectResultText: You struggle to pay rent this month, wishing you had taken the
     easy cash.
-  delayedText: The server overheats and catches fire, destroying your clothes and
-    filling your lungs with toxic smoke.
+  acceptedDelayedText: The server overheats and catches fire, destroying your clothes
+    and filling your lungs with toxic smoke.
+  rejectedDelayedText: 
+  accepted: 0
   rejectedEffects:
   - type: 1
     amount: -15

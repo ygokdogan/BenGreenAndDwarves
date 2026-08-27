@@ -18,11 +18,12 @@ MonoBehaviour:
   acceptResultText: You stack the giant boxes to the ceiling, drink a can, and feel
     invincible!
   rejectResultText: You pass out from exhaustion at your desk, waking up miserable.
-  delayedText: The caffeine crash hits you like a truck. You get violently ill, and
-    the massive crates are still in your way.
+  acceptedDelayedText: 
+  rejectedDelayedText: 
+  accepted: 1
   rejectedEffects:
   - type: 0
-    amount: -10
+    amount: -5
     revealDelay: 0
   claimedEffects:
   - type: 1
@@ -42,8 +43,8 @@ MonoBehaviour:
     amount: 15
     revealDelay: 0
   - type: 3
-    amount: -15
+    amount: 30
     revealDelay: 0
   - type: 0
-    amount: -10
+    amount: 20
     revealDelay: 0

@@ -10,24 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4dc5331b40204628afa94f7e24f8e5c2, type: 3}
-  m_Name: Scrapper Steve
+  m_Name: Archivist Alistair
   m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.TrueEncounterData
-  vendorName: Scrapper Steve
-  offerText: I'll give you crisp cash right now if you let me haul away that massive
-    pile of broken electronics.
-  acceptResultText: Steve hauls the junk away and hands you the money. The room feels
-    huge and you are thrilled!
-  rejectResultText: The pile of electronics collapses, pinning your leg and ruining
-    your day.
-  acceptedDelayedText: 
-  rejectedDelayedText: 
-  accepted: 1
+  vendorName: Archivist Alistair
+  offerText: That sprawling collection of old encyclopedias is simply gathering dust,
+    sir. Allow me to write you a check, and I will have my men clear them out post-haste.
+  acceptResultText: Alistair hands you the money while his men haul out the massive
+    books. Your bookshelves are empty, and you feel entirely unburdened.
+  rejectResultText: You refuse. As you turn around, you snag your sleeve on a towering
+    stack of books, sending them crashing onto your foot.
+  delayedText: 
   rejectedEffects:
   - type: 3
     amount: -10
     revealDelay: 0
   - type: 0
-    amount: -10
+    amount: -5
     revealDelay: 0
   effects:
   - type: 1

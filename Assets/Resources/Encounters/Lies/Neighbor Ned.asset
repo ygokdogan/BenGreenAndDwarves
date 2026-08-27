@@ -18,11 +18,13 @@ MonoBehaviour:
   acceptResultText: You take the cash. The turtle is quiet and cute.
   rejectResultText: Ned cries. You feel like a terrible neighbor and lose sleep over
     it.
-  delayedText: Ned never returned. The 'turtle' grew into a massive snapping turtle
-    that bit your finger and needs a huge tank.
+  acceptedDelayedText: Ned never returned. The 'turtle' grew into a massive snapping
+    turtle that bit your finger and needs a huge tank.
+  rejectedDelayedText: 
+  accepted: 1
   rejectedEffects:
   - type: 0
-    amount: -15
+    amount: -10
     revealDelay: 0
   claimedEffects:
   - type: 1
@@ -39,5 +41,8 @@ MonoBehaviour:
     amount: 15
     revealDelay: 2
   - type: 1
+    amount: 15
+    revealDelay: 0
+  - type: 0
     amount: 10
     revealDelay: 0

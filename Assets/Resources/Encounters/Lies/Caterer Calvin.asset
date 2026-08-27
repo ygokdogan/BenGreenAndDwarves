@@ -10,33 +10,41 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5d0471b0cbf4c6ebae6eb977f88ebd0, type: 3}
-  m_Name: Streamer Stan
+  m_Name: Caterer Calvin
   m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.LieEncounterData
-  vendorName: Streamer Stan
-  offerText: Bro, let me smash this giant cream pie in your face for my stream! You'll
-    go viral and be super famous and happy, and I'll give you a bunch of giant free
-    merch!
-  acceptResultText: The pie is filled with concrete. You get a concussion, the internet
-    mocks you mercilessly, and the merch never arrives.
-  rejectResultText: Stan's chat calls you a boomer. You feel deeply uncool and out
-    of touch.
+  vendorName: Caterer Calvin
+  offerText: My kitchen prepared too many gourmet meat platters. Pay a fraction of
+    the cost, clear some table space, and enjoy a meal fit for a king.
+  acceptResultText: You make room and take a bite. The meat is completely raw in
+    the middle. You spend the rest of the hour terribly sick.
+  rejectResultText: You turn him away. As the smell of the food lingers in the hall,
+    your stomach growls painfully.
   acceptedDelayedText: 
   rejectedDelayedText: 
   accepted: 0
   rejectedEffects:
   - type: 0
-    amount: -10
+    amount: -5
     revealDelay: 0
   claimedEffects:
   - type: 0
-    amount: 15
+    amount: 10
+    revealDelay: 0
+  - type: 1
+    amount: -10
     revealDelay: 0
   - type: 2
-    amount: 15
+    amount: 5
     revealDelay: 0
   actualEffects:
   - type: 0
+    amount: -5
+    revealDelay: 0
+  - type: 1
     amount: -10
+    revealDelay: 0
+  - type: 2
+    amount: 5
     revealDelay: 0
   - type: 3
     amount: -10
