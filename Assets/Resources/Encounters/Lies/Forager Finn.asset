@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5d0471b0cbf4c6ebae6eb977f88ebd0, type: 3}
+  m_Name: Forager Finn
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.LieEncounterData
+  vendorName: Forager Finn
+  offerText: I found these wild mushrooms in the park. Free food! Eating them will
+    boost your vitality and make you feel completely amazing.
+  acceptResultText: You eat the mushrooms. They taste earthy, and you suddenly feel
+    incredibly energized!
+  rejectResultText: You skip the meal and go to bed hungry. Your stomach growls painfully
+    all night.
+  delayedText: The energy wears off and the food poisoning begins. You spend the
+    next day locked in the bathroom in agony.
+  rejectedEffects:
+  - type: 3
+    amount: -10
+    revealDelay: 0
+  claimedEffects:
+  - type: 3
+    amount: 10
+    revealDelay: 0
+  - type: 0
+    amount: 10
+    revealDelay: 0
+  actualEffects:
+  - type: 3
+    amount: 5
+    revealDelay: 0
+  - type: 0
+    amount: 10
+    revealDelay: 0
+  - type: 0
+    amount: -15
+    revealDelay: 1
+  - type: 0
+    amount: -15
+    revealDelay: 1

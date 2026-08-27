@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 using Effects;
 using ScriptableObjects;
 using UI;
@@ -17,7 +18,7 @@ public class EncounterManager : MonoBehaviour
     private TimeManager timeManager;
     
     [Header("Encounter Database")]
-    public List<EncounterData> allEncounters;
+    public List<EncounterData> allEncounters = new List<EncounterData>();
     private EncounterData currentEncounter;
     
     private VendorGenerator vendorGenerator;
@@ -36,6 +37,10 @@ public class EncounterManager : MonoBehaviour
         timeManager = GetComponent<TimeManager>();
         pendingEffects = GetComponent<PendingEffects>();
         vendorGenerator = GetComponent<VendorGenerator>();
+        
+        allEncounters.Clear();
+        allEncounters = Resources.LoadAll<EncounterData>("Encounters/Truths").ToList();
+        allEncounters.AddRange(Resources.LoadAll<EncounterData>("Encounters/Lies").ToList());
         
         if (pendingEffects) pendingEffects.OnEffectsTriggered += ShowPendingEffects;
     }

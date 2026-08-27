@@ -10,29 +10,31 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5d0471b0cbf4c6ebae6eb977f88ebd0, type: 3}
-  m_Name: Earthy Eric
+  m_Name: Streamer Stan
   m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.LieEncounterData
-  vendorName: Earthy Eric
-  offerText: Brother, try these raw, unpasteurized, ancient-grain power-bites. They
-    will heal your gut biome and connect you to the earth.
-  acceptResultText: You eat the power-bites. Turns out 'unpasteurized' just meant
-    'full of aggressive bacteria.' You spend the night shivering in bed.
-  rejectResultText: Stay trapped in the processed food matrix, man.
+  vendorName: Streamer Stan
+  offerText: Bro, let me smash this giant cream pie in your face for my stream! You'll
+    go viral and be super famous and happy, and I'll give you a bunch of giant free
+    merch!
+  acceptResultText: The pie is filled with concrete. You get a concussion, the internet
+    mocks you mercilessly, and the merch never arrives.
+  rejectResultText: Stan's chat calls you a boomer. You feel deeply uncool and out
+    of touch.
   delayedText: 
   rejectedEffects:
-  - type: 3
-    amount: 5
+  - type: 0
+    amount: -10
     revealDelay: 0
   claimedEffects:
-  - type: 1
-    amount: -5
+  - type: 0
+    amount: 15
     revealDelay: 0
-  - type: 3
-    amount: 10
+  - type: 2
+    amount: 15
     revealDelay: 0
   actualEffects:
-  - type: 1
-    amount: -5
+  - type: 0
+    amount: -15
     revealDelay: 0
   - type: 3
     amount: -10
