@@ -4,31 +4,18 @@ using UnityEngine.SceneManagement;
 
 namespace UI
 {
-    /// <summary>
-    /// Cursor state enum.
-    /// Priority (highest first): Hold > Click > Hover > Default
-    /// </summary>
     public enum CursorState
     {
         Default,
         Hover,
-        Hold,   // Pressed + held (includes drag)
+        Hold,
         Click
     }
-
-    /// <summary>
-    /// Singleton that manages the custom hardware cursor.
-    ///
-    /// Setup:
-    ///   1. Assign a Sprite for each cursor state in the Inspector.
-    ///   2. Optionally adjust the hotspot per cursor state.
-    ///   3. Place this component on a persistent GameObject.
-    /// </summary>
+    
     public class CursorManager : MonoBehaviour
     {
         public static CursorManager Instance { get; private set; }
-
-        // ── Cursor Sprites ────────────────────────────────────────────────────
+        
         [Header("Cursor Sprites")]
         [Tooltip("Normal cursor shown when nothing is interactive.")]
         public Sprite defaultCursor;
@@ -41,25 +28,21 @@ namespace UI
 
         [Tooltip("Cursor shown briefly on click (tap without hold).")]
         public Sprite clickCursor;
-
-        // ── Hotspots ──────────────────────────────────────────────────────────
+        
         [Header("Hotspots (pixel offset from top-left of cursor texture)")]
         public Vector2 defaultHotspot = Vector2.zero;
         public Vector2 hoverHotspot   = Vector2.zero;
         public Vector2 holdHotspot    = Vector2.zero;
         public Vector2 clickHotspot   = Vector2.zero;
-
-        // ── Click flash ───────────────────────────────────────────────────────
+        
         [Header("Click Cursor")]
         [Tooltip("How long the Click cursor stays visible before reverting.")]
         public float clickDuration = 0.12f;
-
-        // ── Runtime state ─────────────────────────────────────────────────────
+        
         private bool _isHolding  = false;
         private int  _hoverCount = 0;
         private Coroutine _clickCoroutine;
-
-        // ─────────────────────────────────────────────────────────────────────
+        
         #region Unity Lifecycle
 
         private void Awake()
@@ -100,8 +83,7 @@ namespace UI
         }
 
         #endregion
-
-        // ─────────────────────────────────────────────────────────────────────
+        
         #region Public API
 
         /// <summary>Pointer entered an interactive element.</summary>
@@ -169,8 +151,7 @@ namespace UI
         }
 
         #endregion
-
-        // ─────────────────────────────────────────────────────────────────────
+        
         #region Private Helpers
 
         private void RefreshState()
