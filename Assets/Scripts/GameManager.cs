@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    public AudioSource uiButtonSource;
+
     private void Awake()
     {
         if (Instance)
@@ -22,6 +24,7 @@ public class GameManager : MonoBehaviour
     {
         if (accepted)
         {
+            encounter.accepted = true;
             foreach (StatEffect effect in encounter.GetActualEffects())
             {
                 if (effect.Instant)
@@ -30,12 +33,13 @@ public class GameManager : MonoBehaviour
                 }
                 else
                 {
-                    PendingEffects.Instance.Schedule(encounter, effect, effect.revealDelay, encounter.delayedText);
+                    PendingEffects.Instance.Schedule(encounter, effect, effect.revealDelay);
                 }
             }
         }
         else
         {
+            encounter.accepted = false;
             StatManager.Instance.ApplyEffects(encounter.rejectedEffects, checkGameOver: false);
         }
     }

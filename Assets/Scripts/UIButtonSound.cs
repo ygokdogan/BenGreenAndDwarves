@@ -6,7 +6,6 @@ public class UIButtonSound : MonoBehaviour
 {
     [Header("Audio Settings")]
     [SerializeField] private AudioClip clickSound;
-    [SerializeField] private AudioSource audioSource;
 
     private Button button;
 
@@ -17,7 +16,6 @@ public class UIButtonSound : MonoBehaviour
 
     private void OnEnable()
     {
-        // Buton tıklama event'ine dinleyici ekliyoruz
         if (button != null)
         {
             button.onClick.AddListener(PlayClickSound);
@@ -26,7 +24,6 @@ public class UIButtonSound : MonoBehaviour
 
     private void OnDisable()
     {
-        // Obje kapandığında dinleyiciyi kaldırıyoruz (memory leak olmaması için)
         if (button != null)
         {
             button.onClick.RemoveListener(PlayClickSound);
@@ -35,10 +32,9 @@ public class UIButtonSound : MonoBehaviour
 
     private void PlayClickSound()
     {
-        if (clickSound != null && audioSource != null)
+        if (clickSound != null && GameManager.Instance.uiButtonSource != null)
         {
-            // Sesi üst üste binecek şekilde (kesilmeden) oynatır
-            audioSource.PlayOneShot(clickSound);
+            GameManager.Instance.uiButtonSource.PlayOneShot(clickSound);
         }
         else
         {

@@ -67,10 +67,11 @@ namespace Effects
             return false;
         }
 
-        public void Schedule(EncounterData encounter, StatEffect effect, int hoursAfter, string triggerText)
+        public void Schedule(EncounterData encounter, StatEffect effect, int hoursAfter)
         {
             int triggerHour = TimeManager.Instance.TotalHoursElapsed + hoursAfter + 1;
-            pending.Add(new PendingEffect{ encounter = encounter, effect = effect, triggerHour = triggerHour, triggerText = triggerText });
+            string text = encounter.accepted ? encounter.acceptedDelayedText : encounter.rejectedDelayedText;
+            pending.Add(new PendingEffect{ encounter = encounter, effect = effect, triggerHour = triggerHour, triggerText = text });
         }
     
         private void CheckAndApply()

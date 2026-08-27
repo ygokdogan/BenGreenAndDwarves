@@ -28,7 +28,8 @@ public sealed class EncounterCreatorWindow : EditorWindow
     [SerializeField] private string offerText = "";
     [SerializeField] private string acceptResultText = "";
     [SerializeField] private string rejectResultText = "";
-    [SerializeField] private string delayedText = "";
+    [SerializeField] private string rejectedDelayedText = "";
+    [SerializeField] private string acceptedDelayedText = "";
     [SerializeField] private List<EffectDraft> acceptedEffects = new();
     [SerializeField] private List<EffectDraft> rejectedEffects = new();
     [SerializeField] private List<EffectDraft> claimedEffects = new();
@@ -82,7 +83,8 @@ public sealed class EncounterCreatorWindow : EditorWindow
         DrawTextField("Offer Text", "What the vendor says or offers.", ref offerText, 54);
         DrawTextField("Accept Result", "Shown after accepting the offer.", ref acceptResultText, 42);
         DrawTextField("Reject Result", "Shown after rejecting the offer.", ref rejectResultText, 42);
-        DrawTextField("Delayed Effect Text", "Shown when an effect with a delay is applied.", ref delayedText, 42);
+        DrawTextField("Accepted Delayed Effect Text", "Shown when an accepted effect with a delay is applied.", ref acceptedDelayedText, 42);
+        DrawTextField("Rejected Delayed Effect Text", "Shown when an declined effect with a delay is applied.", ref rejectedDelayedText, 42);
         EndSection();
     }
 
@@ -155,7 +157,8 @@ public sealed class EncounterCreatorWindow : EditorWindow
         encounter.offerText = offerText;
         encounter.acceptResultText = acceptResultText;
         encounter.rejectResultText = rejectResultText;
-        encounter.delayedText = delayedText;
+        encounter.acceptedDelayedText = acceptedDelayedText;
+        encounter.rejectedDelayedText = rejectedDelayedText;
         encounter.rejectedEffects = ToEffects(rejectedEffects);
 
         if (encounter is TrueEncounterData trueEncounter)
@@ -186,7 +189,7 @@ public sealed class EncounterCreatorWindow : EditorWindow
 
     private void ResetForm()
     {
-        vendorName = offerText = acceptResultText = rejectResultText = delayedText = "";
+        vendorName = offerText = acceptResultText = rejectResultText = acceptedDelayedText = "";
         acceptedEffects.Clear();
         rejectedEffects.Clear();
         claimedEffects.Clear();

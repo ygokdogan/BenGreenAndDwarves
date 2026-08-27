@@ -57,6 +57,8 @@ namespace UI.Utilities
         [Tooltip("Automatically add an Outline component if missing on this GameObject")]
         public bool autoAddOutlineIfMissing = true;
 
+        public AudioClip triggerSound;
+
         [Header("Events")]
         public UnityEvent onSwipedUp;
         public UnityEvent onHoverEnter;
@@ -301,6 +303,7 @@ namespace UI.Utilities
 
             if (isBeyondThreshold)
             {
+                GameManager.Instance.uiButtonSource.PlayOneShot(triggerSound);
                 onSwipedUp?.Invoke();
             }
             else
