@@ -10,30 +10,31 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5d0471b0cbf4c6ebae6eb977f88ebd0, type: 3}
-  m_Name: Earthy Eric
+  m_Name: Neighbor Ned
   m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.LieEncounterData
-  vendorName: Earthy Eric
-  offerText: Brother, try these raw, unpasteurized, ancient-grain power-bites. They
-    will heal your gut biome and connect you to the earth.
-  acceptResultText: You eat the power-bites. Turns out 'unpasteurized' just meant
-    'full of aggressive bacteria.' You spend the night shivering in bed.
-  rejectResultText: Stay trapped in the processed food matrix, man.
-  delayedText: 
+  vendorName: Neighbor Ned
+  offerText: I'll pay you to watch my tiny turtle for a week! He takes up no room
+    and he's so fun.
+  acceptResultText: You take the cash. The turtle is quiet and cute.
+  rejectResultText: Ned cries. You feel like a terrible neighbor and lose sleep over
+    it.
+  delayedText: Ned never returned. The 'turtle' grew into a massive snapping turtle
+    that bit your finger and needs a huge tank.
   rejectedEffects:
-  - type: 3
-    amount: 5
+  - type: 0
+    amount: -15
     revealDelay: 0
   claimedEffects:
   - type: 1
-    amount: -5
+    amount: 10
     revealDelay: 0
-  - type: 3
+  - type: 0
     amount: 10
     revealDelay: 0
   actualEffects:
-  - type: 1
-    amount: -5
-    revealDelay: 0
   - type: 3
     amount: -10
-    revealDelay: 0
+    revealDelay: 2
+  - type: 2
+    amount: 15
+    revealDelay: 2
