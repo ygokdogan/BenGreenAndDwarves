@@ -44,7 +44,11 @@ namespace UI
 
         public void Show(List<PendingEffect> effects, Action closed)
         {
-            encounterUI.HideAllPanels();
+            if (DayEndUIManager.Instance != null && DayEndUIManager.Instance.dayEndPanel != null)
+            {
+                DayEndUIManager.Instance.dayEndPanel.SetActive(false);
+            }
+            if (encounterUI != null) encounterUI.HideAllPanels();
             onClosed = closed;
             
             Dictionary<EncounterData, List<PendingEffect>> groupedEffects = new Dictionary<EncounterData, List<PendingEffect>>();
