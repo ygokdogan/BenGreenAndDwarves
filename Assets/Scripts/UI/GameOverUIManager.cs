@@ -1,7 +1,9 @@
 using Stats;
 using TMPro;
+using UI.Utilities;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 namespace UI
 {
@@ -15,6 +17,7 @@ namespace UI
         public TextMeshProUGUI titleText;
         public TextMeshProUGUI reasonText;
         public TextMeshProUGUI daysSurvivedText;
+        public TypewriterEffect reasonTypewriter;
 
         private void Awake()
         {
@@ -25,6 +28,12 @@ namespace UI
             }
 
             Instance = this;
+
+            if (reasonText != null && reasonTypewriter == null)
+            {
+                reasonTypewriter = reasonText.GetComponent<TypewriterEffect>();
+                if (reasonTypewriter == null) reasonTypewriter = reasonText.gameObject.AddComponent<TypewriterEffect>();
+            }
         }
 
         public void ShowGameOver(StatType stat, bool isZero)
@@ -44,7 +53,14 @@ namespace UI
                 gameplayUI.SetActive(false);
             }
 
-            if (gameOverPanel) gameOverPanel.SetActive(true);
+            if (gameOverPanel != null)
+            {
+                gameOverPanel.transform.DOKill();
+                gameOverPanel.transform.localScale = Vector3.zero;
+                gameOverPanel.SetActive(true);
+                gameOverPanel.transform.DOScale(Vector3.one, 0.45f).SetEase(Ease.OutBack);
+            }
+            if (reasonText) reasonText.gameObject.SetActive(true);
 
             if (daysSurvivedText && TimeManager.Instance != null)
             {
@@ -53,7 +69,15 @@ namespace UI
 
             (string title, string reason) = GetGameOverReason(stat, isZero);
             if (titleText) titleText.text = title;
-            if (reasonText) reasonText.text = reason;
+
+            if (reasonTypewriter != null)
+            {
+                reasonTypewriter.Play(reason);
+            }
+            else if (reasonText)
+            {
+                reasonText.text = reason;
+            }
         }
 
         private (string title, string reason) GetGameOverReason(StatType stat, bool isZero)
@@ -85,8 +109,21 @@ namespace UI
             }
         }
 
+        public void SkipReasonText()
+        {
+            if (reasonTypewriter != null && reasonTypewriter.IsTyping)
+            {
+                reasonTypewriter.Skip();
+            }
+        }
+
         public void RestartGame()
         {
+            if (reasonTypewriter != null && reasonTypewriter.IsTyping)
+            {
+                reasonTypewriter.Skip();
+            }
+
             if (gameOverPanel) gameOverPanel.SetActive(false);
             if (gameplayUI) gameplayUI.SetActive(true);
             TimeManager.Instance?.ResetTime();
@@ -102,3 +139,4 @@ namespace UI
         }
     }
 }
+
