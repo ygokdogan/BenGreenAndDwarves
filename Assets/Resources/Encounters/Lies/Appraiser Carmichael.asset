@@ -10,35 +10,37 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5d0471b0cbf4c6ebae6eb977f88ebd0, type: 3}
-  m_Name: Shelter Volunteer Jonathan
+  m_Name: Appraiser Carmichael
   m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.LieEncounterData
-  vendorName: Shelter Volunteer Jonathan
-  offerText: We are overflowing! Could you foster this precious, tiny kitten for
-    just one weekend? She's an absolute angel and so small.
-  acceptResultText: The kitten is cute, but destroys your curtains, requires a massive
-    scratching post, and reveals you have a severe, previously unknown cat allergy.
-  rejectResultText: Oh... okay. I'll just tell her nobody wanted her.
+  vendorName: Appraiser Carmichael
+  offerText: I will pay top dollar for that hideous armchair. It clears your floor
+    completely and fills your wallet with cash.
+  acceptResultText: He pays you and his men take the chair. However, they spend the
+    entire time aggressively mocking your poverty and living conditions, leaving
+    your self-esteem in absolute ruins.
+  rejectResultText: You keep the ugly chair. It may not be fancy, but it is yours,
+    and you feel proud of it.
   acceptedDelayedText: 
   rejectedDelayedText: 
-  accepted: 1
+  accepted: 0
   rejectedEffects:
   - type: 0
-    amount: -15
+    amount: 10
     revealDelay: 0
   claimedEffects:
-  - type: 0
+  - type: 1
     amount: 15
     revealDelay: 0
   - type: 2
-    amount: 5
+    amount: -10
     revealDelay: 0
   actualEffects:
   - type: 0
     amount: -10
     revealDelay: 0
-  - type: 2
+  - type: 1
     amount: 15
     revealDelay: 0
-  - type: 3
+  - type: 2
     amount: -10
     revealDelay: 0

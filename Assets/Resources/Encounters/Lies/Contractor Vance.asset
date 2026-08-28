@@ -10,35 +10,36 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5d0471b0cbf4c6ebae6eb977f88ebd0, type: 3}
-  m_Name: Shelter Volunteer Jonathan
+  m_Name: Contractor Vance
   m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.LieEncounterData
-  vendorName: Shelter Volunteer Jonathan
-  offerText: We are overflowing! Could you foster this precious, tiny kitten for
-    just one weekend? She's an absolute angel and so small.
-  acceptResultText: The kitten is cute, but destroys your curtains, requires a massive
-    scratching post, and reveals you have a severe, previously unknown cat allergy.
-  rejectResultText: Oh... okay. I'll just tell her nobody wanted her.
+  vendorName: Contractor Vance
+  offerText: I need to smash that ugly partition wall in your room. It will be incredibly
+    loud, dusty, and stressful, but it will open up the floor space immensely.
+  acceptResultText: The noise is agonizing and ruins your mood. However, amid the
+    rubble of the demolished wall, you discover a forgotten lockbox full of cash!
+  rejectResultText: You refuse to let him destroy your wall. The room stays cramped,
+    but at least it is quiet.
   acceptedDelayedText: 
   rejectedDelayedText: 
-  accepted: 1
+  accepted: 0
   rejectedEffects:
   - type: 0
-    amount: -15
+    amount: 5
     revealDelay: 0
   claimedEffects:
   - type: 0
-    amount: 15
+    amount: -10
     revealDelay: 0
   - type: 2
-    amount: 5
+    amount: -10
     revealDelay: 0
   actualEffects:
   - type: 0
     amount: -10
     revealDelay: 0
   - type: 2
-    amount: 15
-    revealDelay: 0
-  - type: 3
     amount: -10
+    revealDelay: 0
+  - type: 1
+    amount: 20
     revealDelay: 0
