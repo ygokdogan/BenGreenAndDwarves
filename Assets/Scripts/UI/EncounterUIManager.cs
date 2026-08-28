@@ -125,6 +125,22 @@ namespace UI
             resultPanel.SetActive(false);
         }
 
+        public void OnOfferAccepted()
+        {
+            if (EncounterManager.Instance)
+            {
+                EncounterManager.Instance.AcceptOffer();
+            }
+        }
+        
+        public void OnOfferRejected()
+        {
+            if (EncounterManager.Instance)
+            {
+                EncounterManager.Instance.RejectOffer();
+            }
+        }
+
         public void OnAcceptHoverEnter()
         {
             if (currentEncounter != null && HUDManager.Instance != null)
