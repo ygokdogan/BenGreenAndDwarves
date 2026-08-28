@@ -76,10 +76,10 @@ namespace UI
         {
             switch (type)
             {
-                case StatType.Happiness: if (happinessBar) happinessBar.SetValue(newValue, oldValue); break;
-                case StatType.Health: if (healthBar) healthBar.SetValue(newValue, oldValue); break;
-                case StatType.Storage: if (storageBar) storageBar.SetValue(newValue, oldValue); break;
-                case StatType.Cash: if (cashBar) cashBar.SetValue(newValue, oldValue); break;
+                case StatType.Happiness: if (happinessBar) happinessBar.SetValue(newValue, oldValue, StatManager.Instance.maxStats[StatType.Happiness]); break;
+                case StatType.Health: if (healthBar) healthBar.SetValue(newValue, oldValue, StatManager.Instance.maxStats[StatType.Health]); break;
+                case StatType.Storage: if (storageBar) storageBar.SetValue(newValue, oldValue, StatManager.Instance.maxStats[StatType.Storage]); break;
+                case StatType.Cash: if (cashBar) cashBar.SetValue(newValue, oldValue, StatManager.Instance.maxStats[StatType.Cash]); break;
                 default: break;
             }
         }

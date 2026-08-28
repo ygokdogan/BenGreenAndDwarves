@@ -7,8 +7,6 @@ namespace UI.StatBar
 {
     public class StatBar : MonoBehaviour
     {
-        private int maxValue = 100;
-
         private RectTransform bar;
 
         private Color32 healColor = new Color32(0, 255, 102, 255);
@@ -52,7 +50,7 @@ namespace UI.StatBar
             }
         }
 
-        public void SetValue(float newValue, float oldValue)
+        public void SetValue(float newValue, float oldValue, float maxValue)
         {
             HideHighlight();
             UpdateDangerZone((int)newValue);

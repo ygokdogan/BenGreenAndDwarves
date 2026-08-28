@@ -6,9 +6,12 @@ using UnityEngine;
 public class StatManager : MonoBehaviour
 {
     public static StatManager Instance;
+    
     public Dictionary<StatType, int> stats = new Dictionary<StatType, int>();
+    public Dictionary<StatType, int> maxStats = new Dictionary<StatType, int>();
 
     public event Action<StatType, int, int> OnStatChanged;
+    public event Action<StatType, int> OnMaxStatChanged;
 
     private void Awake()
     {
@@ -20,15 +23,32 @@ public class StatManager : MonoBehaviour
             
         Instance = this;
         
+        InitializeMaxStats(100, 100, 100, 100);
         InitializeStats(50,50,50,50);
+        
+        SetMax(StatType.Cash, 150);
+    }
+    
+    private void InitializeMaxStats(int happiness, int health, int storage, int cash)
+    {
+        maxStats[StatType.Happiness] = happiness;
+        maxStats[StatType.Health] = health;
+        maxStats[StatType.Storage] = storage;
+        maxStats[StatType.Cash] = cash;
     }
 
     private void InitializeStats(int happiness, int health, int storage, int cash)
     {
-        stats.Add(StatType.Happiness, happiness);
-        stats.Add(StatType.Health, health);
-        stats.Add(StatType.Storage, storage);
-        stats.Add(StatType.Cash, cash);
+        stats[StatType.Happiness] = happiness;
+        stats[StatType.Health] = health;
+        stats[StatType.Storage] = storage;
+        stats[StatType.Cash] = cash;
+    }
+
+    public void SetMax(StatType statType, int value)
+    {
+        maxStats[statType] = value;
+        OnMaxStatChanged?.Invoke(statType, value);
     }
 
     public void ApplyEffects(StatEffect[] effects, bool checkGameOver = true)
@@ -45,9 +65,10 @@ public class StatManager : MonoBehaviour
 
     public void ApplyEffect(StatEffect effect, bool checkGameOver = true)
     {
-        var oldValue= stats[effect.type];
-        stats[effect.type] = Mathf.Clamp(stats[effect.type] + effect.amount, 0, 100);
+        var oldValue = stats[effect.type];
+        stats[effect.type] = Mathf.Clamp(stats[effect.type] + effect.amount, 0, maxStats[effect.type]);
         OnStatChanged?.Invoke(effect.type, stats[effect.type], oldValue);
+        
         if (checkGameOver)
         {
             CheckGameOver();
@@ -60,18 +81,18 @@ public class StatManager : MonoBehaviour
         stats[StatType.Health] = health;
         stats[StatType.Storage] = storage;
         stats[StatType.Cash] = cash;
-
-        foreach (var stat in stats)
-        {
-            OnStatChanged?.Invoke(stat.Key, stat.Value, stat.Value);
-        }
+        
+        OnStatChanged?.Invoke(StatType.Happiness, stats[StatType.Happiness], happiness);
+        OnStatChanged?.Invoke(StatType.Health, stats[StatType.Health], health);
+        OnStatChanged?.Invoke(StatType.Storage, stats[StatType.Storage], storage);
+        OnStatChanged?.Invoke(StatType.Cash, stats[StatType.Cash], cash);
     }
 
     public bool CheckGameOver()
     {
         foreach (var stat in stats)
         {
-            if (stat.Value <= 0 || stat.Value >= 100)
+            if (stat.Value <= 0 || stat.Value >= maxStats[stat.Key])
             {
                 GameManager.Instance.EndGame(stat.Key, stat.Value <= 0);
                 return true;
