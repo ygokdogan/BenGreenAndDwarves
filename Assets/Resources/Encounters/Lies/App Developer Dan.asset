@@ -18,11 +18,12 @@ MonoBehaviour:
     your stress!
   acceptResultText: You felt relaxed for a week, then completely forgot about it.
     Six months later, you realize you've been auto-billed for the premium tier.
-  rejectResultText: You don't sign up and forget it after 10 minutes.
-  acceptedDelayedText: 
-  rejectedDelayedText: 
-  accepted: 0
-  rejectedEffects: []
+  rejectResultText: Suit yourself! Enjoy your unregulated cortisol levels.
+  delayedText: 
+  rejectedEffects:
+  - type: 0
+    amount: -5
+    revealDelay: 0
   claimedEffects:
   - type: 0
     amount: 10

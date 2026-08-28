@@ -17,14 +17,13 @@ MonoBehaviour:
     I'll haul away this giant, heavy wardrobe that's been hogging all your room."
   acceptResultText: Herb muscles the heavy wardrobe out of your apartment. Suddenly,
     your bedroom actually looks breathable.
-  rejectResultText: You look at the inside of the gardrobe and find a clothing that
-    you did not wear for a long time. It gives you nostalgia.
+  rejectResultText: Keep tripping over it then.
   acceptedDelayedText: 
   rejectedDelayedText: 
   accepted: 0
   rejectedEffects:
-  - type: 0
-    amount: 10
+  - type: 3
+    amount: 0
     revealDelay: 0
   effects:
   - type: 1

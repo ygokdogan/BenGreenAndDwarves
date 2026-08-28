@@ -18,9 +18,7 @@ MonoBehaviour:
   acceptResultText: The kitten is cute, but destroys your curtains, requires a massive
     scratching post, and reveals you have a severe, previously unknown cat allergy.
   rejectResultText: Oh... okay. I'll just tell her nobody wanted her.
-  acceptedDelayedText: 
-  rejectedDelayedText: 
-  accepted: 1
+  delayedText: 
   rejectedEffects:
   - type: 0
     amount: -15
@@ -34,7 +32,7 @@ MonoBehaviour:
     revealDelay: 0
   actualEffects:
   - type: 0
-    amount: -10
+    amount: 10
     revealDelay: 0
   - type: 2
     amount: 15

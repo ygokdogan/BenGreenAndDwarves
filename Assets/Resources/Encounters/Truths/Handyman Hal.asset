@@ -19,9 +19,7 @@ MonoBehaviour:
     hour, your hallway is finally clear and walkable.
   rejectResultText: You trip over a chair leg five minutes later, bruising your shin
     terribly.
-  acceptedDelayedText: 
-  rejectedDelayedText: 
-  accepted: 1
+  delayedText: 
   rejectedEffects:
   - type: 0
     amount: -5
@@ -31,7 +29,7 @@ MonoBehaviour:
     revealDelay: 0
   effects:
   - type: 1
-    amount: -5
+    amount: 15
     revealDelay: 0
   - type: 2
     amount: -15

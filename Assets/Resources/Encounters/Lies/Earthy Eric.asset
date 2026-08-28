@@ -17,17 +17,11 @@ MonoBehaviour:
     will heal your gut biome and connect you to the earth.
   acceptResultText: You eat the power-bites. Turns out 'unpasteurized' just meant
     'full of aggressive bacteria.' You spend the night shivering in bed.
-  rejectResultText: "You\u2019re turning down the power-bites. As he leaves, he insults
-    you. "
-  acceptedDelayedText: 
-  rejectedDelayedText: 
-  accepted: 0
+  rejectResultText: Stay trapped in the processed food matrix, man.
+  delayedText: 
   rejectedEffects:
   - type: 3
     amount: 5
-    revealDelay: 0
-  - type: 0
-    amount: -5
     revealDelay: 0
   claimedEffects:
   - type: 1
