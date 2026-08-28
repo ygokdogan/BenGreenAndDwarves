@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dc5331b40204628afa94f7e24f8e5c2, type: 3}
+  m_Name: Enforcer Cross
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.TrueEncounterData
+  vendorName: Enforcer Cross
+  offerText: The streets are growing rather chaotic. Pay my security fee today, and
+    my associates will ensure your physical health remains perfectly intact.
+  acceptResultText: You hand over the protection money. It feels like extortion,
+    but you breathe a little easier knowing you are safe.
+  rejectResultText: You bravely refuse to be intimidated by a thug! You lock your
+    door, feeling a surge of defiant pride.
+  acceptedDelayedText: 
+  rejectedDelayedText: Cross's associates break down your door for refusing their
+    'services'. They beat you terribly and steal your wallet anyway.
+  accepted: 0
+  rejectedEffects:
+  - type: 0
+    amount: 10
+    revealDelay: 0
+  - type: 1
+    amount: -15
+    revealDelay: 2
+  - type: 3
+    amount: -10
+    revealDelay: 2
+  effects:
+  - type: 1
+    amount: -15
+    revealDelay: 0
+  - type: 0
+    amount: 5
+    revealDelay: 0

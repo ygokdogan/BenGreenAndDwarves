@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5d0471b0cbf4c6ebae6eb977f88ebd0, type: 3}
+  m_Name: Curator Pendelton
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.LieEncounterData
+  vendorName: Curator Pendelton
+  offerText: I offer you a grand, historic chandelier. Pay my asking price, and its
+    radiant light will completely erase your earthly anxieties without taking up
+    floor space.
+  acceptResultText: You buy it, but it is far too heavy to hang. It sits massively
+    on your floor, entirely broken. You feel absolutely scammed.
+  rejectResultText: You decline the dusty relic, feeling slightly uncultured but
+    financially secure.
+  acceptedDelayedText: The ancient chandelier was harboring toxic, century-old mold
+    spores! Breathing them in gives you a severe, agonizing lung infection.
+  rejectedDelayedText: Just from standing near Pendelton and his cursed antiques,
+    the mold spores clung to your clothes. You wake up with a terrible, rasping cough.
+  accepted: 0
+  rejectedEffects:
+  - type: 1
+    amount: 5
+    revealDelay: 0
+  - type: 0
+    amount: -5
+    revealDelay: 0
+  - type: 3
+    amount: -10
+    revealDelay: 1
+  claimedEffects:
+  - type: 0
+    amount: 20
+    revealDelay: 0
+  - type: 1
+    amount: -10
+    revealDelay: 0
+  actualEffects:
+  - type: 1
+    amount: -10
+    revealDelay: 0
+  - type: 2
+    amount: 15
+    revealDelay: 0
+  - type: 3
+    amount: -15
+    revealDelay: 1
+  - type: 0
+    amount: -10
+    revealDelay: 1

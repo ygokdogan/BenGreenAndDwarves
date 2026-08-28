@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5d0471b0cbf4c6ebae6eb977f88ebd0, type: 3}
+  m_Name: Commissioner Langdon
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.LieEncounterData
+  vendorName: Commissioner Langdon
+  offerText: You are hoarding unauthorized entertainment devices. Surrender the bulky
+    consoles to my custody for a standard government cash bounty.
+  acceptResultText: He takes your prized entertainment systems and tosses a meager
+    payment on the floor. Your space is clear, but losing your only source of joy
+    plunges you into deep depression.
+  rejectResultText: You refuse to comply. Langdon flies into a rage, writes you a
+    massive citation fee, and smashes the devices into sharp, useless plastic shards
+    across your floor.
+  acceptedDelayedText: 
+  rejectedDelayedText: 
+  accepted: 0
+  rejectedEffects:
+  - type: 1
+    amount: -15
+    revealDelay: 0
+  - type: 2
+    amount: 5
+    revealDelay: 0
+  claimedEffects:
+  - type: 1
+    amount: 20
+    revealDelay: 0
+  - type: 2
+    amount: -5
+    revealDelay: 0
+  actualEffects:
+  - type: 1
+    amount: 10
+    revealDelay: 0
+  - type: 2
+    amount: -5
+    revealDelay: 0
+  - type: 0
+    amount: -15
+    revealDelay: 0

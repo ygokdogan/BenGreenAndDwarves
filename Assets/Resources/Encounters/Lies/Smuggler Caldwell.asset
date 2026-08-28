@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5d0471b0cbf4c6ebae6eb977f88ebd0, type: 3}
+  m_Name: Smuggler Caldwell
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.LieEncounterData
+  vendorName: Smuggler Caldwell
+  offerText: I have a crate of highly guarded, exotic medicinal roots. Store them
+    for me, pay a small tariff, and chew one to cure any physical weakness.
+  acceptResultText: You open the crate. There are no roots, just stolen diamonds!
+    You are instantly richer, but terrified the authorities are coming for you, ruining
+    your nerves.
+  rejectResultText: You refuse to hold his sketchy cargo, enjoying your peace of
+    mind and your empty floor.
+  acceptedDelayedText: 
+  rejectedDelayedText: 
+  accepted: 0
+  rejectedEffects:
+  - type: 0
+    amount: 10
+    revealDelay: 0
+  claimedEffects:
+  - type: 2
+    amount: 10
+    revealDelay: 0
+  - type: 1
+    amount: -5
+    revealDelay: 0
+  - type: 3
+    amount: 10
+    revealDelay: 0
+  actualEffects:
+  - type: 1
+    amount: 20
+    revealDelay: 0
+  - type: 2
+    amount: 10
+    revealDelay: 0
+  - type: 0
+    amount: -5
+    revealDelay: 0

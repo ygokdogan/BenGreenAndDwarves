@@ -22,7 +22,7 @@ MonoBehaviour:
   acceptedDelayedText: The 'vigor' was merely cheap adrenaline and toxic solvents.
     You crash horribly, barely able to keep your eyes open.
   rejectedDelayedText: 
-  accepted: 0
+  accepted: 1
   rejectedEffects:
   - type: 0
     amount: 5
@@ -39,7 +39,7 @@ MonoBehaviour:
     revealDelay: 0
   - type: 3
     amount: 15
-    revealDelay: 1
+    revealDelay: 0
   - type: 3
     amount: -10
     revealDelay: 1

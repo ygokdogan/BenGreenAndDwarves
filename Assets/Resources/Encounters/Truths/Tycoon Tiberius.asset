@@ -21,8 +21,13 @@ MonoBehaviour:
     in your entire life!
   rejectResultText: Tiberius laughs at your frailty. You spend the next hour nursing
     a persistent, aching cough and feeling profoundly weak.
-  delayedText: 
-  rejectedEffects: []
+  acceptedDelayedText: 
+  rejectedDelayedText: 
+  accepted: 0
+  rejectedEffects:
+  - type: 3
+    amount: -5
+    revealDelay: 0
   effects:
   - type: 0
     amount: 20

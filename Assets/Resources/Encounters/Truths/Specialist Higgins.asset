@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dc5331b40204628afa94f7e24f8e5c2, type: 3}
+  m_Name: Specialist Higgins
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.TrueEncounterData
+  vendorName: Specialist Higgins
+  offerText: Your walls are infested with termites. Pay my exorbitant fee, and I
+    will tear out the infected wood to save your physical health.
+  acceptResultText: Higgins brutally tears open your walls. The noise is maddening
+    and your room looks terrible, but at least the toxic bugs are gone.
+  rejectResultText: You kick him out and buy a cheap bug spray yourself. It takes
+    a little effort, but you save your money and fix the problem.
+  acceptedDelayedText: 
+  rejectedDelayedText: 
+  accepted: 0
+  rejectedEffects:
+  - type: 3
+    amount: 10
+    revealDelay: 0
+  - type: 1
+    amount: -5
+    revealDelay: 0
+  effects:
+  - type: 1
+    amount: -15
+    revealDelay: 0
+  - type: 3
+    amount: 20
+    revealDelay: 0
+  - type: 0
+    amount: -10
+    revealDelay: 0

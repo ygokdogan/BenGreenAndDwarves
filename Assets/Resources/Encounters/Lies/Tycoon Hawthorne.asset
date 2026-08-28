@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5d0471b0cbf4c6ebae6eb977f88ebd0, type: 3}
+  m_Name: Tycoon Hawthorne
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.LieEncounterData
+  vendorName: Tycoon Hawthorne
+  offerText: Purchase this heavy, sealed bank safe. It requires massive floor space
+    and most of your capital, but the pure gold bullion inside will make you a king.
+  acceptResultText: You drag the massive safe inside and break the lock. It is completely
+    empty! You sink to the floor, devastated by the loss of your money.
+  rejectResultText: ou refuse the gamble, though you wonder if you just walked away
+    from a fortune.
+  acceptedDelayedText: A quirky billionaire collector sees the vintage safe through
+    your window. He pays an absolutely staggering amount of cash just for the empty
+    antique metal box!
+  rejectedDelayedText: 'ou read the newspaper: someone else bought Hawthorne''s safe
+    and found a secret compartment filled with rare diamonds! The regret makes you
+    physically sick.'
+  accepted: 0
+  rejectedEffects:
+  - type: 0
+    amount: -5
+    revealDelay: 0
+  - type: 0
+    amount: -10
+    revealDelay: 2
+  claimedEffects:
+  - type: 1
+    amount: -15
+    revealDelay: 0
+  - type: 2
+    amount: 15
+    revealDelay: 0
+  - type: 0
+    amount: 15
+    revealDelay: 0
+  actualEffects:
+  - type: 1
+    amount: -15
+    revealDelay: 0
+  - type: 2
+    amount: 15
+    revealDelay: 0
+  - type: 0
+    amount: -15
+    revealDelay: 0
+  - type: 1
+    amount: 35
+    revealDelay: 2
+  - type: 3
+    amount: 25
+    revealDelay: 2

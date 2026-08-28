@@ -29,10 +29,10 @@ MonoBehaviour:
     revealDelay: 0
   - type: 1
     amount: 15
-    revealDelay: 0
+    revealDelay: 2
   - type: 0
     amount: 10
-    revealDelay: 0
+    revealDelay: 2
   effects:
   - type: 0
     amount: 10

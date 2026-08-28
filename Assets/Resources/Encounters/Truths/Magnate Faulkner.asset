@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dc5331b40204628afa94f7e24f8e5c2, type: 3}
+  m_Name: Magnate Faulkner
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.TrueEncounterData
+  vendorName: Magnate Faulkner
+  offerText: That giant, dusty portrait of your ancestor is a tragic waste of space.
+    Let my men haul it to the dump, and I will give you a few coins for the frame.
+  acceptResultText: You take the spare change. The heavy painting is gone, leaving
+    your wall wonderfully blank and spacious.
+  rejectResultText: You stubbornly keep the massive painting. It continues to take
+    up too much space and looks incredibly depressing.
+  acceptedDelayedText: 
+  rejectedDelayedText: A museum curator visits and identifies your ancestor's portrait
+    as a priceless historical artifact! You sell it for an absolute fortune.
+  accepted: 0
+  rejectedEffects:
+  - type: 0
+    amount: -5
+    revealDelay: 0
+  - type: 2
+    amount: 5
+    revealDelay: 0
+  - type: 2
+    amount: -5
+    revealDelay: 2
+  - type: 0
+    amount: 15
+    revealDelay: 2
+  - type: 1
+    amount: 20
+    revealDelay: 2
+  effects:
+  - type: 1
+    amount: 10
+    revealDelay: 0
+  - type: 2
+    amount: -15
+    revealDelay: 0

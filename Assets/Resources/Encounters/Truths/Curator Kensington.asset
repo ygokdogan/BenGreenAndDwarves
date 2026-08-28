@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dc5331b40204628afa94f7e24f8e5c2, type: 3}
+  m_Name: Curator Kensington
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.TrueEncounterData
+  vendorName: Curator Kensington
+  offerText: Sell me your massive, sentimental family heirloom chest. It clears out
+    your living space and puts substantial capital right into your hands.
+  acceptResultText: You sell your family's heritage. Your room is remarkably open
+    and your pockets are full, but a crushing wave of guilt ruins your mood.
+  rejectResultText: You refuse to part with your family's past. The giant chest continues
+    to cramp your quarters, and your relatives constantly nag you about money.
+  acceptedDelayedText: Kensington's lawyers claim the chest contained forged paperwork,
+    hitting you with a massive breach-of-contract penalty that wipes out your savings.
+  rejectedDelayedText: 
+  accepted: 0
+  rejectedEffects:
+  - type: 2
+    amount: 5
+    revealDelay: 0
+  - type: 0
+    amount: -5
+    revealDelay: 0
+  effects:
+  - type: 1
+    amount: 25
+    revealDelay: 0
+  - type: 2
+    amount: -10
+    revealDelay: 0
+  - type: 0
+    amount: -10
+    revealDelay: 0
+  - type: 0
+    amount: -10
+    revealDelay: 2
+  - type: 1
+    amount: -30
+    revealDelay: 2

@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dc5331b40204628afa94f7e24f8e5c2, type: 3}
+  m_Name: Baron Harrington
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.TrueEncounterData
+  vendorName: Baron Harrington
+  offerText: My estate is being audited! Allow me to hide this breathtaking marble
+    fountain in your parlor for free. Its beauty is yours to enjoy.
+  acceptResultText: The massive fountain is absolutely stunning. You spend the hour
+    admiring its craftsmanship, feeling like royalty.
+  rejectResultText: You refuse to harbor hidden assets. You look at your sturdy,
+    undamaged floor and feel deeply relieved.
+  acceptedDelayedText: The heavy fountain collapses through your floorboards! You
+    fall with it, injuring your back, and your landlord forces you to pay for all
+    the damages.
+  rejectedDelayedText: 
+  accepted: 0
+  rejectedEffects:
+  - type: 2
+    amount: -5
+    revealDelay: 0
+  - type: 0
+    amount: 5
+    revealDelay: 0
+  effects:
+  - type: 2
+    amount: 15
+    revealDelay: 0
+  - type: 0
+    amount: 10
+    revealDelay: 0
+  - type: 1
+    amount: -10
+    revealDelay: 1
+  - type: 3
+    amount: -15
+    revealDelay: 1

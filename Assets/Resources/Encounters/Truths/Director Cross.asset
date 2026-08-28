@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dc5331b40204628afa94f7e24f8e5c2, type: 3}
+  m_Name: Director Cross
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.TrueEncounterData
+  vendorName: Director Cross
+  offerText: Purchase this massive, unrecognized canvas today. It demands a vast
+    wall and a fair price, but holding onto it might prove... illuminating.
+  acceptResultText: You buy the heavy painting and lean it against your wall. It
+    is rather ugly, but you hope for the best.
+  rejectResultText: You refuse to waste your money and space on terrible art.
+  acceptedDelayedText: The obscure artist suddenly passes away, and their work skyrockets
+    in value! You sell the canvas for an absolute fortune.
+  rejectedDelayedText: You see the exact canvas you rejected on the front page of
+    the newspaper, sold for millions. You feel sick to your stomach.
+  accepted: 0
+  rejectedEffects:
+  - type: 0
+    amount: -10
+    revealDelay: 2
+  effects:
+  - type: 1
+    amount: -10
+    revealDelay: 0
+  - type: 2
+    amount: 10
+    revealDelay: 0
+  - type: 0
+    amount: 10
+    revealDelay: 2
+  - type: 1
+    amount: 25
+    revealDelay: 2

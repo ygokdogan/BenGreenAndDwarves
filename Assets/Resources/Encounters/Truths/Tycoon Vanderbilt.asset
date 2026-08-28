@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dc5331b40204628afa94f7e24f8e5c2, type: 3}
+  m_Name: Tycoon Vanderbilt
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.TrueEncounterData
+  vendorName: Tycoon Vanderbilt
+  offerText: Fund my transcontinental railroad project today. It demands a staggering
+    amount of your capital, and you must store these massive iron prototypes, but
+    the dividends will secure your legacy forever.
+  acceptResultText: You hand over a small fortune. The giant, rusting iron prototypes
+    completely ruin your floor space. As Vanderbilt walks away smiling, a terrifying
+    sense of dread washes over you.
+  rejectResultText: You flatly refuse to fund his overly ambitious, suspicious project.
+    Keeping your massive fortune safely locked away feels incredibly smart.
+  acceptedDelayedText: 'The news finally hits: Vanderbilt''s railroad was a colossal
+    Ponzi scheme! The authorities ruthlessly seize your remaining assets to cover
+    his debts, and the crushing shock gives you a near-fatal heart attack.'
+  rejectedDelayedText: Vanderbilt's empire officially collapses in a historic, city-wide
+    scandal! Because you kept your capital safe, you effortlessly buy out all of
+    his bankrupt competitors for mere pennies, becoming a true market king!
+  accepted: 0
+  rejectedEffects:
+  - type: 2
+    amount: -5
+    revealDelay: 0
+  - type: 0
+    amount: 10
+    revealDelay: 0
+  - type: 1
+    amount: 40
+    revealDelay: 15
+  - type: 0
+    amount: 30
+    revealDelay: 15
+  effects:
+  - type: 1
+    amount: -30
+    revealDelay: 0
+  - type: 2
+    amount: 15
+    revealDelay: 0
+  - type: 0
+    amount: -15
+    revealDelay: 0
+  - type: 1
+    amount: -30
+    revealDelay: 15
+  - type: 3
+    amount: -20
+    revealDelay: 15
+  - type: 0
+    amount: -20
+    revealDelay: 15

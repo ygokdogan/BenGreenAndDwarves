@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5d0471b0cbf4c6ebae6eb977f88ebd0, type: 3}
+  m_Name: Magnate Rutherford
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.LieEncounterData
+  vendorName: Magnate Rutherford
+  offerText: Invest in my automated cleaning contraption. It commands a heavy price
+    and dominates a room, but it will keep your quarters entirely spotless.
+  acceptResultText: You plug the massive machine in. It whirs loudly for five seconds,
+    completely short-circuits, and dies. It does absolutely nothing but take up your
+    money and space.
+  rejectResultText: You refuse to buy his mechanical junk.
+  acceptedDelayedText: 
+  rejectedDelayedText: You feel quite satisfied keeping your hard-earned funds.
+  accepted: 0
+  rejectedEffects:
+  - type: 0
+    amount: 5
+    revealDelay: 1
+  claimedEffects:
+  - type: 1
+    amount: -10
+    revealDelay: 0
+  - type: 2
+    amount: 10
+    revealDelay: 0
+  - type: 0
+    amount: 10
+    revealDelay: 0
+  actualEffects:
+  - type: 1
+    amount: -10
+    revealDelay: 0
+  - type: 2
+    amount: 10
+    revealDelay: 0

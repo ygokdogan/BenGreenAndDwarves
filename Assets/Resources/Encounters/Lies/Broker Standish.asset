@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5d0471b0cbf4c6ebae6eb977f88ebd0, type: 3}
+  m_Name: Broker Standish
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.LieEncounterData
+  vendorName: Broker Standish
+  offerText: Hand over that towering collection of vintage books. I will give you
+    an immediate cash payout and clear your shelves completely.
+  acceptResultText: Standish packs the books into his van, tosses you mere pocket
+    change, and drives off laughing. You have plenty of room, but you feel completely
+    robbed.
+  rejectResultText: You refuse his low offer. You spend the hour staring at the dusty,
+    heavy books taking up your valuable shelf space.
+  acceptedDelayedText: The police catch Standish running an illegal fencing ring.
+    They return the market value of your books along with a hefty compensation reward!
+  rejectedDelayedText: The overloaded bookshelf finally collapses under the weight,
+    sending a barrage of heavy hardcovers crashing down onto your head.
+  accepted: 0
+  rejectedEffects:
+  - type: 3
+    amount: -10
+    revealDelay: 1
+  claimedEffects:
+  - type: 1
+    amount: 20
+    revealDelay: 0
+  - type: 2
+    amount: -15
+    revealDelay: 0
+  actualEffects:
+  - type: 1
+    amount: 5
+    revealDelay: 0
+  - type: 2
+    amount: -15
+    revealDelay: 0
+  - type: 0
+    amount: -20
+    revealDelay: 0
+  - type: 1
+    amount: 25
+    revealDelay: 0
+  - type: 0
+    amount: 25
+    revealDelay: 0

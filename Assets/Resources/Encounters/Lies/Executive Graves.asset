@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5d0471b0cbf4c6ebae6eb977f88ebd0, type: 3}
+  m_Name: Executive Graves
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.LieEncounterData
+  vendorName: Executive Graves
+  offerText: Sign this absolute masterpiece of a contract for our exclusive members
+    club. It takes up no physical room, and the prestige will lift your spirits immensely.
+  acceptResultText: You sign the paper and feel like a true aristocrat! Then you
+    realize the 'fine print' gave Graves direct access to drain your bank accounts.
+  rejectResultText: You read the fine print and throw the contract in his face. You
+    feel incredibly smart and secure.
+  acceptedDelayedText: 
+  rejectedDelayedText: 
+  accepted: 0
+  rejectedEffects:
+  - type: 0
+    amount: 10
+    revealDelay: 0
+  claimedEffects:
+  - type: 0
+    amount: 15
+    revealDelay: 0
+  actualEffects:
+  - type: 1
+    amount: -15
+    revealDelay: 0
