@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Challenges;
 using TMPro;
 using UI.Utilities;
 using UnityEngine;
@@ -39,11 +40,11 @@ namespace UI
         }
         
 
-        public void ShowDayEndSummary(int completedDay, UpkeepEffects dailyUpkeep)
+        public bool ShowDayEndSummary(int completedDay, UpkeepEffects dailyUpkeep)
         {
             if (PendingEffects.Instance != null && PendingEffects.Instance.HasPendingEffectsForCurrentTime())
             {
-                return;
+                return false;
             }
 
             if (PendingEffectPopup.Instance != null && PendingEffectPopup.Instance.popupRoot != null)
@@ -66,14 +67,18 @@ namespace UI
                 dayTitleText.text = $"Day {completedDay} Complete\n {dailyUpkeep.title}";
             }
             
-            StatManager.Instance.ApplyEffects(dailyUpkeep.effects, checkGameOver: false);
+            StatEffect[] resolvedEffects = ChallengeManager.Instance
+                ? ChallengeManager.Instance.ResolveUpkeepEffects(dailyUpkeep.effects)
+                : dailyUpkeep.effects;
+
+            StatManager.Instance.ApplyEffects(resolvedEffects, checkGameOver: false);
             
             string finalSummary = dailyUpkeep.summaryText;
             
-            if (dailyUpkeep.effects != null && dailyUpkeep.effects.Length > 0)
+            if (resolvedEffects != null && resolvedEffects.Length > 0)
             {
                 finalSummary += "\n\n<b>Daily Effects:</b>\n";
-                foreach (var effect in dailyUpkeep.effects)
+                foreach (var effect in resolvedEffects)
                 {
                     string sign = effect.amount > 0 ? "+" : ""; 
                     finalSummary += $"{effect.type}: {sign}{effect.amount}\n";
@@ -89,6 +94,8 @@ namespace UI
             {
                 summaryBodyText.text = finalSummary;
             }
+
+            return true;
         }
 
         public void OnStartNextDayClicked()
@@ -116,4 +123,3 @@ namespace UI
         }
     }
 }
-

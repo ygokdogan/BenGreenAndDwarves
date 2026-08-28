@@ -1,4 +1,5 @@
 using System;
+using Challenges;
 using UnityEngine;
 
 public class TimeManager : MonoBehaviour
@@ -41,14 +42,11 @@ public class TimeManager : MonoBehaviour
     {
         CurrentHour += amount;
         TotalHoursElapsed += amount;
-
+        OnHourChanged?.Invoke(CurrentHour);
+        
         if (CurrentHour >= endHour)
         {
             OnDayEnded?.Invoke(CurrentDay);
-        }
-        else
-        {
-            OnHourChanged?.Invoke(CurrentHour);
         }
     }
 

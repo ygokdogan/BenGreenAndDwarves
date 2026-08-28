@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Challenges;
 using Effects;
 using UnityEngine;
 
@@ -25,8 +26,6 @@ public class StatManager : MonoBehaviour
         
         InitializeMaxStats(100, 100, 100, 100);
         InitializeStats(50,50,50,50);
-        
-        SetMax(StatType.Cash, 150);
     }
     
     private void InitializeMaxStats(int happiness, int health, int storage, int cash)
@@ -49,6 +48,32 @@ public class StatManager : MonoBehaviour
     {
         maxStats[statType] = value;
         OnMaxStatChanged?.Invoke(statType, value);
+    }
+
+    public void SetCurrent(StatType statType, int value)
+    {
+        var oldValue = stats[statType];
+        stats[statType] = Mathf.Clamp(value, 0, maxStats[statType]);
+        OnStatChanged?.Invoke(statType, stats[statType], oldValue);
+    }
+
+    public void SetMaxKeepingPercentage(StatType statType, int value)
+    {
+        var oldCurr = stats[statType];
+        float per = (float)stats[statType] / maxStats[statType];
+        maxStats[statType] = value;
+        stats[statType] = Mathf.RoundToInt(per * value);
+        
+        OnMaxStatChanged?.Invoke(statType, value);
+        OnStatChanged?.Invoke(statType, stats[statType], oldCurr);
+    }
+
+    public void NormalizeToHalfOfMaximum(StatType statType)
+    {
+        int oldValue = stats[statType];
+        stats[statType] = maxStats[statType] / 2;
+
+        OnStatChanged?.Invoke(statType, stats[statType], oldValue);
     }
 
     public void ApplyEffects(StatEffect[] effects, bool checkGameOver = true)
@@ -94,6 +119,12 @@ public class StatManager : MonoBehaviour
         {
             if (stat.Value <= 0 || stat.Value >= maxStats[stat.Key])
             {
+                if (ChallengeManager.Instance &&
+                    ChallengeManager.Instance.TryPreventGameOver(stat.Key))
+                {
+                    continue;
+                }
+
                 GameManager.Instance.EndGame(stat.Key, stat.Value <= 0);
                 return true;
             }

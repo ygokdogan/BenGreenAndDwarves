@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using Challenges;
 using Effects;
 using ScriptableObjects;
 using UI;
@@ -55,9 +56,20 @@ public class GameManager : MonoBehaviour
         int totalEncounters = dailyAccepts + dailyRejects;
         float avgAccepts = totalEncounters > 0 ?  (float)dailyAccepts / (float)totalEncounters : 0.5f;
         
-        UpkeepEffects dailyUpkeep = DecideUpkeepStats(avgAccepts);
+        UpkeepEffects dailyUpkeep = DecideUpkeepStats(avgAccepts); 
         
-        DayEndUIManager.Instance.ShowDayEndSummary(day, dailyUpkeep);
+        bool wasDayResolved = DayEndUIManager.Instance.ShowDayEndSummary(day, dailyUpkeep);
+        if (!wasDayResolved) return;
+
+        if (StatManager.Instance != null && StatManager.Instance.CheckGameOver())
+        {
+            dailyAccepts = 0;
+            dailyRejects = 0;
+            return;
+        }
+
+        if (ChallengeManager.Instance)
+            ChallengeManager.Instance.OnDayResolved(day);
         
         dailyAccepts = 0; dailyRejects = 0;
     }
@@ -70,6 +82,8 @@ public class GameManager : MonoBehaviour
     public void EndGame(StatType stat, bool isZero = true)
     {
         Debug.Log($"Game Ended: {stat} (isZero: {isZero})");
+        
+        if (ChallengeManager.Instance) ChallengeManager.Instance.OnGameEnded();
         if (GameOverUIManager.Instance != null)
         {
             GameOverUIManager.Instance.ShowGameOver(stat, isZero);
