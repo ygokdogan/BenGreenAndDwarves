@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5121f3cd628745d389ffd1005a7abceb, type: 3}
+  m_Name: The Frugal Miser
+  m_EditorClassIdentifier: Assembly-CSharp::Effects.UpkeepEffects
+  title: The Frugal Miser
+  summaryText: You guarded your purse strings tightly today. The ledger looks highly
+    profitable, but constantly turning away society has left you feeling incredibly
+    bitter.
+  minAvg: 0.4
+  effects:
+  - type: 1
+    amount: 10
+    revealDelay: 0
+  - type: 0
+    amount: -10
+    revealDelay: 0

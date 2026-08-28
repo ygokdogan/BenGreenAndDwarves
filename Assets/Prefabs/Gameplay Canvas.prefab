@@ -3083,7 +3083,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 298c1e4031953439abd4917374a34f96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI.Utilities.TypewriterEffect
-  charactersPerSecond: 40
+  charactersPerSecond: 50
   playOnEnable: 0
   autoSizeText: 1
   minFontSize: 18
@@ -4302,10 +4302,6 @@ MonoBehaviour:
   dayTitleText: {fileID: 7931776769554300540}
   summaryBodyText: {fileID: 541114974488887411}
   summaryTypewriter: {fileID: 0}
-  dailyCashCost: -10
-  dailyHealthCost: -5
-  dailyHappinessCost: -5
-  dailyStorageCost: -5
 --- !u!1 &9013370270153530196
 GameObject:
   m_ObjectHideFlags: 0

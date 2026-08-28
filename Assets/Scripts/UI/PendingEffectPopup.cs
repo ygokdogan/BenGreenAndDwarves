@@ -22,7 +22,7 @@ namespace UI
         public TypewriterEffect typewriterEffect;
         private Action onClosed;
         
-        private Queue<PendingEffect> effectQueue = new Queue<PendingEffect>();
+        private Queue<List<PendingEffect>> effectGroupsQueue = new Queue<List<PendingEffect>>();
 
         private void Awake()
         {
@@ -54,20 +54,43 @@ namespace UI
 
             bool wasAlreadyOpen = popupRoot != null && popupRoot.activeSelf;
             
-            foreach (var effect in effects)
+            var groupsByEncounter = new Dictionary<EncounterData, List<PendingEffect>>();
+            var groupsInDisplayOrder = new List<List<PendingEffect>>();
+
+            foreach (PendingEffect effect in effects)
             {
-                effectQueue.Enqueue(effect);
+                // Effects originating from one encounter share one popup. Effects from
+                // different encounters retain their own popup and apply independently.
+                if (effect.encounter == null)
+                {
+                    groupsInDisplayOrder.Add(new List<PendingEffect> { effect });
+                    continue;
+                }
+
+                if (!groupsByEncounter.TryGetValue(effect.encounter, out List<PendingEffect> group))
+                {
+                    group = new List<PendingEffect>();
+                    groupsByEncounter.Add(effect.encounter, group);
+                    groupsInDisplayOrder.Add(group);
+                }
+
+                group.Add(effect);
+            }
+
+            foreach (List<PendingEffect> group in groupsInDisplayOrder)
+            {
+                effectGroupsQueue.Enqueue(group);
             }
             
             if (!wasAlreadyOpen)
             {
-                ShowNextEffect();
+                ShowNextGroup();
             }
         }
 
-        private void ShowNextEffect()
+        private void ShowNextGroup()
         {
-            if (effectQueue.Count == 0)
+            if (effectGroupsQueue.Count == 0)
             {
                 popupRoot.SetActive(false);
                 Action callback = onClosed;
@@ -76,8 +99,11 @@ namespace UI
                 return;
             }
             
-            PendingEffect currentEffect = effectQueue.Dequeue();
-            PendingEffects.Instance?.ApplyTriggeredEffect(currentEffect);
+            List<PendingEffect> currentGroup = effectGroupsQueue.Dequeue();
+            foreach (PendingEffect pendingEffect in currentGroup)
+            {
+                PendingEffects.Instance?.ApplyTriggeredEffect(pendingEffect);
+            }
             
             if (popupRoot != null && !popupRoot.activeSelf)
             {
@@ -89,7 +115,7 @@ namespace UI
             
             if (bodyText != null) bodyText.gameObject.SetActive(true);
             
-            string fullText = BuildEffectText(currentEffect);
+            string fullText = BuildGroupText(currentGroup);
 
             if (typewriterEffect != null)
             {
@@ -117,16 +143,16 @@ namespace UI
                 return;
             }
             
-            ShowNextEffect();
+            ShowNextGroup();
         }
         
-        private string BuildEffectText(PendingEffect pendingEffect)
+        private string BuildGroupText(IReadOnlyList<PendingEffect> group)
         {
             StringBuilder builder = new StringBuilder();
             builder.AppendLine("Results of your previous choices has appeared:");
             builder.AppendLine();
 
-            builder.AppendLine(pendingEffect.triggerText);
+            builder.AppendLine(group[0].triggerText);
 
             return builder.ToString().TrimEnd();
         }

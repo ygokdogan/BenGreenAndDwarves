@@ -9,7 +9,7 @@ namespace UI.Utilities
     public class TypewriterEffect : MonoBehaviour
     {
         [Header("Settings")]
-        [SerializeField] private float charactersPerSecond = 40f;
+        [SerializeField] private float charactersPerSecond = 50f;
         [SerializeField] private bool playOnEnable = false;
 
         [Header("Auto Sizing")]

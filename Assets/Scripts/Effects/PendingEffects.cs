@@ -95,7 +95,6 @@ namespace Effects
             }
         }
 
-        // A delayed effect is applied only when its own notification is shown to the player.
         public void ApplyTriggeredEffect(PendingEffect pendingEffect)
         {
             if (StatManager.Instance != null)

@@ -45,7 +45,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c1eb41f31e143208e0f46469c9af7eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  upkeepEffects:
+  - {fileID: 11400000, guid: 97ff9211d0c2e43f3842574c67ccb662, type: 2}
+  - {fileID: 11400000, guid: 7ed345484141247408cba36438d80d31, type: 2}
+  - {fileID: 11400000, guid: de23b459220104a87b69d67d78efe70f, type: 2}
+  - {fileID: 11400000, guid: d0b3507390a92421989c974272e5f54e, type: 2}
+  - {fileID: 11400000, guid: 0e4398c3f692247128a01f47a498c4c0, type: 2}
   uiButtonSource: {fileID: 8078047825871143593}
+  dailyAccepts: 0
+  dailyRejects: 0
 --- !u!1 &7193101759665156858
 GameObject:
   m_ObjectHideFlags: 0

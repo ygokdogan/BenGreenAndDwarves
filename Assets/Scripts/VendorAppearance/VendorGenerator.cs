@@ -10,7 +10,6 @@ namespace VendorAppearance
     public class VendorGenerator : MonoBehaviour
     {
         private Sprite[] bodies, faces, hairs, hats, mustaches, bags;
-        private string[] firstNames, lastNames;
         
         HashSet<VendorData> used = new HashSet<VendorData>();
 
@@ -22,21 +21,6 @@ namespace VendorAppearance
             hats = Resources.LoadAll<Sprite>("Appearance/VendorParts/Hats");
             mustaches = Resources.LoadAll<Sprite>("Appearance/VendorParts/Mustaches");
             bags = Resources.LoadAll<Sprite>("Appearance/VendorParts/Bags");
-            
-            firstNames = LoadNames("Appearance/VendorParts/FirstNames");
-            lastNames = LoadNames("Appearance/VendorParts/LastNames");
-        }
-
-        private string[] LoadNames(string path)
-        {
-            TextAsset file = Resources.Load<TextAsset>(path);
-            if (file == null)
-            {
-                Debug.LogError($"Name file could not be found: {path}");
-                return new[] { "Unknown" };
-            }
-            
-            return file.text.Split('\n').Select(line => line.Trim()).Where(line => !string.IsNullOrEmpty(line)).ToArray();
         }
 
         public VendorData Generate()
@@ -47,7 +31,6 @@ namespace VendorAppearance
             {
                 data = new VendorData
                 {
-                    vendorName = RandomName(),
                     bodyIndex = GetRandomIndex(bodies),
                     faceIndex = GetRandomIndex(faces),
                     hairIndex = GetRandomIndex(hairs),
@@ -67,16 +50,7 @@ namespace VendorAppearance
             if (array == null || array.Length == 0) return -1;
             return Random.Range(0, array.Length);
         }
-
-        private string RandomName()
-        {
-            if (firstNames == null || firstNames.Length == 0 || lastNames == null || lastNames.Length == 0)
-                return "Unknown Vendor";
-            var first = firstNames[Random.Range(0, firstNames.Length)];
-            var last = lastNames[Random.Range(0, lastNames.Length)];
-            return $"{first} {last}";
-        }
-
+        
         public Sprite GetBody(int i) => GetSpriteSafe(bodies, i);
         public Sprite GetFace(int i) => GetSpriteSafe(faces, i);
         public Sprite GetHair(int i) => GetSpriteSafe(hairs, i);

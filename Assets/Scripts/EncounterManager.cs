@@ -13,19 +13,18 @@ public class EncounterManager : MonoBehaviour
     public static EncounterManager Instance;
 
     public EncounterUIManager encounterUI;
-    
     private PendingEffects pendingEffects;
     private TimeManager timeManager;
     
     [Header("Encounter Database")]
     public List<EncounterData> allEncounters = new List<EncounterData>();
+    private List<EncounterData> seenEncounters = new List<EncounterData>();
     private EncounterData currentEncounter;
     
-    private List<EncounterData> seenEncounters = new List<EncounterData>();
-    
     private VendorGenerator vendorGenerator;
-    private bool waitingForPendingEffects = false;
+    
     public bool IsWaitingForPendingEffects => waitingForPendingEffects;
+    private bool waitingForPendingEffects = false;
 
     private void Awake()
     {
@@ -84,19 +83,37 @@ public class EncounterManager : MonoBehaviour
     }
     
     public EncounterData GetCurrentEncounter() => currentEncounter;
-
     public void LoadNextEncounter() => LoadRandomEncounter();
+    
+    private void ResolveEncounter(bool accepted)
+    {
+        currentEncounter.accepted = accepted;
+
+        var effects = accepted
+            ? currentEncounter.GetActualEffects()
+            : currentEncounter.rejectedEffects;
+
+        foreach (StatEffect effect in effects)
+        {
+            if (effect.Instant)
+                StatManager.Instance.ApplyEffect(effect, checkGameOver: false);
+            else
+                PendingEffects.Instance.Schedule(currentEncounter, effect, effect.revealDelay);
+        }
+    }
 
     public void OnYesButtonClicked()
     {
-        GameManager.Instance.ResolveEncounter(currentEncounter, true);
-        encounterUI.ShowResultPanel(currentEncounter.acceptResultText); 
+        ResolveEncounter(true);
+        encounterUI.ShowResultPanel(currentEncounter.acceptResultText);
+        GameManager.Instance.dailyAccepts++;
     }
     
     public void OnNoButtonClicked()
     {
-        GameManager.Instance.ResolveEncounter(currentEncounter, false);
-        encounterUI.ShowResultPanel(currentEncounter.rejectResultText); 
+        ResolveEncounter(false);
+        encounterUI.ShowResultPanel(currentEncounter.rejectResultText);
+        GameManager.Instance.dailyRejects++;
     }
     
     public void OnContinueButtonClicked()
@@ -135,7 +152,7 @@ public class EncounterManager : MonoBehaviour
         }
         else if (timeManager != null && timeManager.CurrentHour >= 21)
         {
-            UI.DayEndUIManager.Instance?.ShowDayEndSummary(timeManager.CurrentDay);
+            GameManager.Instance.EndDay(timeManager.CurrentDay);
         }
     }
 }

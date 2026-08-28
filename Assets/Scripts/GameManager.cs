@@ -1,13 +1,19 @@
 using System;
+using System.Linq;
 using Effects;
 using ScriptableObjects;
+using UI;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-
+    public UpkeepEffects[] upkeepEffects;
+    
     public AudioSource uiButtonSource;
+
+    public int dailyAccepts;
+    public int dailyRejects;
 
     private void Awake()
     {
@@ -18,48 +24,53 @@ public class GameManager : MonoBehaviour
         }
 
         Instance = this;
+
+        if (upkeepEffects != null && upkeepEffects.Length > 0)
+        {
+            upkeepEffects = upkeepEffects.OrderByDescending(u => u.minAvg).ToArray();
+        }
     }
 
-    public void ResolveEncounter(EncounterData encounter, bool accepted)
+    private void Start()
     {
-        if (accepted)
-        {
-            encounter.accepted = true;
-            foreach (StatEffect effect in encounter.GetActualEffects())
-            {
-                if (effect.Instant)
-                {
-                    StatManager.Instance.ApplyEffect(effect, checkGameOver: false);
-                }
-                else
-                {
-                    PendingEffects.Instance.Schedule(encounter, effect, effect.revealDelay);
-                }
-            }
-        }
-        else
-        {
-            encounter.accepted = false;
-            foreach (StatEffect effect in encounter.rejectedEffects)
-            {
-                if (effect.Instant)
-                {
-                    StatManager.Instance.ApplyEffect(effect, checkGameOver: false);
-                }
-                else
-                {
-                    PendingEffects.Instance.Schedule(encounter, effect, effect.revealDelay);
-                }
-            }
-        }
+        TimeManager.Instance.OnDayEnded += EndDay;
+    }
+
+    private void OnDestroy()
+    {
+        TimeManager.Instance.OnDayEnded -= EndDay;
+    }
+
+
+    public void EndDay(int day)
+    {
+        int totalEncounters = dailyAccepts + dailyRejects;
+        float avgAccepts = totalEncounters > 0 ?  (float)dailyAccepts / (float)totalEncounters : 0.5f;
+        
+        UpkeepEffects dailyUpkeep = DecideUpkeepStats(avgAccepts);
+        
+        DayEndUIManager.Instance.ShowDayEndSummary(day, dailyUpkeep);
+        
+        dailyAccepts = 0; dailyRejects = 0;
     }
 
     public void EndGame(StatType stat, bool isZero = true)
     {
         Debug.Log($"Game Ended: {stat} (isZero: {isZero})");
-        if (UI.GameOverUIManager.Instance != null)
+        if (GameOverUIManager.Instance != null)
         {
-            UI.GameOverUIManager.Instance.ShowGameOver(stat, isZero);
+            GameOverUIManager.Instance.ShowGameOver(stat, isZero);
         }
+    }
+
+    private UpkeepEffects DecideUpkeepStats(float avg)
+    {
+        foreach (var upkeep in upkeepEffects)
+        {
+            if (avg >= upkeep.minAvg) return upkeep;
+        }
+        
+        Debug.LogWarning($"No UpkeepEffects found for average: {avg}. Returning default.");
+        return default;
     }
 }

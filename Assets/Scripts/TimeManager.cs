@@ -13,7 +13,7 @@ public class TimeManager : MonoBehaviour
 
     public event Action<int> OnDayChanged;
     public event Action<int> OnHourChanged;
-    public event Action<int> OnDayEnded; // Triggered at end of day (21:00) before advancing
+    public event Action<int> OnDayEnded;
 
     private void Awake()
     {

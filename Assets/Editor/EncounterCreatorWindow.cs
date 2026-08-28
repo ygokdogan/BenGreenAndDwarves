@@ -189,7 +189,7 @@ public sealed class EncounterCreatorWindow : EditorWindow
 
     private void ResetForm()
     {
-        vendorName = offerText = acceptResultText = rejectResultText = acceptedDelayedText = "";
+        vendorName = offerText = acceptResultText = rejectResultText = acceptedDelayedText = rejectedDelayedText = "";
         acceptedEffects.Clear();
         rejectedEffects.Clear();
         claimedEffects.Clear();
