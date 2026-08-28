@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dc5331b40204628afa94f7e24f8e5c2, type: 3}
+  m_Name: Speculator Spencer
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.TrueEncounterData
+  vendorName: Speculator Spencer
+  offerText: That dusty old land deed on your desk is completely worthless. Hand
+    it over to me, and I will give you a modest sum of cash right now.
+  acceptResultText: You sell the old paper for pocket change. Your desk is slightly
+    cleaner.
+  rejectResultText: You stubbornly keep the dusty paper, feeling a bit foolish for
+    turning down free money.
+  acceptedDelayedText: 
+  rejectedDelayedText: The city announces a new railroad! That 'worthless' deed you
+    kept is suddenly in high demand, and a buyer pays you a massive sum for it!
+  accepted: 0
+  rejectedEffects:
+  - type: 0
+    amount: -5
+    revealDelay: 0
+  - type: 0
+    amount: 15
+    revealDelay: 2
+  - type: 1
+    amount: 15
+    revealDelay: 2
+  effects:
+  - type: 1
+    amount: 5
+    revealDelay: 0
+  - type: 2
+    amount: -5
+    revealDelay: 0

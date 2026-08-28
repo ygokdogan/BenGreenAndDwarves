@@ -10,29 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4dc5331b40204628afa94f7e24f8e5c2, type: 3}
-  m_Name: Handyman Hal
+  m_Name: Scrapper Sullivan
   m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.TrueEncounterData
-  vendorName: Handyman Hal
-  offerText: I see those broken chairs hogging your hallway. Give me some cash and
-    I'll haul them to the dump this hour.
-  acceptResultText: Hal drags the broken chairs out immediately. By the end of the
-    hour, your hallway is finally clear and walkable.
-  rejectResultText: You trip over a chair leg five minutes later, bruising your shin
-    terribly.
+  vendorName: Scrapper Sullivan
+  offerText: That mountainous pile of rusted machinery in the corner is a complete
+    hazard. I will write you a check right now to haul the entire eyesore away.
+  acceptResultText: Sullivan's crew efficiently clears out the heavy scrap. You pocket
+    the check and take a deep breath in your newly cleared room.
+  rejectResultText: You refuse his offer. Ten minutes later, a sharp piece of the
+    rusted metal catches your ankle, leaving a painful gash.
   acceptedDelayedText: 
   rejectedDelayedText: 
-  accepted: 1
+  accepted: 0
   rejectedEffects:
-  - type: 0
-    amount: -5
-    revealDelay: 0
   - type: 3
-    amount: -10
+    amount: -5
     revealDelay: 0
   effects:
-  - type: 1
-    amount: -5
-    revealDelay: 0
   - type: 2
-    amount: -15
+    amount: -10
+    revealDelay: 0
+  - type: 1
+    amount: 10
     revealDelay: 0

@@ -10,15 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4dc5331b40204628afa94f7e24f8e5c2, type: 3}
-  m_Name: Honest Herb
+  m_Name: Auditor Lionel
   m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.TrueEncounterData
-  vendorName: Honest Herb
-  offerText: "Look, I\u2019ll take a fair chunk of cash off your hands, but in exchange,
-    I'll haul away this giant, heavy wardrobe that's been hogging all your room."
-  acceptResultText: Herb muscles the heavy wardrobe out of your apartment. Suddenly,
-    your bedroom actually looks breathable.
-  rejectResultText: You look at the inside of the gardrobe and find a clothing that
-    you did not wear for a long time. It gives you nostalgia.
+  vendorName: Auditor Lionel
+  offerText: I need a quiet place to hide these towering ledgers of embezzled funds
+    for just one hour. Give me the floor space, and I will slide a thick envelope
+    of cash your way.
+  acceptResultText: Alistair stacks the massive books to the ceiling. You can barely
+    move an inch, but the heavy envelope of cash makes the claustrophobia bearable.
+  rejectResultText: You kick the corrupt auditor out. Keeping your integrity intact
+    and your floor completely clear feels absolutely fantastic.
   acceptedDelayedText: 
   rejectedDelayedText: 
   accepted: 0
@@ -28,8 +29,8 @@ MonoBehaviour:
     revealDelay: 0
   effects:
   - type: 1
-    amount: -15
+    amount: 10
     revealDelay: 0
   - type: 2
-    amount: -20
+    amount: 10
     revealDelay: 0

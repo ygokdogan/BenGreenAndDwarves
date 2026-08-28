@@ -10,29 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4dc5331b40204628afa94f7e24f8e5c2, type: 3}
-  m_Name: Handyman Hal
+  m_Name: Collector Clarence
   m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.TrueEncounterData
-  vendorName: Handyman Hal
-  offerText: I see those broken chairs hogging your hallway. Give me some cash and
-    I'll haul them to the dump this hour.
-  acceptResultText: Hal drags the broken chairs out immediately. By the end of the
-    hour, your hallway is finally clear and walkable.
-  rejectResultText: You trip over a chair leg five minutes later, bruising your shin
-    terribly.
+  vendorName: Collector Clarence
+  offerText: I simply must have that enormous, hideous rug covering your floor for
+    my gallery. Allow me to roll it up and take it away, and I shall leave you with
+    a very heavy purse.
+  acceptResultText: Clarence's men remove the heavy rug and hand you the money. The
+    room feels wonderfully spacious and your wallet is thick.
+  rejectResultText: You refuse to part with the rug. Ten minutes later, you trip
+    over its frayed edge, falling hard and painfully bruising your knee.
   acceptedDelayedText: 
   rejectedDelayedText: 
-  accepted: 1
+  accepted: 0
   rejectedEffects:
-  - type: 0
-    amount: -5
-    revealDelay: 0
   - type: 3
     amount: -10
     revealDelay: 0
   effects:
   - type: 1
-    amount: -5
+    amount: 15
     revealDelay: 0
   - type: 2
-    amount: -15
+    amount: -10
     revealDelay: 0

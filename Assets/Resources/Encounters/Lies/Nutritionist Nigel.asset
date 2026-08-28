@@ -10,15 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5d0471b0cbf4c6ebae6eb977f88ebd0, type: 3}
-  m_Name: Earthy Eric
+  m_Name: Nutritionist Nigel
   m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.LieEncounterData
-  vendorName: Earthy Eric
-  offerText: Brother, try these raw, unpasteurized, ancient-grain power-bites. They
-    will heal your gut biome and connect you to the earth.
-  acceptResultText: You eat the power-bites. Turns out 'unpasteurized' just meant
-    'full of aggressive bacteria.' You spend the night shivering in bed.
-  rejectResultText: "You\u2019re turning down the power-bites. As he leaves, he insults
-    you. "
+  vendorName: Nutritionist Nigel
+  offerText: Purchase my patented vitamin syrup. It is quite expensive, but a single
+    spoonful will have you feeling physically vibrant and sharp for the rest of the
+    day.
+  acceptResultText: You swallow the syrup. It tastes like dirt and instantly curdles
+    in your stomach, leaving you groggy, nauseous, and poorer.
+  rejectResultText: You laugh at his snake-oil pitch. You brew yourself a simple
+    cup of green tea instead, feeling healthy, sharp, and smart.
   acceptedDelayedText: 
   rejectedDelayedText: 
   accepted: 0
@@ -27,18 +28,21 @@ MonoBehaviour:
     amount: 5
     revealDelay: 0
   - type: 0
-    amount: -5
+    amount: 10
     revealDelay: 0
   claimedEffects:
   - type: 1
-    amount: -5
+    amount: -10
     revealDelay: 0
   - type: 3
-    amount: 10
+    amount: 15
     revealDelay: 0
   actualEffects:
   - type: 1
-    amount: -5
+    amount: -10
+    revealDelay: 0
+  - type: 0
+    amount: -10
     revealDelay: 0
   - type: 3
     amount: -10

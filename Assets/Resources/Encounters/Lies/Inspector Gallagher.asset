@@ -10,35 +10,36 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5d0471b0cbf4c6ebae6eb977f88ebd0, type: 3}
-  m_Name: Shelter Volunteer Jonathan
+  m_Name: Inspector Gallagher
   m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.LieEncounterData
-  vendorName: Shelter Volunteer Jonathan
-  offerText: We are overflowing! Could you foster this precious, tiny kitten for
-    just one weekend? She's an absolute angel and so small.
-  acceptResultText: The kitten is cute, but destroys your curtains, requires a massive
-    scratching post, and reveals you have a severe, previously unknown cat allergy.
-  rejectResultText: Oh... okay. I'll just tell her nobody wanted her.
+  vendorName: Inspector Gallagher
+  offerText: Your home is terribly vulnerable. Pay my consultation fee, and I will
+    upgrade your locks, granting you the ultimate peace of mind.
+  acceptResultText: You feel completely safe! However, his 'upgrade' includes a massive,
+    irremovable iron barricade that permanently ruins half of your living space.
+  rejectResultText: You trust your current locks. You feel confident and refuse to
+    live in fear.
   acceptedDelayedText: 
   rejectedDelayedText: 
-  accepted: 1
+  accepted: 0
   rejectedEffects:
   - type: 0
-    amount: -15
+    amount: 5
     revealDelay: 0
   claimedEffects:
   - type: 0
-    amount: 15
+    amount: 10
     revealDelay: 0
-  - type: 2
-    amount: 5
+  - type: 1
+    amount: -10
     revealDelay: 0
   actualEffects:
   - type: 0
+    amount: 10
+    revealDelay: 0
+  - type: 1
     amount: -10
     revealDelay: 0
   - type: 2
-    amount: 15
-    revealDelay: 0
-  - type: 3
-    amount: -10
+    amount: 10
     revealDelay: 0

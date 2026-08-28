@@ -15,11 +15,13 @@ MonoBehaviour:
   vendorName: Blood-Bank Barry
   offerText: Donate blood today! It costs no money, you get free sugary snacks for
     your energy, and the joy of saving lives!
-  acceptResultText: Donate blood today! It costs no money, you get free sugary snacks
-    for your energy, and the joy of saving lives!
+  acceptResultText: You donate, eat a bunch of free cookies, and walk away feeling
+    like a genuine hero.
   rejectResultText: Barry looks deeply disappointed in your selfishness. You feel
     like a bad person.
-  delayedText: 
+  acceptedDelayedText: 
+  rejectedDelayedText: 
+  accepted: 1
   rejectedEffects:
   - type: 0
     amount: -10

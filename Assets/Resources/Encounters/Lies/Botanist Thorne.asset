@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5d0471b0cbf4c6ebae6eb977f88ebd0, type: 3}
+  m_Name: Botanist Thorne
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.LieEncounterData
+  vendorName: Botanist Thorne
+  offerText: Pay my fee, and I shall place this massive, rather ugly fungal terrarium
+    in your corner. It requires significant space and capital.
+  acceptResultText: You pay the fee and sacrifice your corner. Surprisingly, the
+    strange fungus releases natural spores that completely clear your lungs and cure
+    your lingering cough!
+  rejectResultText: You refuse the ugly plant. You keep your money, but the air in
+    your room remains dreadfully stale.
+  acceptedDelayedText: 
+  rejectedDelayedText: You kept your money by refusing the plant, but the air in
+    your room remains dreadfully stale.
+  accepted: 0
+  rejectedEffects:
+  - type: 3
+    amount: -5
+    revealDelay: 1
+  claimedEffects:
+  - type: 2
+    amount: 10
+    revealDelay: 0
+  - type: 1
+    amount: -10
+    revealDelay: 0
+  actualEffects:
+  - type: 1
+    amount: -10
+    revealDelay: 0
+  - type: 2
+    amount: 10
+    revealDelay: 0
+  - type: 3
+    amount: 15
+    revealDelay: 0

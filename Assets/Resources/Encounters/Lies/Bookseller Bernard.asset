@@ -10,36 +10,40 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5d0471b0cbf4c6ebae6eb977f88ebd0, type: 3}
-  m_Name: Earthy Eric
+  m_Name: Bookseller Bernard
   m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.LieEncounterData
-  vendorName: Earthy Eric
-  offerText: Brother, try these raw, unpasteurized, ancient-grain power-bites. They
-    will heal your gut biome and connect you to the earth.
-  acceptResultText: You eat the power-bites. Turns out 'unpasteurized' just meant
-    'full of aggressive bacteria.' You spend the night shivering in bed.
-  rejectResultText: "You\u2019re turning down the power-bites. As he leaves, he insults
-    you. "
+  vendorName: Bookseller Bernard
+  offerText: I am offering a massive, leather-bound encyclopedia set. It demands
+    a heavy toll on your purse and your shelves, but the knowledge inside will greatly
+    enrich your mind.
+  acceptResultText: You stack the heavy books on your shelf. You open one, only to
+    realize the pages are completely blank. It was a total scam.
+  rejectResultText: You send the salesman away. Feeling inspired to declutter, you
+    actually gather some old magazines and sell them to a neighbor!
   acceptedDelayedText: 
   rejectedDelayedText: 
   accepted: 0
   rejectedEffects:
-  - type: 3
-    amount: 5
+  - type: 1
+    amount: 10
     revealDelay: 0
-  - type: 0
+  - type: 2
     amount: -5
     revealDelay: 0
   claimedEffects:
   - type: 1
-    amount: -5
+    amount: -15
     revealDelay: 0
-  - type: 3
-    amount: 10
+  - type: 2
+    amount: 15
     revealDelay: 0
   actualEffects:
   - type: 1
-    amount: -5
+    amount: -15
     revealDelay: 0
-  - type: 3
+  - type: 2
+    amount: 15
+    revealDelay: 0
+  - type: 0
     amount: -10
     revealDelay: 0

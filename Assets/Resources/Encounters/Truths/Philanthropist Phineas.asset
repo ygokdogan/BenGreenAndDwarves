@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dc5331b40204628afa94f7e24f8e5c2, type: 3}
+  m_Name: Philanthropist Phineas
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.TrueEncounterData
+  vendorName: Philanthropist Phineas
+  offerText: I conduct studies on human misery. Let me smash your absolute favorite
+    porcelain vase to pieces right now, and I will reward you with a staggering amount
+    of capital.
+  acceptResultText: Phineas shatters the beautiful vase with his cane and tosses
+    you the money. You are significantly richer, but a wave of profound sadness washes
+    over you
+  rejectResultText: You protect your prized vase. You spend the hour admiring its
+    beauty, feeling incredibly happy that some things cannot be bought.
+  acceptedDelayedText: 
+  rejectedDelayedText: 
+  accepted: 0
+  rejectedEffects:
+  - type: 0
+    amount: 5
+    revealDelay: 0
+  effects:
+  - type: 0
+    amount: -5
+    revealDelay: 0
+  - type: 1
+    amount: 15
+    revealDelay: 0
+  - type: 2
+    amount: -5
+    revealDelay: 0

@@ -10,35 +10,40 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5d0471b0cbf4c6ebae6eb977f88ebd0, type: 3}
-  m_Name: Shelter Volunteer Jonathan
+  m_Name: Caterer DuPont
   m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.LieEncounterData
-  vendorName: Shelter Volunteer Jonathan
-  offerText: We are overflowing! Could you foster this precious, tiny kitten for
-    just one weekend? She's an absolute angel and so small.
-  acceptResultText: The kitten is cute, but destroys your curtains, requires a massive
-    scratching post, and reveals you have a severe, previously unknown cat allergy.
-  rejectResultText: Oh... okay. I'll just tell her nobody wanted her.
+  vendorName: Caterer DuPont
+  offerText: Clear off your entire dining table for my banquet. The food itself is
+    completely free, and your body will be perfectly nourished.
+  acceptResultText: The food is magnificent and you feel wonderfully healthy. Then
+    DuPont hands you an exorbitant, mandatory 'service and cleanup bill' that instantly
+    drains your wallet.
+  rejectResultText: You turn him away and eat a simple sandwich. It isn't fancy,
+    but your wallet remains full.
   acceptedDelayedText: 
   rejectedDelayedText: 
-  accepted: 1
+  accepted: 0
   rejectedEffects:
   - type: 0
-    amount: -15
+    amount: 5
+    revealDelay: 0
+  - type: 1
+    amount: 5
     revealDelay: 0
   claimedEffects:
-  - type: 0
-    amount: 15
-    revealDelay: 0
   - type: 2
     amount: 5
     revealDelay: 0
-  actualEffects:
-  - type: 0
-    amount: -10
-    revealDelay: 0
-  - type: 2
+  - type: 3
     amount: 15
     revealDelay: 0
+  actualEffects:
+  - type: 2
+    amount: 5
+    revealDelay: 0
   - type: 3
+    amount: 15
+    revealDelay: 0
+  - type: 1
     amount: -10
     revealDelay: 0
