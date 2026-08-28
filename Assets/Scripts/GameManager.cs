@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     public int dailyAccepts;
     public int dailyRejects;
 
+    private int daysToSurvive = 7;
+
     private void Awake()
     {
         if (Instance)
@@ -44,6 +46,12 @@ public class GameManager : MonoBehaviour
 
     public void EndDay(int day)
     {
+        if (day >= daysToSurvive)
+        {
+            WinGame();
+            return;
+        }
+        
         int totalEncounters = dailyAccepts + dailyRejects;
         float avgAccepts = totalEncounters > 0 ?  (float)dailyAccepts / (float)totalEncounters : 0.5f;
         
@@ -52,6 +60,11 @@ public class GameManager : MonoBehaviour
         DayEndUIManager.Instance.ShowDayEndSummary(day, dailyUpkeep);
         
         dailyAccepts = 0; dailyRejects = 0;
+    }
+
+    private void WinGame()
+    {
+        GameWonUIManager.Instance.ShowGameWon();
     }
 
     public void EndGame(StatType stat, bool isZero = true)

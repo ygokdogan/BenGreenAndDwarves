@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 0c4e76c4be1a84b0f872b3fc5877834f
+guid: 70cddf7de5220467aa731bad1b64c219
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5111222831108988516
-    second: buttonBase_0
+      213: 38722187593937543
+    second: buttonSquare_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -52,7 +52,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 16
-  spriteBorder: {x: 5, y: 3, z: 5, w: 3}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -100,45 +100,45 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: buttonBase_0
+      name: buttonSquare_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 62
-        height: 14
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 3, y: 3, z: 3, w: 3}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c91e1ef5ae94119b0800000000000000
-      internalID: -5111222831108988516
+      spriteID: 782767cdf91998000800000000000000
+      internalID: 38722187593937543
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: buttonBase_1
+      name: buttonSquare_1
       rect:
         serializedVersion: 2
-        x: 2
-        y: 17
-        width: 58
-        height: 13
+        x: 16
+        y: 0
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 4, y: 3, z: 4, w: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 93488ef7c944d46879829a8261f3c072
-      internalID: -288878308
+      spriteID: cea635d00c3244f71ae6eb1d3cc4d037
+      internalID: -528278646
       vertices: []
       indices: 
       edges: []
@@ -147,18 +147,20 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: ca26ce4297393484f9dbb72e420b6567
-    internalID: 657566626
+    spriteID: c4c44be2cf2204ec1a0e9237f044f34e
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":16.0,"y":16.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      buttonBase_0: -5111222831108988516
-      buttonBase_1: -288878308
+      buttonSquare_0: 38722187593937543
+      buttonSquare_1: -528278646
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
