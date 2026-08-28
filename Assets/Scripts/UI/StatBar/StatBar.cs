@@ -13,7 +13,8 @@ namespace UI.StatBar
 
         private Color32 healColor = new Color32(0, 255, 102, 255);
         private Color damageColor = new Color32(255, 0, 60, 255);
-        private TextMeshProUGUI valuePopup;
+        public TextMeshProUGUI valuePopup;
+        public TextMeshProUGUI value;
         private float popupY;
         
         private Slider fill;
@@ -32,7 +33,6 @@ namespace UI.StatBar
         {
             bar = GetComponent<RectTransform>();
             fill = GetComponent<Slider>();
-            valuePopup = GetComponentInChildren<TextMeshProUGUI>();
             popupY = valuePopup.rectTransform.anchoredPosition.y;
 
             if (outlineHighlight)
@@ -56,7 +56,8 @@ namespace UI.StatBar
         {
             HideHighlight();
             UpdateDangerZone((int)newValue);
-            
+
+            float val = oldValue;
             var diff = newValue - oldValue;
 
             if (diff == 0) return;
@@ -77,6 +78,12 @@ namespace UI.StatBar
                 
                 flash.gameObject.SetActive(true);
                 flash.DOFade(0.85f, 0.04f).SetLoops(2, LoopType.Yoyo).OnComplete(() => flash.gameObject.SetActive(false));
+
+                DOTween.To(() => val, x =>
+                {
+                    val = x;
+                    value.text = Mathf.RoundToInt(val).ToString() + $"/{maxValue}";
+                }, newValue, .6f);
             }
             else // HEAL
             {
@@ -84,6 +91,11 @@ namespace UI.StatBar
                 fill.DOValue(v, .6f).SetDelay(.6f).SetEase(Ease.OutQuad);
                 
                 bar.DOPunchScale(new Vector3(0.02f, .1f, 0f), .3f);
+                DOTween.To(() => val, x =>
+                {
+                    val = x;
+                    value.text = Mathf.RoundToInt(val).ToString() + $"/{maxValue}";
+                }, newValue, 1.2f);
             }
             
             SetValuePopup((int)diff);
