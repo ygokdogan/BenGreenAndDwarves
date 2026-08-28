@@ -46,7 +46,7 @@ namespace UI
         public void ShowEncounterPanel(EncounterData encounter)
         {
             currentEncounter = encounter;
-            if (StatUIManager.Instance != null) StatUIManager.Instance.ClearPreview();
+            if (HUDManager.Instance != null) HUDManager.Instance.ClearPreview();
 
             resultPanel.SetActive(false);
 
@@ -72,7 +72,7 @@ namespace UI
 
         public void ShowResultPanel(string resultMessage)
         {
-            if (StatUIManager.Instance != null) StatUIManager.Instance.ClearPreview();
+            if (HUDManager.Instance != null) HUDManager.Instance.ClearPreview();
 
             encounterPanel.SetActive(false);
             vendorNamePanel.SetActive(false);
@@ -118,7 +118,7 @@ namespace UI
 
         public void HideAllPanels()
         {
-            if (StatUIManager.Instance != null) StatUIManager.Instance.ClearPreview();
+            if (HUDManager.Instance != null) HUDManager.Instance.ClearPreview();
 
             vendorNamePanel.SetActive(false);
             encounterPanel.SetActive(false);
@@ -127,25 +127,25 @@ namespace UI
 
         public void OnAcceptHoverEnter()
         {
-            if (currentEncounter != null && StatUIManager.Instance != null)
+            if (currentEncounter != null && HUDManager.Instance != null)
             {
-                StatUIManager.Instance.ShowPreview(currentEncounter.GetClaimedEffects());
+                HUDManager.Instance.ShowPreview(currentEncounter.GetClaimedEffects());
             }
         }
 
         public void OnRejectHoverEnter()
         {
-            if (currentEncounter != null && StatUIManager.Instance != null)
+            if (currentEncounter != null && HUDManager.Instance != null)
             {
-                StatUIManager.Instance.ShowPreview(currentEncounter.rejectedEffects);
+                HUDManager.Instance.ShowPreview(currentEncounter.rejectedEffects);
             }
         }
 
         public void OnHoverExit()
         {
-            if (StatUIManager.Instance != null)
+            if (HUDManager.Instance != null)
             {
-                StatUIManager.Instance.ClearPreview();
+                HUDManager.Instance.ClearPreview();
             }
         }
     }

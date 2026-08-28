@@ -33,6 +33,8 @@ public class TimeManager : MonoBehaviour
         CurrentHour = startHour;
         CurrentDay = 1;
         TotalHoursElapsed = 0;
+        OnHourChanged?.Invoke(CurrentHour);
+        OnDayChanged?.Invoke(CurrentDay);
     }
 
     public void AdvanceHour(int amount = 1)

@@ -44,9 +44,9 @@ namespace UI
             }
 
 
-            if (StatUIManager.Instance != null && StatUIManager.Instance.bars != null)
+            if (HUDManager.Instance != null && HUDManager.Instance.bars != null)
             {
-                StatUIManager.Instance.bars.gameObject.SetActive(false);
+                HUDManager.Instance.bars.gameObject.SetActive(false);
             }
             if (PendingEffectPopup.Instance != null && PendingEffectPopup.Instance.popupRoot != null)
             {

@@ -1,11 +1,12 @@
 using Effects;
+using TMPro;
 using UnityEngine;
 
 namespace UI
 {
-    public class StatUIManager : MonoBehaviour
+    public class HUDManager : MonoBehaviour
     {
-        public static StatUIManager Instance;
+        public static HUDManager Instance;
 
         [Header("UI Bars")]
         public GameObject bars;
@@ -13,6 +14,10 @@ namespace UI
         public StatBar.StatBar healthBar;
         public StatBar.StatBar storageBar;
         public StatBar.StatBar cashBar;
+        
+        [Header("Day & Time ")]
+        public TextMeshProUGUI dayText;
+        public TextMeshProUGUI timeText;
 
         private void Awake()
         {
@@ -33,6 +38,14 @@ namespace UI
                 RefreshAllSliders();
             }
 
+            if (TimeManager.Instance)
+            {
+                TimeManager.Instance.OnHourChanged += ChangeTimeText;
+                TimeManager.Instance.OnDayEnded += ChangeDayText;
+            }
+            
+            ChangeDayText(TimeManager.Instance.CurrentDay);
+            ChangeTimeText(TimeManager.Instance.CurrentHour);
             ClearPreview();
         }
 
@@ -41,6 +54,12 @@ namespace UI
             if (StatManager.Instance)
             {
                 StatManager.Instance.OnStatChanged -= SetBarValue;
+            }
+
+            if (TimeManager.Instance)
+            {
+                TimeManager.Instance.OnHourChanged -= ChangeTimeText;
+                TimeManager.Instance.OnDayEnded -= ChangeDayText;
             }
         }
 
@@ -95,5 +114,8 @@ namespace UI
                 case StatType.Cash: if (cashBar) cashBar.Highlight(active); break;
             }
         }
+
+        private void ChangeDayText(int day) => dayText.text = $"Day: {day}";
+        private void ChangeTimeText(int time) => timeText.text = $"Time: {time}.00";
     }
 }
