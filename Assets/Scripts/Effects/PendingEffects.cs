@@ -83,7 +83,6 @@ namespace Effects
             {
                 if (pending[i].triggerHour <= now)
                 {
-                    StatManager.Instance.ApplyEffect(pending[i].effect, checkGameOver: false);
                     triggeredEffects.Add(pending[i]);
                     pending.RemoveAt(i);
                 }
@@ -93,6 +92,15 @@ namespace Effects
             {
                 triggeredEffects.Reverse();
                 OnEffectsTriggered?.Invoke(triggeredEffects);
+            }
+        }
+
+        // A delayed effect is applied only when its own notification is shown to the player.
+        public void ApplyTriggeredEffect(PendingEffect pendingEffect)
+        {
+            if (StatManager.Instance != null)
+            {
+                StatManager.Instance.ApplyEffect(pendingEffect.effect, checkGameOver: false);
             }
         }
     }

@@ -1,7 +1,5 @@
-using System;
 using Effects;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace UI
 {
@@ -10,6 +8,7 @@ namespace UI
         public static StatUIManager Instance;
 
         [Header("UI Bars")]
+        public GameObject bars;
         public StatBar.StatBar happinessBar;
         public StatBar.StatBar healthBar;
         public StatBar.StatBar storageBar;
@@ -73,7 +72,8 @@ namespace UI
 
             foreach (StatEffect effect in effects)
             {
-                SetIndicatorActive(effect.type, true);
+                if (effect.Instant)
+                    SetIndicatorActive(effect.type, true);
             }
         }
 

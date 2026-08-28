@@ -209,6 +209,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &809964994 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5644263458985858706, guid: 13a6a2ef4a44e458da5749bad29840bb, type: 3}
+  m_PrefabInstance: {fileID: 6397441496235243026}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1378049279
 GameObject:
   m_ObjectHideFlags: 0
@@ -390,6 +395,14 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 70
       objectReference: {fileID: 0}
+    - target: {fileID: 1719962304318481928, guid: 13a6a2ef4a44e458da5749bad29840bb, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -156.0575
+      objectReference: {fileID: 0}
+    - target: {fileID: 1719962304318481928, guid: 13a6a2ef4a44e458da5749bad29840bb, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -2.2781067
+      objectReference: {fileID: 0}
     - target: {fileID: 1929235028127428901, guid: 13a6a2ef4a44e458da5749bad29840bb, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -498,6 +511,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5588760318220868917, guid: 13a6a2ef4a44e458da5749bad29840bb, type: 3}
+      propertyPath: bars
+      value: 
+      objectReference: {fileID: 809964994}
     - target: {fileID: 5757659579507186259, guid: 13a6a2ef4a44e458da5749bad29840bb, type: 3}
       propertyPath: m_SizeDelta.x
       value: 80
@@ -525,6 +542,14 @@ PrefabInstance:
     - target: {fileID: 6462139026851601238, guid: 13a6a2ef4a44e458da5749bad29840bb, type: 3}
       propertyPath: m_Name
       value: Main Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7914706241809040779, guid: 13a6a2ef4a44e458da5749bad29840bb, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -280.0063
+      objectReference: {fileID: 0}
+    - target: {fileID: 7914706241809040779, guid: 13a6a2ef4a44e458da5749bad29840bb, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1.2828369
       objectReference: {fileID: 0}
     - target: {fileID: 8174450324333534883, guid: 13a6a2ef4a44e458da5749bad29840bb, type: 3}
       propertyPath: m_IsActive

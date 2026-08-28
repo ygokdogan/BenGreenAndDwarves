@@ -43,6 +43,11 @@ namespace UI
                 DayEndUIManager.Instance.dayEndPanel.SetActive(false);
             }
 
+
+            if (StatUIManager.Instance != null && StatUIManager.Instance.bars != null)
+            {
+                StatUIManager.Instance.bars.gameObject.SetActive(false);
+            }
             if (PendingEffectPopup.Instance != null && PendingEffectPopup.Instance.popupRoot != null)
             {
                 PendingEffectPopup.Instance.popupRoot.SetActive(false);

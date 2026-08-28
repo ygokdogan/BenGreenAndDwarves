@@ -22,7 +22,7 @@ namespace UI
         public TypewriterEffect typewriterEffect;
         private Action onClosed;
         
-        private Queue<List<PendingEffect>> _effectGroupsQueue = new Queue<List<PendingEffect>>();
+        private Queue<PendingEffect> effectQueue = new Queue<PendingEffect>();
 
         private void Awake()
         {
@@ -50,50 +50,24 @@ namespace UI
             }
             if (encounterUI != null) encounterUI.HideAllPanels();
             
-            // onClosed sadece popup tamamen kapandığında çağrılır; yeni callback'i zaten aktifse üzerine yazma
             if (onClosed == null) onClosed = closed;
 
             bool wasAlreadyOpen = popupRoot != null && popupRoot.activeSelf;
             
-            Dictionary<EncounterData, List<PendingEffect>> groupedEffects = new Dictionary<EncounterData, List<PendingEffect>>();
-            List<PendingEffect> nullEncounters = new List<PendingEffect>();
-
             foreach (var effect in effects)
             {
-                if (effect.encounter != null)
-                {
-                    if (!groupedEffects.ContainsKey(effect.encounter))
-                    {
-                        groupedEffects[effect.encounter] = new List<PendingEffect>();
-                    }
-                    groupedEffects[effect.encounter].Add(effect);
-                }
-                else
-                {
-                    nullEncounters.Add(effect);
-                }
+                effectQueue.Enqueue(effect);
             }
             
-            // Kuyruğu sıfırlamak yerine yeni grupları kuyruğun sonuna ekle
-            foreach (var group in groupedEffects.Values)
-            {
-                _effectGroupsQueue.Enqueue(group);
-            }
-            if (nullEncounters.Count > 0)
-            {
-                _effectGroupsQueue.Enqueue(nullEncounters);
-            }
-            
-            // Popup zaten açıksa ShowNextGroup'u tekrar çağırma; mevcut grup bitince sıradaki otomatik gösterilir
             if (!wasAlreadyOpen)
             {
-                ShowNextGroup();
+                ShowNextEffect();
             }
         }
 
-        private void ShowNextGroup()
+        private void ShowNextEffect()
         {
-            if (_effectGroupsQueue.Count == 0)
+            if (effectQueue.Count == 0)
             {
                 popupRoot.SetActive(false);
                 Action callback = onClosed;
@@ -102,7 +76,8 @@ namespace UI
                 return;
             }
             
-            List<PendingEffect> currentGroup = _effectGroupsQueue.Dequeue();
+            PendingEffect currentEffect = effectQueue.Dequeue();
+            PendingEffects.Instance?.ApplyTriggeredEffect(currentEffect);
             
             if (popupRoot != null && !popupRoot.activeSelf)
             {
@@ -114,7 +89,7 @@ namespace UI
             
             if (bodyText != null) bodyText.gameObject.SetActive(true);
             
-            string fullText = BuildGroupText(currentGroup);
+            string fullText = BuildEffectText(currentEffect);
 
             if (typewriterEffect != null)
             {
@@ -142,34 +117,18 @@ namespace UI
                 return;
             }
             
-            ShowNextGroup();
+            ShowNextEffect();
         }
         
-        private string BuildGroupText(IReadOnlyList<PendingEffect> group)
+        private string BuildEffectText(PendingEffect pendingEffect)
         {
-            string commonText = "Results of your previous choices has appeared:";
-
             StringBuilder builder = new StringBuilder();
-            builder.AppendLine(commonText);
+            builder.AppendLine("Results of your previous choices has appeared:");
             builder.AppendLine();
 
-            var currentEncounter = group[0].encounter;
-            string delayedText = currentEncounter.accepted ? currentEncounter.acceptedDelayedText : currentEncounter.rejectedDelayedText;
-            builder.AppendLine(delayedText);
+            builder.AppendLine(pendingEffect.triggerText);
 
             return builder.ToString().TrimEnd();
-        }
-
-        private string GetStatName(StatType type)
-        {
-            switch (type)
-            {
-                case StatType.Happiness: return "Happiness";
-                case StatType.Cash: return "Cash";
-                case StatType.Health: return "Health";
-                case StatType.Storage: return "Storage";
-                default: return type.ToString();
-            }
         }
     }
 }
