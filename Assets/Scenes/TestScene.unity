@@ -144,7 +144,7 @@ Transform:
   m_GameObject: {fileID: 15785207}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5, y: -1, z: 10}
+  m_LocalPosition: {x: -5, y: -0.2, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -315,12 +315,17 @@ Transform:
   m_GameObject: {fileID: 598151403}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5, y: -1, z: 10}
+  m_LocalPosition: {x: 5, y: -0.2, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1378049282}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &854463634 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1539803214889278205, guid: 13a6a2ef4a44e458da5749bad29840bb, type: 3}
+  m_PrefabInstance: {fileID: 6397441496235243026}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &859530405 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7508953961764821569, guid: cb8c1f32bfef34dda9caef2dbaf6faa9, type: 3}
@@ -382,7 +387,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.8
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -496,7 +501,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7918008034717043724, guid: cb8c1f32bfef34dda9caef2dbaf6faa9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: 7918008034717043724, guid: cb8c1f32bfef34dda9caef2dbaf6faa9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -656,7 +661,7 @@ Transform:
   m_GameObject: {fileID: 1395229855}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 10}
+  m_LocalPosition: {x: 0, y: -0.2, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -836,7 +841,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -928,6 +933,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 900675812251393010, guid: feecbe0d0a9644f42810d7d41b259eb5, type: 3}
+      propertyPath: gameWonClip
+      value: 
+      objectReference: {fileID: 8300000, guid: a133af9869eb44d75aae1f99bbece3bd, type: 3}
     - target: {fileID: 900675812251393010, guid: feecbe0d0a9644f42810d7d41b259eb5, type: 3}
       propertyPath: gameOverClip
       value: 
@@ -1106,10 +1115,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7709385915344390607, guid: 13a6a2ef4a44e458da5749bad29840bb, type: 3}
+      propertyPath: gameWonPanel
+      value: 
+      objectReference: {fileID: 854463634}
     - target: {fileID: 8212952311978956402, guid: 13a6a2ef4a44e458da5749bad29840bb, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8302859492977119723, guid: 13a6a2ef4a44e458da5749bad29840bb, type: 3}
+      propertyPath: failedClip
+      value: 
+      objectReference: {fileID: 8300000, guid: f76ffe6bda6e2430ab048f710acf5918, type: 3}
     - target: {fileID: 8343363481450501861, guid: 13a6a2ef4a44e458da5749bad29840bb, type: 3}
       propertyPath: m_Camera
       value: 
@@ -1192,7 +1209,7 @@ PrefabInstance:
       objectReference: {fileID: 859530405}
     - target: {fileID: 7792651680344324651, guid: 2e2d0119c3c2249cfb505c50d5a9891c, type: 3}
       propertyPath: endHour
-      value: 20
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1206,6 +1223,6 @@ SceneRoots:
   - {fileID: 1378049282}
   - {fileID: 6397441496235243026}
   - {fileID: 737758605715110854}
-  - {fileID: 550114123}
   - {fileID: 8614590751069187452}
   - {fileID: 309673872}
+  - {fileID: 550114123}

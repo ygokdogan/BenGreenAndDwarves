@@ -42,7 +42,7 @@ namespace UI
             if (TimeManager.Instance)
             {
                 TimeManager.Instance.OnHourChanged += ChangeTimeText;
-                TimeManager.Instance.OnDayEnded += ChangeDayText;
+                TimeManager.Instance.OnDayChanged += ChangeDayText;
             }
             
             ChangeDayText(TimeManager.Instance.CurrentDay);
@@ -60,7 +60,7 @@ namespace UI
             if (TimeManager.Instance)
             {
                 TimeManager.Instance.OnHourChanged -= ChangeTimeText;
-                TimeManager.Instance.OnDayEnded -= ChangeDayText;
+                TimeManager.Instance.OnDayChanged -= ChangeDayText;
             }
         }
 

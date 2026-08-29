@@ -28,6 +28,13 @@ public class AudioManager : MonoBehaviour
 
     public void PlayChallengeSFX(AudioClip clip)
     {
+        if (challengeFX == null || clip == null) return;
         challengeFX.PlayOneShot(clip);
+    }
+
+    public void StopChallengeSFX()
+    {
+        if (challengeFX != null)
+            challengeFX.Stop();
     }
  }
