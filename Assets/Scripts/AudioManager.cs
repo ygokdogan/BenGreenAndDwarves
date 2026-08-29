@@ -83,9 +83,9 @@ public class AudioManager : MonoBehaviour
         return sourceObject.AddComponent<AudioSource>();
     }
 
-    private void PlayMusicForScene(Scene scene)
+    private void PlayMusicForScene(Scene scene, bool instantCut = false)
     {
-        PlayMusic(scene.buildIndex == 0 ? mainMenuMusic : gameplayMusic);
+        PlayMusic(scene.buildIndex == 0 ? mainMenuMusic : gameplayMusic, instantCut);
     }
 
     public void PlayMainMenuMusic()
@@ -98,7 +98,7 @@ public class AudioManager : MonoBehaviour
         PlayMusic(gameplayMusic);
     }
 
-    public void PlayMusic(AudioClip clip)
+    public void PlayMusic(AudioClip clip, bool instantCut = false)
     {
         if (musicSource == null || clip == null)
             return;
@@ -112,7 +112,7 @@ public class AudioManager : MonoBehaviour
         if (musicFadeRoutine != null)
             StopCoroutine(musicFadeRoutine);
 
-        musicFadeRoutine = StartCoroutine(FadeToMusic(clip));
+        musicFadeRoutine = StartCoroutine(FadeToMusic(clip, instantCut));
     }
 
     public void PlayMusicInstantly(AudioClip clip)
@@ -127,19 +127,23 @@ public class AudioManager : MonoBehaviour
             StopCoroutine(musicFadeRoutine);
         
         musicSource.Stop();
-        musicSource.PlayOneShot(clip);
+        musicSource.clip = clip;
+        musicSource.volume = TargetMusicVolume;
+        musicSource.loop = false;
+        musicSource.Play();
     }
 
-    private IEnumerator FadeToMusic(AudioClip clip)
+    private IEnumerator FadeToMusic(AudioClip clip, bool instantCut)
     {
         float targetVolume = TargetMusicVolume;
 
-        if (musicSource.isPlaying && musicFadeDuration > 0f)
+        if (!instantCut && musicSource.isPlaying && musicFadeDuration > 0f)
             yield return FadeMusicVolume(musicSource.volume, 0f);
 
         musicSource.Stop();
         musicSource.clip = clip;
         musicSource.volume = musicFadeDuration > 0f ? 0f : targetVolume;
+        musicSource.loop = true;
         musicSource.Play();
 
         if (musicFadeDuration > 0f)
