@@ -377,7 +377,15 @@ PrefabInstance:
     - target: {fileID: 570923751074420127, guid: 13a6a2ef4a44e458da5749bad29840bb, type: 3}
       propertyPath: onSwipedUp.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 362760600}
+      objectReference: {fileID: 6397441496235243028}
+    - target: {fileID: 570923751074420127, guid: 13a6a2ef4a44e458da5749bad29840bb, type: 3}
+      propertyPath: onSwipedUp.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnOfferAccepted
+      objectReference: {fileID: 0}
+    - target: {fileID: 570923751074420127, guid: 13a6a2ef4a44e458da5749bad29840bb, type: 3}
+      propertyPath: onSwipedUp.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UI.EncounterUIManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 953831353980931240, guid: 13a6a2ef4a44e458da5749bad29840bb, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -465,6 +473,10 @@ PrefabInstance:
     - target: {fileID: 1539803214889278205, guid: 13a6a2ef4a44e458da5749bad29840bb, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1719962304318481928, guid: 13a6a2ef4a44e458da5749bad29840bb, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1.4911804
       objectReference: {fileID: 0}
     - target: {fileID: 1929235028127428901, guid: 13a6a2ef4a44e458da5749bad29840bb, type: 3}
       propertyPath: m_Pivot.x
@@ -565,7 +577,15 @@ PrefabInstance:
     - target: {fileID: 3123184188795763578, guid: 13a6a2ef4a44e458da5749bad29840bb, type: 3}
       propertyPath: onSwipedUp.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 362760600}
+      objectReference: {fileID: 6397441496235243028}
+    - target: {fileID: 3123184188795763578, guid: 13a6a2ef4a44e458da5749bad29840bb, type: 3}
+      propertyPath: onSwipedUp.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnOfferRejected
+      objectReference: {fileID: 0}
+    - target: {fileID: 3123184188795763578, guid: 13a6a2ef4a44e458da5749bad29840bb, type: 3}
+      propertyPath: onSwipedUp.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UI.EncounterUIManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 3470185071138855018, guid: 13a6a2ef4a44e458da5749bad29840bb, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -577,6 +597,10 @@ PrefabInstance:
     - target: {fileID: 4638757417772820002, guid: 13a6a2ef4a44e458da5749bad29840bb, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949456603041765683, guid: 13a6a2ef4a44e458da5749bad29840bb, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1.4912415
       objectReference: {fileID: 0}
     - target: {fileID: 6319748443318677516, guid: 13a6a2ef4a44e458da5749bad29840bb, type: 3}
       propertyPath: m_AnchorMax.x
@@ -706,6 +730,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gameplay Systems
       objectReference: {fileID: 0}
+    - target: {fileID: 2548300955560152232, guid: 2e2d0119c3c2249cfb505c50d5a9891c, type: 3}
+      propertyPath: activeChallenge
+      value: 
+      objectReference: {fileID: 11400000, guid: 320731cac6cf9442f96461d58f8669ec, type: 2}
     - target: {fileID: 2877030774416944755, guid: 2e2d0119c3c2249cfb505c50d5a9891c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 673.377
@@ -750,18 +778,6 @@ PrefabInstance:
       propertyPath: encounterUI
       value: 
       objectReference: {fileID: 6397441496235243028}
-    - target: {fileID: 4982742621087886285, guid: 2e2d0119c3c2249cfb505c50d5a9891c, type: 3}
-      propertyPath: allEncounters.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4982742621087886285, guid: 2e2d0119c3c2249cfb505c50d5a9891c, type: 3}
-      propertyPath: 'allEncounters.Array.data[0]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 0818cd922e3814c448a6b9cb1f362a0a, type: 2}
-    - target: {fileID: 4982742621087886285, guid: 2e2d0119c3c2249cfb505c50d5a9891c, type: 3}
-      propertyPath: 'allEncounters.Array.data[1]'
-      value: 
-      objectReference: {fileID: 11400000, guid: d8e95c76bb4254d508e253161adfbaa1, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

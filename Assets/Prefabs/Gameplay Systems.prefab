@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8504843775636349268}
   - component: {fileID: 3523273954104106411}
   - component: {fileID: 5493105665490752301}
+  - component: {fileID: 2548300955560152232}
   m_Layer: 0
   m_Name: Gameplay Systems
   m_TagString: Untagged
@@ -50,7 +51,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CardManager
   encounterUI: {fileID: 0}
   allEncounters:
-  - {fileID: 11400000, guid: b975c074de46f4082b1f6ae5805c6e59, type: 2}
+  - {fileID: 11400000, guid: 0818cd922e3814c448a6b9cb1f362a0a, type: 2}
+  - {fileID: 11400000, guid: d8e95c76bb4254d508e253161adfbaa1, type: 2}
 --- !u!114 &7792651680344324651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,3 +102,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 938017a728f94e848121a95d06e7d23d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VendorAppearance.VendorGenerator
+--- !u!114 &2548300955560152232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182826130199785389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c17f8a3a69b78445aba4bac5e3d44c12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Challenges.ChallengeManager
+  activeChallenge: {fileID: 0}

@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using Challenges;
 using Effects;
 using ScriptableObjects;
 using UI;
@@ -102,18 +103,22 @@ public class EncounterManager : MonoBehaviour
         }
     }
 
-    public void OnYesButtonClicked()
+    public void AcceptOffer()
     {
         ResolveEncounter(true);
         encounterUI.ShowResultPanel(currentEncounter.acceptResultText);
+        
         GameManager.Instance.dailyAccepts++;
+        ChallengeManager.Instance.OnOfferAccepted();
     }
     
-    public void OnNoButtonClicked()
+    public void RejectOffer()
     {
         ResolveEncounter(false);
         encounterUI.ShowResultPanel(currentEncounter.rejectResultText);
+        
         GameManager.Instance.dailyRejects++;
+        ChallengeManager.Instance.OnOfferRejected();
     }
     
     public void OnContinueButtonClicked()
