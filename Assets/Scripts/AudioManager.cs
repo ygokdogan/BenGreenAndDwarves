@@ -9,8 +9,6 @@ public class AudioManager : MonoBehaviour
 
     public AudioSource musicSource;
     
-    [SerializeField] private AudioClip gameOverClip;
-
     private void Awake()
     {
         if (Instance)
@@ -31,11 +29,5 @@ public class AudioManager : MonoBehaviour
     public void PlayChallengeSFX(AudioClip clip)
     {
         challengeFX.PlayOneShot(clip);
-    }
-
-    public void PlayGameOverSFX()
-    {
-        musicSource.volume = 0.7f;
-        musicSource.PlayOneShot(gameOverClip);
     }
  }

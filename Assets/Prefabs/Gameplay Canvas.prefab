@@ -6390,6 +6390,8 @@ MonoBehaviour:
   resolvedContentAlpha: 0.45
   completeColor: {r: 0.45, g: 0.9, b: 0.55, a: 1}
   failedColor: {r: 0.95, g: 0.38, b: 0.35, a: 1}
+  completeClip: {fileID: 8300000, guid: c749c0a5e7b3c420882ffc845d3f2e6e, type: 3}
+  failedClip: {fileID: 8300000, guid: 9d1746fe870ce414cbcacb96fef220b4, type: 3}
 --- !u!1 &8542403662278628766
 GameObject:
   m_ObjectHideFlags: 0
