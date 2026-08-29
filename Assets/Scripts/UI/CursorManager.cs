@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -34,6 +35,14 @@ namespace UI
         public Vector2 hoverHotspot   = Vector2.zero;
         public Vector2 holdHotspot    = Vector2.zero;
         public Vector2 clickHotspot   = Vector2.zero;
+
+        [Header("Resolution Scaling")]
+        [Tooltip("The resolution at which the cursor sprites are displayed at their original size.")]
+        [SerializeField] private Vector2 referenceResolution = new Vector2(1920f, 1080f);
+
+        [Tooltip("Limits applied to the resolution-based cursor scale.")]
+        [SerializeField, Min(0.01f)] private float minimumScale = 0.5f;
+        [SerializeField, Min(0.01f)] private float maximumScale = 3f;
         
         [Header("Click Cursor")]
         [Tooltip("How long the Click cursor stays visible before reverting.")]
@@ -42,6 +51,10 @@ namespace UI
         private bool _isHolding  = false;
         private int  _hoverCount = 0;
         private Coroutine _clickCoroutine;
+        private readonly Dictionary<Sprite, Texture2D> _scaledCursorTextures = new();
+        private CursorState _currentState = CursorState.Default;
+        private int _lastScreenWidth;
+        private int _lastScreenHeight;
         
         #region Unity Lifecycle
 
@@ -55,7 +68,20 @@ namespace UI
             Instance = this;
             DontDestroyOnLoad(gameObject);
 
+            _lastScreenWidth = Screen.width;
+            _lastScreenHeight = Screen.height;
             ApplyState(CursorState.Default);
+        }
+
+        private void Update()
+        {
+            if (_lastScreenWidth == Screen.width && _lastScreenHeight == Screen.height)
+                return;
+
+            _lastScreenWidth = Screen.width;
+            _lastScreenHeight = Screen.height;
+            ClearScaledCursorTextures();
+            ApplyState(_currentState);
         }
 
         private void OnEnable()
@@ -79,6 +105,7 @@ namespace UI
         {
             if (Instance != this) return; // duplicate being destroyed — don't touch the cursor
             Instance = null;
+            ClearScaledCursorTextures();
             Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
         }
 
@@ -168,6 +195,8 @@ namespace UI
 
         private void ApplyState(CursorState state)
         {
+            _currentState = state;
+
             Sprite sprite = state switch
             {
                 CursorState.Hover  => hoverCursor != null ? hoverCursor : defaultCursor,
@@ -184,7 +213,69 @@ namespace UI
                 _                  => defaultHotspot
             };
 
-            Cursor.SetCursor(sprite != null ? sprite.texture : null, hotspot, CursorMode.ForceSoftware);
+            float scale = GetCursorScale();
+            Texture2D cursorTexture = GetScaledCursorTexture(sprite, scale);
+            Vector2 scaledHotspot = hotspot * scale;
+
+            if (cursorTexture != null)
+            {
+                scaledHotspot.x = Mathf.Clamp(scaledHotspot.x, 0f, cursorTexture.width - 1);
+                scaledHotspot.y = Mathf.Clamp(scaledHotspot.y, 0f, cursorTexture.height - 1);
+            }
+
+            Cursor.SetCursor(cursorTexture, scaledHotspot, CursorMode.ForceSoftware);
+        }
+
+        private float GetCursorScale()
+        {
+            float referenceWidth = Mathf.Max(1f, referenceResolution.x);
+            float referenceHeight = Mathf.Max(1f, referenceResolution.y);
+            float resolutionScale = Mathf.Min(Screen.width / referenceWidth, Screen.height / referenceHeight);
+            float minScale = Mathf.Min(minimumScale, maximumScale);
+            float maxScale = Mathf.Max(minimumScale, maximumScale);
+            return Mathf.Clamp(resolutionScale, minScale, maxScale);
+        }
+
+        private Texture2D GetScaledCursorTexture(Sprite sprite, float scale)
+        {
+            if (sprite == null || sprite.texture == null)
+                return null;
+
+            if (Mathf.Approximately(scale, 1f))
+                return sprite.texture;
+
+            if (_scaledCursorTextures.TryGetValue(sprite, out Texture2D cachedTexture))
+                return cachedTexture;
+
+            Texture2D sourceTexture = sprite.texture;
+            int width = Mathf.Max(1, Mathf.RoundToInt(sourceTexture.width * scale));
+            int height = Mathf.Max(1, Mathf.RoundToInt(sourceTexture.height * scale));
+            RenderTexture previousTarget = RenderTexture.active;
+            RenderTexture temporaryTarget = RenderTexture.GetTemporary(width, height, 0, RenderTextureFormat.ARGB32);
+
+            Graphics.Blit(sourceTexture, temporaryTarget);
+            RenderTexture.active = temporaryTarget;
+
+            Texture2D scaledTexture = new Texture2D(width, height, TextureFormat.RGBA32, false)
+            {
+                name = $"{sourceTexture.name} (Cursor Scale {scale:0.##})",
+                filterMode = FilterMode.Point
+            };
+            scaledTexture.ReadPixels(new Rect(0, 0, width, height), 0, 0);
+            scaledTexture.Apply();
+
+            RenderTexture.active = previousTarget;
+            RenderTexture.ReleaseTemporary(temporaryTarget);
+            _scaledCursorTextures.Add(sprite, scaledTexture);
+            return scaledTexture;
+        }
+
+        private void ClearScaledCursorTextures()
+        {
+            foreach (Texture2D texture in _scaledCursorTextures.Values)
+                Destroy(texture);
+
+            _scaledCursorTextures.Clear();
         }
 
         private IEnumerator ClickFlash()
