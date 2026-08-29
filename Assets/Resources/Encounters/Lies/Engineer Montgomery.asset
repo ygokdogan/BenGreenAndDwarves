@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5d0471b0cbf4c6ebae6eb977f88ebd0, type: 3}
+  m_Name: Engineer Montgomery
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.LieEncounterData
+  vendorName: Engineer Montgomery
+  offerText: Fund my experimental weather machine! It will completely dominate your
+    living room, but the scientific prestige will make you endlessly happy.
+  acceptResultText: You fund the project. The massive machine just spews black smoke
+    and makes a deafening racket, giving you a terrible headache and ruining your
+    day.
+  rejectResultText: You refuse to fund mad science. Your room stays quiet and your
+    money stays safe.
+  acceptedDelayedText: A rival technology firm buys out Montgomery's patent and forcibly
+    acquires the noisy prototype from your room, paying you a massive compensation
+    fee!
+  rejectedDelayedText: 'You read the paper: Montgomery''s machine successfully altered
+    the climate and made his investors billionaires. You missed out entirely and
+    feel sick with regret.'
+  accepted: 0
+  rejectedEffects:
+  - type: 0
+    amount: 10
+    revealDelay: 0
+  - type: 0
+    amount: -20
+    revealDelay: 2
+  claimedEffects:
+  - type: 1
+    amount: -15
+    revealDelay: 0
+  - type: 2
+    amount: 15
+    revealDelay: 0
+  - type: 0
+    amount: 10
+    revealDelay: 0
+  actualEffects:
+  - type: 1
+    amount: -15
+    revealDelay: 0
+  - type: 2
+    amount: 15
+    revealDelay: 0
+  - type: 0
+    amount: -15
+    revealDelay: 0
+  - type: 1
+    amount: 30
+    revealDelay: 2
+  - type: 0
+    amount: 25
+    revealDelay: 2

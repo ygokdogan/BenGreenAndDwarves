@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5d0471b0cbf4c6ebae6eb977f88ebd0, type: 3}
+  m_Name: Caterer Caldwell
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.LieEncounterData
+  vendorName: Caterer Caldwell
+  offerText: Allow me to clear out your rancid pantry supplies and replace them with
+    my gourmet canned goods. It requires a small fee, but you will eat like a king.
+  acceptResultText: Caldwell clears the old food and leaves the shiny cans. Your
+    pantry looks spacious and you feel excited for a grand dinner tonight.
+  rejectResultText: You tell the chef to leave. Your pantry remains a cluttered,
+    stale mess, and your empty stomach rumbles painfully.
+  acceptedDelayedText: You open one of Dupont's cans. The meat is violently spoiled
+    and infested with parasites. You spend the entire night horribly, painfully ill.
+  rejectedDelayedText: 
+  accepted: 0
+  rejectedEffects:
+  - type: 2
+    amount: 5
+    revealDelay: 0
+  - type: 3
+    amount: -5
+    revealDelay: 0
+  claimedEffects:
+  - type: 1
+    amount: -10
+    revealDelay: 0
+  - type: 2
+    amount: -10
+    revealDelay: 0
+  - type: 3
+    amount: 10
+    revealDelay: 0
+  actualEffects:
+  - type: 1
+    amount: -10
+    revealDelay: 0
+  - type: 2
+    amount: -10
+    revealDelay: 0
+  - type: 0
+    amount: 10
+    revealDelay: 0
+  - type: 3
+    amount: -15
+    revealDelay: 1
+  - type: 0
+    amount: -10
+    revealDelay: 1

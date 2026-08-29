@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5d0471b0cbf4c6ebae6eb977f88ebd0, type: 3}
+  m_Name: Surveyor Winslow
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.LieEncounterData
+  vendorName: Surveyor Winslow
+  offerText: Your quarters are improperly measured. Pay my strict inspection fee,
+    and I will officially rezone your walls, granting you significantly more living
+    space and peace of mind.
+  acceptResultText: Winslow takes your cash, taps your wall twice with his cane,
+    scribbles on his clipboard, and walks away. Your room is exactly the same size.
+    You were completely robbed.
+  rejectResultText: You slam the door on the corrupt official. Keeping your money
+    safe from bureaucratic leeches feels fantastic.
+  acceptedDelayedText: 
+  rejectedDelayedText: 
+  accepted: 0
+  rejectedEffects:
+  - type: 1
+    amount: 5
+    revealDelay: 0
+  - type: 0
+    amount: 10
+    revealDelay: 0
+  claimedEffects:
+  - type: 1
+    amount: -15
+    revealDelay: 0
+  - type: 2
+    amount: -15
+    revealDelay: 0
+  - type: 0
+    amount: 15
+    revealDelay: 0
+  actualEffects:
+  - type: 1
+    amount: -15
+    revealDelay: 0
+  - type: 0
+    amount: -10
+    revealDelay: 0

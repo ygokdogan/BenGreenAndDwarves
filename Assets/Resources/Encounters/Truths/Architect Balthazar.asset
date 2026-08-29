@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dc5331b40204628afa94f7e24f8e5c2, type: 3}
+  m_Name: Architect Balthazar
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.TrueEncounterData
+  vendorName: Architect Balthazar
+  offerText: My scans indicate your ceiling joists are critically unstable. Pay my
+    emergency engineering fee immediately, and we will install steel supports before
+    it is too late.
+  acceptResultText: You pay the exorbitant fee. The ugly steel pillars ruin your
+    room's aesthetic, but you feel safe.
+  rejectResultText: You laugh at his obvious scam and kick him out. Your money stays
+    in your pocket, and you feel incredibly smart.
+  acceptedDelayedText: 
+  rejectedDelayedText: Balthazar wasn't lying! The ceiling catastrophically collapses
+    on top of you! You are severely injured, buried in rubble, and forced to pay
+    massive emergency medical bills.
+  accepted: 0
+  rejectedEffects:
+  - type: 1
+    amount: 10
+    revealDelay: 0
+  - type: 0
+    amount: 10
+    revealDelay: 0
+  - type: 1
+    amount: -30
+    revealDelay: 1
+  - type: 2
+    amount: 10
+    revealDelay: 1
+  - type: 0
+    amount: -20
+    revealDelay: 1
+  effects:
+  - type: 1
+    amount: -15
+    revealDelay: 0
+  - type: 2
+    amount: 10
+    revealDelay: 0
+  - type: 0
+    amount: 10
+    revealDelay: 0

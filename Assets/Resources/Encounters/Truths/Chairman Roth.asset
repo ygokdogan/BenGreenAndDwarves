@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dc5331b40204628afa94f7e24f8e5c2, type: 3}
+  m_Name: Chairman Roth
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.TrueEncounterData
+  vendorName: Chairman Roth
+  offerText: Your extensive private library is a waste of square footage. I am buying
+    it all to pulp the paper for my factories. You will be well compensated, though
+    you will have nothing left to read.
+  acceptResultText: Roth's men pack up every single book. You have plenty of floor
+    space and a fat wallet, but staring at the empty shelves leaves you utterly depressed.
+  rejectResultText: You refuse to sell your books. Roth is deeply insulted and sends
+    a thug to smash your reading glasses and physically rough you up.
+  acceptedDelayedText: 
+  rejectedDelayedText: 
+  accepted: 0
+  rejectedEffects:
+  - type: 3
+    amount: -10
+    revealDelay: 0
+  - type: 0
+    amount: -10
+    revealDelay: 0
+  effects:
+  - type: 1
+    amount: 15
+    revealDelay: 0
+  - type: 2
+    amount: -10
+    revealDelay: 0
+  - type: 0
+    amount: -10
+    revealDelay: 0
