@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
     private void WinGame()
     {
         ChallengeManager.Instance?.OnDayResolved(TimeManager.Instance.CurrentDay);
-        AudioManager.Instance?.PlayChallengeSFX(gameWonClip);
+        AudioManager.Instance?.PlayMusic(gameWonClip);
         GameFlowManager.Instance?.ShowGameWon();
     }
 
@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
         Debug.Log($"Game Ended: {stat} (isZero: {isZero})");
         
         GameFlowManager.Instance?.ShowGameOver(stat, isZero);
-        AudioManager.Instance?.PlayChallengeSFX(gameOverClip);
+        AudioManager.Instance?.PlayMusicInstantly(gameOverClip);
         ChallengeManager.Instance?.OnGameEnded();
     }
 
