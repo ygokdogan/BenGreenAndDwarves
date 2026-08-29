@@ -68,8 +68,6 @@ namespace UI
                 dayEndPanel.transform.DOScale(Vector3.one, 0.4f).SetEase(Ease.OutBack);
             }
             if (summaryBodyText) summaryBodyText.gameObject.SetActive(true);
-            if (gameplayUI) gameplayUI.SetActive(false);
-
             if (dayTitleText)
             {
                 dayTitleText.text = $"Day {completedDay} Complete\n {dailyUpkeep.title}";
@@ -114,23 +112,7 @@ namespace UI
                 return;
             }
 
-            if (dayEndPanel) dayEndPanel.SetActive(false);
-
-            if (StatManager.Instance != null && StatManager.Instance.CheckGameOver())
-            {
-                return;
-            }
-
-            if (gameplayUI) gameplayUI.SetActive(true);
-            if (ChallengeManager.Instance)
-                ChallengeManager.Instance.OnDayResolved(TimeManager.Instance.CurrentDay);
-            
-            TimeManager.Instance.StartNextDay();
-            
-            if (EncounterManager.Instance != null && !EncounterManager.Instance.IsWaitingForPendingEffects)
-            {
-                EncounterManager.Instance.LoadNextEncounter();
-            }
+            GameFlowManager.Instance?.StartNextDay();
         }
     }
 }

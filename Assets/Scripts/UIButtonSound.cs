@@ -32,9 +32,9 @@ public class UIButtonSound : MonoBehaviour
 
     private void PlayClickSound()
     {
-        if (clickSound != null && GameManager.Instance.uiButtonSource != null)
+        if (clickSound != null && AudioManager.Instance != null)
         {
-            GameManager.Instance.uiButtonSource.PlayOneShot(clickSound);
+            AudioManager.Instance.PlayUISFX(clickSound);
         }
         else
         {

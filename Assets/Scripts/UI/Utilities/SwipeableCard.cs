@@ -326,7 +326,7 @@ namespace UI.Utilities
             {
                 // Card is being dismissed — cursor is no longer over anything interactive.
                 CursorManager.Instance?.OnDragEnd(stillOverCard: false);
-                GameManager.Instance.uiButtonSource.PlayOneShot(triggerSound);
+                AudioManager.Instance.PlayUISFX(triggerSound);
                 onSwipedUp?.Invoke();
             }
             else
