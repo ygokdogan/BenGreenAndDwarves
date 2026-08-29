@@ -1,4 +1,5 @@
 using DG.Tweening;
+using Effects;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,6 +8,10 @@ namespace UI.StatBar
 {
     public class StatBar : MonoBehaviour
     {
+        public StatType statType;
+        
+        private const int dangerThreshold = 15;
+        
         private RectTransform bar;
 
         private Color32 healColor = new Color32(0, 255, 102, 255);
@@ -21,11 +26,10 @@ namespace UI.StatBar
         public Image outlineHighlight;
         public Image dangerHighlight;
 
-        private const int DangerLow  = 15;
-        private const int DangerHigh = 85;
-
         private static readonly Color32 DangerColor = new Color32(255, 40, 40, 255);
         private bool _inDanger;
+
+        private Vector3 startingScale;
 
         private void Awake()
         {
@@ -48,6 +52,8 @@ namespace UI.StatBar
                 dangerHighlight.color = c;
                 dangerHighlight.gameObject.SetActive(false);
             }
+            
+            startingScale = bar.localScale;
         }
 
         public void SetValue(float newValue, float oldValue, float maxValue)
@@ -68,11 +74,11 @@ namespace UI.StatBar
             //DAMAGE
             if (diff < 0)
             {
-                fill.DOValue(v, .6f).SetEase(Ease.OutCubic);
-                chunk.DOValue(v - 0.035f, .7f).SetDelay(.8f).SetEase(Ease.OutCubic);
+                fill.DOValue(v, .6f).SetEase(Ease.OutCubic).OnComplete(() => fill.value = v);
+                chunk.DOValue(v - 0.035f, .7f).SetDelay(.8f).SetEase(Ease.OutCubic).OnComplete(() => chunk.value = v - 0.035f);
                 
                 bar.DOShakeAnchorPos(.1f, new Vector2(12, 5), 20);
-                bar.DOPunchScale(new Vector3(0.03f, .25f, 0f), .3f);
+                bar.DOPunchScale(new Vector3(0.03f, .25f, 0f), .3f).OnComplete(() => bar.localScale = startingScale);
                 
                 flash.gameObject.SetActive(true);
                 flash.DOFade(0.85f, 0.04f).SetLoops(2, LoopType.Yoyo).OnComplete(() => flash.gameObject.SetActive(false));
@@ -85,10 +91,10 @@ namespace UI.StatBar
             }
             else // HEAL
             {
-                chunk.DOValue(v - 0.035f, .3f).SetEase(Ease.OutQuad);
-                fill.DOValue(v, .6f).SetDelay(.6f).SetEase(Ease.OutQuad);
+                chunk.DOValue(v - 0.035f, .3f).SetEase(Ease.OutQuad).OnComplete(() => fill.value = v - 0.035f);
+                fill.DOValue(v, .6f).SetDelay(.6f).SetEase(Ease.OutQuad).OnComplete(() => fill.value = v);
                 
-                bar.DOPunchScale(new Vector3(0.02f, .1f, 0f), .3f);
+                bar.DOPunchScale(new Vector3(0.02f, .1f, 0f), .3f).OnComplete(() => bar.localScale = startingScale);
                 DOTween.To(() => val, x =>
                 {
                     val = x;
@@ -139,7 +145,7 @@ namespace UI.StatBar
 
         private void UpdateDangerZone(int value)
         {
-            bool danger = value <= DangerLow || value >= DangerHigh;
+            bool danger = value <= dangerThreshold || value >= StatManager.Instance.maxStats[statType] - dangerThreshold;
 
             if (danger == _inDanger) return;
             _inDanger = danger;

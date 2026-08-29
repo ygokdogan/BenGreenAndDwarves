@@ -93,7 +93,6 @@ namespace UI
 
         private void AnimateScaleUp(GameObject target, float duration = 0.35f)
         {
-            if (target == null) return;
             target.transform.DOKill();
             target.transform.localScale = Vector3.zero;
             target.SetActive(true);

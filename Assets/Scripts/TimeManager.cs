@@ -6,8 +6,8 @@ public class TimeManager : MonoBehaviour
 {
     public static TimeManager Instance;
     
-    private int startHour = 9;
-    private int endHour = 21;
+    [SerializeField] private int startHour = 9;
+    [SerializeField] private int endHour = 21;
     public int CurrentDay { get; private set; } = 1;
     public int CurrentHour { get; private set; }
     public int TotalHoursElapsed { get; private set; } = 0;
@@ -56,5 +56,6 @@ public class TimeManager : MonoBehaviour
         CurrentDay++;
         OnDayChanged?.Invoke(CurrentDay);
         OnHourChanged?.Invoke(CurrentHour);
+        StatManager.Instance.CheckGameOver();
     }
 }

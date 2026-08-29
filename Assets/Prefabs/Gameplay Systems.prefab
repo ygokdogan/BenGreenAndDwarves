@@ -53,6 +53,7 @@ MonoBehaviour:
   allEncounters:
   - {fileID: 11400000, guid: 0818cd922e3814c448a6b9cb1f362a0a, type: 2}
   - {fileID: 11400000, guid: d8e95c76bb4254d508e253161adfbaa1, type: 2}
+  vendorController: {fileID: 0}
 --- !u!114 &7792651680344324651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65,6 +66,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e503758baac41c6b089d38928be43db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimeManager
+  startHour: 9
+  endHour: 21
 --- !u!114 &8504843775636349268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,6 +105,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 938017a728f94e848121a95d06e7d23d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VendorAppearance.VendorGenerator
+  bodies: []
+  faces: []
+  hairs: []
+  hats: []
+  mustaches: []
+  bags: []
 --- !u!114 &2548300955560152232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,4 +123,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c17f8a3a69b78445aba4bac5e3d44c12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Challenges.ChallengeManager
-  activeChallenge: {fileID: 0}
+  activeChallenge: {fileID: 11400000, guid: 320731cac6cf9442f96461d58f8669ec, type: 2}

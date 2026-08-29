@@ -23,6 +23,7 @@ public class EncounterManager : MonoBehaviour
     private EncounterData currentEncounter;
     
     private VendorGenerator vendorGenerator;
+    public VendorController vendorController;
     
     public bool IsWaitingForPendingEffects => waitingForPendingEffects;
     private bool waitingForPendingEffects = false;
@@ -76,8 +77,10 @@ public class EncounterManager : MonoBehaviour
         
         seenEncounters.Add(currentEncounter);
         
-        var generatedVendor = vendorGenerator.Generate();
+        var generatedVendor = vendorGenerator.Generate(); 
         generatedVendor.vendorName = currentEncounter.vendorName;
+        vendorController.ApplyAppearance(generatedVendor, vendorGenerator);
+        
         currentEncounter.vendor = generatedVendor;
         
         encounterUI.ShowEncounterPanel(currentEncounter);
