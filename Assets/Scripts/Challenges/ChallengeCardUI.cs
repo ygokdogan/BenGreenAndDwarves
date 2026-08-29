@@ -65,6 +65,7 @@ namespace Challenges
                 ObjectiveType.KeepStatBelowAtEnd => $"Finish with {data.trackedStat} at {data.maximumValue} or below after {duration}.",
                 ObjectiveType.AcceptOffers => $"Accept {data.requiredCount} offers {FormatCountScope(data.countScope, duration)}.",
                 ObjectiveType.RejectOffers => $"Reject {data.requiredCount} offers {FormatCountScope(data.countScope, duration)}.",
+                ObjectiveType.NoObjective => $"Too cowardly to take a risk, huh?",
                 _ => "Unknown Objective"
             };
         }
@@ -78,6 +79,7 @@ namespace Challenges
                 RewardType.CheatDeath => $"Reward: <color=#006D88>Prevent one {data.rewardStat} game over</color>",
                 RewardType.NormalizeStat => $"Reward: <color=#006D88>Normalize {data.rewardStat}</color>",
                 RewardType.IgnoreUpkeep => $"Reward: <color=#006D88>Ignore negative {data.rewardStat} upkeep</color>",
+                RewardType.NoReward => $"Reward: <color=#006D88>You don't deserve it.</color>",
                 _ => "Reward: Unknown"
             };
         }

@@ -53,7 +53,9 @@ namespace Challenges
         KeepStatBelowAtEnd,
 
         AcceptOffers,
-        RejectOffers
+        RejectOffers,
+        
+        NoObjective,
     }
 
     public enum RewardType
@@ -63,6 +65,7 @@ namespace Challenges
         CheatDeath,
         NormalizeStat,
         IgnoreUpkeep,
+        NoReward,
     }
 
     public enum CountScope
