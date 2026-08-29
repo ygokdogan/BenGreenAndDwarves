@@ -5,6 +5,11 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
     public AudioSource uiSource;
+    public AudioSource challengeFX;
+
+    public AudioSource musicSource;
+    
+    [SerializeField] private AudioClip gameOverClip;
 
     private void Awake()
     {
@@ -22,4 +27,15 @@ public class AudioManager : MonoBehaviour
     {
         uiSource.PlayOneShot(clip);
     }
-}
+
+    public void PlayChallengeSFX(AudioClip clip)
+    {
+        challengeFX.PlayOneShot(clip);
+    }
+
+    public void PlayGameOverSFX()
+    {
+        musicSource.volume = 0.7f;
+        musicSource.PlayOneShot(gameOverClip);
+    }
+ }

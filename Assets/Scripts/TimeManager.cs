@@ -6,8 +6,8 @@ public class TimeManager : MonoBehaviour
 {
     public static TimeManager Instance;
     
-    [SerializeField] private int startHour = 9;
-    [SerializeField] private int endHour = 21;
+    public int startHour = 9;
+    public int endHour = 21;
     public int CurrentDay { get; private set; } = 1;
     public int CurrentHour { get; private set; }
     public int TotalHoursElapsed { get; private set; } = 0;

@@ -82,7 +82,7 @@ public class GameFlowManager : MonoBehaviour
         if (CurrentState == GameFlowState.PendingEffects)
             return;
 
-        if (TimeManager.Instance.CurrentHour >= 21)
+        if (TimeManager.Instance.CurrentHour >= TimeManager.Instance.endHour)
         {
             ShowDaySummary();
             return;
@@ -105,7 +105,7 @@ public class GameFlowManager : MonoBehaviour
         if (StatManager.Instance != null && StatManager.Instance.CheckGameOver())
             return;
 
-        if (TimeManager.Instance.CurrentHour >= 21)
+        if (TimeManager.Instance.CurrentHour >= TimeManager.Instance.endHour)
         {
             ShowDaySummary();
             return;
