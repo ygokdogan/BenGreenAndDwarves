@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dc5331b40204628afa94f7e24f8e5c2, type: 3}
+  m_Name: Informant Vane
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.TrueEncounterData
+  vendorName: Informant Vane
+  offerText: I have acquired some highly sensitive documents regarding your past.
+    Pay my extortionate fee now, and I will hand them over. Refuse, and the authorities
+    will receive them.
+  acceptResultText: You angrily pay the blackmail. He hands over the thick files.
+    You are significantly poorer, but the intense relief of safety washes over you.
+  rejectResultText: You call his bluff and tell him to get out! You pace the room
+    nervously, hoping he was just fishing for coins.
+  acceptedDelayedText: 
+  rejectedDelayedText: Vane wasn't bluffing! The authorities raid your room, violently
+    interrogate you, and seize your assets in crippling fines.
+  accepted: 0
+  rejectedEffects:
+  - type: 0
+    amount: -5
+    revealDelay: 0
+  - type: 1
+    amount: -25
+    revealDelay: 2
+  - type: 3
+    amount: -20
+    revealDelay: 2
+  - type: 0
+    amount: -20
+    revealDelay: 2
+  effects:
+  - type: 1
+    amount: -20
+    revealDelay: 0
+  - type: 2
+    amount: 5
+    revealDelay: 0
+  - type: 0
+    amount: 10
+    revealDelay: 0

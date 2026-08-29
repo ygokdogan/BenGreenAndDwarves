@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dc5331b40204628afa94f7e24f8e5c2, type: 3}
+  m_Name: Importer Gallagher
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.TrueEncounterData
+  vendorName: Importer Gallagher
+  offerText: Purchase this crate of rare, imported fruits. They require significant
+    storage space, but eating them will grant you unparalleled physical vitality
+    and joy.
+  acceptResultText: You buy the bulky crate and eat a delicious exotic fruit. You
+    feel incredibly healthy and absolutely euphoric!
+  rejectResultText: You refuse to buy food from a sketchy traveler. Your room stays
+    clean, but you settle for a bland, tasteless dinner.
+  acceptedDelayedText: The remaining fruit rotted at an unnatural speed, releasing
+    a highly toxic miasma into your room! You violently vomit and develop a terrifying
+    fever.
+  rejectedDelayedText: 
+  accepted: 0
+  rejectedEffects:
+  - type: 3
+    amount: 10
+    revealDelay: 0
+  - type: 0
+    amount: -5
+    revealDelay: 0
+  effects:
+  - type: 1
+    amount: -15
+    revealDelay: 0
+  - type: 2
+    amount: 15
+    revealDelay: 0
+  - type: 3
+    amount: 15
+    revealDelay: 0
+  - type: 0
+    amount: 15
+    revealDelay: 0
+  - type: 0
+    amount: -20
+    revealDelay: 1
+  - type: 2
+    amount: -15
+    revealDelay: 1
+  - type: 3
+    amount: -20
+    revealDelay: 1

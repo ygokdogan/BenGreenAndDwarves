@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dc5331b40204628afa94f7e24f8e5c2, type: 3}
+  m_Name: Historian Malone
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.TrueEncounterData
+  vendorName: Historian Malone
+  offerText: Please hold these fragile, ancient clay tablets for me for one night.
+    They take up some space, but they emit a calming aura that will bring you peace.
+    It is completely free.
+  acceptResultText: You carefully store the tablets. Their strange, ancient presence
+    actually does make the room feel incredibly peaceful and calm.
+  rejectResultText: You turn the old man away. You miss out on the supposed calming
+    effect, sitting alone in your mundane room.
+  acceptedDelayedText: The 'calming aura' was actually a slow-acting, ancient fungal
+    spore! You wake up violently ill, coughing up black dust, realizing you've been
+    poisoned.
+  rejectedDelayedText: 
+  accepted: 0
+  rejectedEffects:
+  - type: 0
+    amount: -10
+    revealDelay: 0
+  effects:
+  - type: 2
+    amount: 10
+    revealDelay: 0
+  - type: 0
+    amount: 15
+    revealDelay: 0
+  - type: 3
+    amount: -25
+    revealDelay: 2
+  - type: 0
+    amount: -25
+    revealDelay: 2

@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dc5331b40204628afa94f7e24f8e5c2, type: 3}
+  m_Name: Chef Boucher
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.TrueEncounterData
+  vendorName: Chef Boucher
+  offerText: I am testing a new banquet menu. Clear your tables and allow me to serve
+    you. It costs nothing, and the gourmet food will grant you immense joy.
+  acceptResultText: The food is incredibly delicious, bringing a huge smile to your
+    face. However, an hour later...
+  rejectResultText: You refuse the free meal, trusting your own simple pantry. Your
+    stomach rumbles in disappointment as you eat dry bread.
+  acceptedDelayedText: ...aggressive food poisoning sets in, leaving you violently
+    ill.
+  rejectedDelayedText: 
+  accepted: 0
+  rejectedEffects:
+  - type: 0
+    amount: -10
+    revealDelay: 0
+  effects:
+  - type: 2
+    amount: 15
+    revealDelay: 0
+  - type: 0
+    amount: 20
+    revealDelay: 0
+  - type: 3
+    amount: -15
+    revealDelay: 1

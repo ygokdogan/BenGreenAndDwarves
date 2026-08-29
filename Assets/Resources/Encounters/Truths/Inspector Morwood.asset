@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dc5331b40204628afa94f7e24f8e5c2, type: 3}
+  m_Name: Inspector Morwood
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.TrueEncounterData
+  vendorName: Inspector Morwood
+  offerText: Your thermal pipes are critically over-pressurized. Pay my emergency
+    plumbing fee immediately, or your room will be completely destroyed tonight.
+  acceptResultText: You pay the steep fee. Morwood works on the pipes, and hearing
+    the steam flow smoothly again gives you great peace of mind.
+  rejectResultText: You laugh at his obvious scare tactics and kick him out. Keeping
+    your money safe from scammers makes you feel incredibly smart.
+  acceptedDelayedText: 
+  rejectedDelayedText: Morwood wasn't lying! The pipes violently explode while you
+    sleep! You are badly burned by the steam, and your room is ruined by the debris.
+  accepted: 0
+  rejectedEffects:
+  - type: 1
+    amount: 5
+    revealDelay: 0
+  - type: 0
+    amount: 10
+    revealDelay: 0
+  - type: 3
+    amount: -20
+    revealDelay: 1
+  - type: 0
+    amount: -20
+    revealDelay: 1
+  - type: 2
+    amount: 20
+    revealDelay: 1
+  effects:
+  - type: 1
+    amount: -20
+    revealDelay: 0
+  - type: 0
+    amount: 10
+    revealDelay: 0

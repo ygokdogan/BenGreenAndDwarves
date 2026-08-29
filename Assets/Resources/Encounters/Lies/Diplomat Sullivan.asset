@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5d0471b0cbf4c6ebae6eb977f88ebd0, type: 3}
+  m_Name: Diplomat Sullivan
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.LieEncounterData
+  vendorName: Diplomat Sullivan
+  offerText: A foreign dignitary is touring this sector. Pay the mandatory beautification
+    tax now, or risk severe diplomatic penalties for our entire district.
+  acceptResultText: You grumble but pay the tax. The district looks slightly cleaner,
+    and you feel a mild sense of civic pride.
+  rejectResultText: You slam the door on the tax collector, feeling incredibly proud
+    for standing up to bureaucratic extortion.
+  acceptedDelayedText: 
+  rejectedDelayedText: Sullivan wasn't bluffing! The angry dignitary's guards raid
+    your room for 'insulting the crown', beating you and taking double the tax by
+    sheer force!
+  accepted: 0
+  rejectedEffects:
+  - type: 0
+    amount: 10
+    revealDelay: 0
+  - type: 1
+    amount: -30
+    revealDelay: 1
+  - type: 3
+    amount: -15
+    revealDelay: 1
+  - type: 0
+    amount: -20
+    revealDelay: 1
+  claimedEffects:
+  - type: 1
+    amount: -15
+    revealDelay: 0
+  actualEffects:
+  - type: 1
+    amount: -15
+    revealDelay: 0
+  - type: 0
+    amount: 10
+    revealDelay: 0

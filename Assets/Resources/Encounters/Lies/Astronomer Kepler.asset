@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5d0471b0cbf4c6ebae6eb977f88ebd0, type: 3}
+  m_Name: Astronomer Kepler
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.LieEncounterData
+  vendorName: Astronomer Kepler
+  offerText: I beg you, let me set up my massive brass telescope by your window for
+    just one night! I cannot pay you yet, but the cosmic discovery will be legendary.
+  acceptResultText: The massive telescope blocks your entire window, and you constantly
+    trip over its heavy tripod. You feel incredibly foolish for allowing this junk
+    into your home.
+  rejectResultText: You kick the frantic stargazer out. You enjoy your personal space,
+    completely free of ridiculous metal tubes.
+  acceptedDelayedText: Kepler returns ecstatic! He discovered a new comet, won a
+    royal grant, and hands you a massive share of the prize money!
+  rejectedDelayedText: 
+  accepted: 0
+  rejectedEffects:
+  - type: 0
+    amount: 10
+    revealDelay: 0
+  claimedEffects:
+  - type: 2
+    amount: 20
+    revealDelay: 0
+  actualEffects:
+  - type: 2
+    amount: 20
+    revealDelay: 0
+  - type: 0
+    amount: -10
+    revealDelay: 0
+  - type: 1
+    amount: 35
+    revealDelay: 2
+  - type: 0
+    amount: 25
+    revealDelay: 2

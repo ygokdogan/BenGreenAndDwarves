@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5d0471b0cbf4c6ebae6eb977f88ebd0, type: 3}
+  m_Name: Engineer Arkwright
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.LieEncounterData
+  vendorName: Engineer Arkwright
+  offerText: Your terminal's power supply is dangerously inefficient. Let me install
+    this bulky copper transformer to stabilize your physical safety.
+  acceptResultText: He installs the giant transformer, and the room instantly feels
+    much safer. But after he leaves, you realize he 'accidentally' walked off with
+    your entire coin purse!
+  rejectResultText: You decline the bulky machine. A sudden power surge gives you
+    a nasty static shock, making you regret your choice slightly.
+  acceptedDelayedText: 
+  rejectedDelayedText: 
+  accepted: 0
+  rejectedEffects:
+  - type: 3
+    amount: -10
+    revealDelay: 0
+  - type: 0
+    amount: -10
+    revealDelay: 0
+  claimedEffects:
+  - type: 2
+    amount: 15
+    revealDelay: 0
+  - type: 3
+    amount: 15
+    revealDelay: 0
+  actualEffects:
+  - type: 1
+    amount: -20
+    revealDelay: 0
+  - type: 2
+    amount: 15
+    revealDelay: 0
+  - type: 3
+    amount: 15
+    revealDelay: 0

@@ -18,8 +18,7 @@ MonoBehaviour:
   acceptResultText: You pay the fee and sacrifice your corner. Surprisingly, the
     strange fungus releases natural spores that completely clear your lungs and cure
     your lingering cough!
-  rejectResultText: You refuse the ugly plant. You keep your money, but the air in
-    your room remains dreadfully stale.
+  rejectResultText: You refuse the ugly plant.
   acceptedDelayedText: 
   rejectedDelayedText: You kept your money by refusing the plant, but the air in
     your room remains dreadfully stale.

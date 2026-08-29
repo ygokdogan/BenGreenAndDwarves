@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dc5331b40204628afa94f7e24f8e5c2, type: 3}
+  m_Name: Apprentice Thorne
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.TrueEncounterData
+  vendorName: Apprentice Thorne
+  offerText: I beg of you, fund my independent research! It will cost you a fortune
+    right now, and I have absolutely nothing to offer in return except my profound
+    gratitude.
+  acceptResultText: You hand over the large sum of cash. Thorne runs off without
+    even writing a receipt. You feel like an absolute fool for giving away your money
+    to a beggar.
+  rejectResultText: You slam the door on the beggar. You feel quite sensible keeping
+    your wealth strictly to yourself.
+  acceptedDelayedText: Thorne returns in expensive clothes! His research was a massive
+    success, and he brought you a staggering return on your investment out of sheer
+    loyalty!
+  rejectedDelayedText: 
+  accepted: 0
+  rejectedEffects:
+  - type: 1
+    amount: 5
+    revealDelay: 0
+  - type: 0
+    amount: 5
+    revealDelay: 0
+  effects:
+  - type: 1
+    amount: -20
+    revealDelay: 0
+  - type: 0
+    amount: -15
+    revealDelay: 0
+  - type: 1
+    amount: 40
+    revealDelay: 3
+  - type: 0
+    amount: 35
+    revealDelay: 3

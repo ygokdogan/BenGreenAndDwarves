@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dc5331b40204628afa94f7e24f8e5c2, type: 3}
+  m_Name: Courier Hayes
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.TrueEncounterData
+  vendorName: Courier Hayes
+  offerText: Take this heavy, unmarked lead box. I cannot say what is inside, nor
+    can I pay you right now. Just hide it in your room for the night.
+  acceptResultText: You hide the ominous, heavy box in your corner. You spend the
+    hour sweating profusely, wondering if it's a bomb or something worse.
+  rejectResultText: You slam the door on the shady courier. You feel incredibly smart
+    avoiding obvious criminal trouble.
+  acceptedDelayedText: "Hayes returns and opens the box\u2014it is filled with untraceable
+    gold! He gives you a massive cut for your loyalty and takes the box away."
+  rejectedDelayedText: The police violently raid your room! Hayes dumped the illegal
+    package at your doorstep, and the authorities fine you heavily for possessing
+    it.
+  accepted: 0
+  rejectedEffects:
+  - type: 0
+    amount: 10
+    revealDelay: 0
+  - type: 0
+    amount: -20
+    revealDelay: 2
+  - type: 1
+    amount: -20
+    revealDelay: 2
+  effects:
+  - type: 2
+    amount: 15
+    revealDelay: 0
+  - type: 0
+    amount: -15
+    revealDelay: 0
+  - type: 2
+    amount: -15
+    revealDelay: 2
+  - type: 1
+    amount: 30
+    revealDelay: 2
+  - type: 0
+    amount: 40
+    revealDelay: 2

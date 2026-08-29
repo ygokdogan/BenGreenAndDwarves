@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dc5331b40204628afa94f7e24f8e5c2, type: 3}
+  m_Name: Heiress Belmont
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.TrueEncounterData
+  vendorName: Heiress Belmont
+  offerText: My family simply has too much wealth. I am handing out stacks of cash
+    to citizens. Take this envelope. There is absolutely no catch.
+  acceptResultText: You take the money, nervously waiting for the trap... but it
+    never comes. She smiles and walks away. You are simply richer and delighted!
+  rejectResultText: You angrily tell her you don't fall for obvious scams. A minute
+    later, you watch her hand the envelope to your neighbor. The crushing regret
+    ruins your day.
+  acceptedDelayedText: 
+  rejectedDelayedText: 
+  accepted: 0
+  rejectedEffects:
+  - type: 0
+    amount: -15
+    revealDelay: 0
+  effects:
+  - type: 1
+    amount: 20
+    revealDelay: 0
+  - type: 0
+    amount: 15
+    revealDelay: 0

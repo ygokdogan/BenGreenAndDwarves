@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5d0471b0cbf4c6ebae6eb977f88ebd0, type: 3}
+  m_Name: Cartographer Gideon
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.LieEncounterData
+  vendorName: Cartographer Gideon
+  offerText: I need a massive, flat surface to unfold my new continental map. Allow
+    me the floor space, and I shall pay you a generous sum for the privilege.
+  acceptResultText: You clear the floor and take the coins. Gideon spreads his map,
+    but the heavy, toxic ink fumes radiating from the parchment give you a terrible,
+    nauseating headache.
+  rejectResultText: You refuse to turn your room into a study. Your floor remains
+    open, and the air in your room stays perfectly clean.
+  acceptedDelayedText: 
+  rejectedDelayedText: 
+  accepted: 0
+  rejectedEffects:
+  - type: 0
+    amount: 10
+    revealDelay: 0
+  claimedEffects:
+  - type: 2
+    amount: 20
+    revealDelay: 0
+  - type: 1
+    amount: 20
+    revealDelay: 0
+  actualEffects:
+  - type: 3
+    amount: -10
+    revealDelay: 0
+  - type: 2
+    amount: 20
+    revealDelay: 0
+  - type: 1
+    amount: 20
+    revealDelay: 0
