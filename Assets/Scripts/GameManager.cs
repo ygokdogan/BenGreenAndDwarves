@@ -57,6 +57,7 @@ public class GameManager : MonoBehaviour
 
     private void WinGame()
     {
+        ChallengeManager.Instance?.OnDayResolved(TimeManager.Instance.CurrentDay);
         GameFlowManager.Instance?.ShowGameWon();
     }
 
@@ -64,8 +65,9 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log($"Game Ended: {stat} (isZero: {isZero})");
         
-        if (ChallengeManager.Instance) ChallengeManager.Instance.OnGameEnded();
         GameFlowManager.Instance?.ShowGameOver(stat, isZero);
+        AudioManager.Instance.PlayGameOverSFX();
+        ChallengeManager.Instance?.OnGameEnded();
     }
 
     private UpkeepEffects DecideUpkeepStats(float avg)

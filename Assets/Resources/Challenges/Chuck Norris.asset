@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 784d9415fa7e4bed8a4cbd90a76cdba8, type: 3}
+  m_Name: Chuck Norris
+  m_EditorClassIdentifier: Assembly-CSharp::Challenges.ChallengeData
+  displayName: Chuck Norris
+  description: 
+  hasStartingStatChange: 0
+  startingStat: 0
+  startingValue: 50
+  hasStartingMaxStatChange: 0
+  startingMaxStat: 0
+  startingMaxValue: 100
+  objectiveType: 2
+  durationInDays: 3
+  trackedStat: 1
+  maximumValue: 85
+  minimumValue: 15
+  requiredCount: 2
+  countScope: 1
+  rewardType: 0
+  rewardStat: 1
+  rewardValue: 200

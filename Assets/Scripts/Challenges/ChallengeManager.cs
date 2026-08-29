@@ -16,6 +16,7 @@ namespace Challenges
         private bool isCompleted;
 
         private int selectedDay;
+        private int completedChallengeDays;
 
         private int acceptedToday;
         private int rejectedToday;
@@ -27,6 +28,29 @@ namespace Challenges
         private StatType cheatDeathStat;
         private bool ignoresUpkeep;
         private StatType ignoredUpkeepStat;
+
+        public event Action<ChallengeData> OnChallengeSelected;
+        public event Action OnChallengeProgressChanged;
+        public event Action<bool> OnChallengeResolved;
+
+        public int CurrentChallengeDay
+        {
+            get
+            {
+                if (!activeChallenge || TimeManager.Instance == null) return 0;
+                return Mathf.Clamp(TimeManager.Instance.CurrentDay - selectedDay + 1, 1, activeChallenge.durationInDays);
+            }
+        }
+
+        public int CompletedChallengeDays
+        {
+            get
+            {
+                if (!activeChallenge || TimeManager.Instance == null) return 0;
+                int elapsedDays = TimeManager.Instance.CurrentDay - selectedDay;
+                return Mathf.Clamp(Mathf.Max(completedChallengeDays, elapsedDays), 0, activeChallenge.durationInDays);
+            }
+        }
 
         private void Awake()
         {
@@ -61,16 +85,25 @@ namespace Challenges
             isCompleted = false;
             
             selectedDay = TimeManager.Instance.CurrentDay;
+            completedChallengeDays = 0;
             
             acceptedToday = rejectedToday = totalAccepted = totalRejected = 0;
             cheatDeathAvailable = false;
             ignoresUpkeep = false;
 
+            OnChallengeSelected?.Invoke(activeChallenge);
+
             if (activeChallenge.hasStartingStatChange)
             {
                 StatManager.Instance.SetCurrent(activeChallenge.startingStat, activeChallenge.startingValue);
+            }
+
+            if (activeChallenge.hasStartingMaxStatChange)
+            {
                 StatManager.Instance.SetMax(activeChallenge.startingMaxStat, activeChallenge.startingMaxValue);
             }
+
+            NotifyProgressChanged();
         }
 
         public void OnOfferAccepted()
@@ -79,6 +112,7 @@ namespace Challenges
 
             acceptedToday++;
             totalAccepted++;
+            NotifyProgressChanged();
         }
 
         public void OnOfferRejected()
@@ -87,6 +121,7 @@ namespace Challenges
             
             rejectedToday++;
             totalRejected++;
+            NotifyProgressChanged();
         }
 
         public void OnGameEnded()
@@ -156,6 +191,8 @@ namespace Challenges
 
                     break;
             }
+
+            NotifyProgressChanged();
         }
         
         public void OnDayResolved(int completedDay)
@@ -166,12 +203,15 @@ namespace Challenges
 
             if (completedDay > finalDay) return;
 
+            completedChallengeDays = Mathf.Clamp(completedDay - selectedDay + 1, 0, activeChallenge.durationInDays);
+
             CheckDailyCountObjective();
             
             if (isFailed) return;
             if (completedDay < finalDay)
             {
                 ResetDailyCounts();
+                NotifyProgressChanged();
                 return;
             }
 
@@ -293,6 +333,8 @@ namespace Challenges
             isCompleted = true;
 
             ApplyReward();
+            OnChallengeResolved?.Invoke(true);
+            OnChallengeProgressChanged?.Invoke();
             Debug.Log($"Challenge Completed: {activeChallenge.displayName}");
         }
 
@@ -300,6 +342,7 @@ namespace Challenges
         {
             isActive = false;
             isFailed = true;
+            OnChallengeResolved?.Invoke(false);
             
             Debug.Log($"Challenge Failed: {activeChallenge.displayName}");
         }
@@ -351,6 +394,21 @@ namespace Challenges
         {
             acceptedToday = 0;
             rejectedToday = 0;
+        }
+
+        public int GetCurrentOfferCount()
+        {
+            if (!activeChallenge) return 0;
+
+            bool accepting = activeChallenge.objectiveType == ObjectiveType.AcceptOffers;
+            return activeChallenge.countScope == CountScope.PerDay
+                ? (accepting ? acceptedToday : rejectedToday)
+                : (accepting ? totalAccepted : totalRejected);
+        }
+
+        private void NotifyProgressChanged()
+        {
+            OnChallengeProgressChanged?.Invoke();
         }
     }
 }
