@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: e72b54608edd947febd83af965a482fb
+guid: af132da720cad46b2937ac72b97a0bba
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6953052554393333573
-    second: Effect_BigHit_1_004_0
-  - first:
-      213: 1659203275254493286
-    second: Effect_BigHit_1_004_1
-  - first:
-      213: -7841284729291015228
-    second: Effect_BigHit_1_004_2
+      213: -303948342904262085
+    second: mustache2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -43,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -52,12 +46,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -81,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -106,67 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Effect_BigHit_1_004_0
+      name: mustache2_0
       rect:
         serializedVersion: 2
-        x: 107
-        y: 262
-        width: 100
-        height: 8
+        x: 0
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bb053c66a8bc18f90800000000000000
-      internalID: -6953052554393333573
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Effect_BigHit_1_004_1
-      rect:
-        serializedVersion: 2
-        x: 127
-        y: 96
-        width: 320
-        height: 350
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 66075b7869ca60710800000000000000
-      internalID: 1659203275254493286
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Effect_BigHit_1_004_2
-      rect:
-        serializedVersion: 2
-        x: 371
-        y: 244
-        width: 102
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4cbf9e765192e2390800000000000000
-      internalID: -7841284729291015228
+      spriteID: b327f1fa79828cbf0800000000000000
+      internalID: -303948342904262085
       vertices: []
       indices: 
       edges: []
@@ -175,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 6815bcb57815641b989b54bca294c2ed
     internalID: 0
     vertices: []
     indices: 
@@ -183,11 +133,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":128.0,"y":128.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Effect_BigHit_1_004_0: -6953052554393333573
-      Effect_BigHit_1_004_1: 1659203275254493286
-      Effect_BigHit_1_004_2: -7841284729291015228
+      mustache2_0: -303948342904262085
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

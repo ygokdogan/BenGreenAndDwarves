@@ -60,16 +60,6 @@ public class GameManager : MonoBehaviour
         
         bool wasDayResolved = DayEndUIManager.Instance.ShowDayEndSummary(day, dailyUpkeep);
         if (!wasDayResolved) return;
-
-        if (StatManager.Instance != null && StatManager.Instance.CheckGameOver())
-        {
-            dailyAccepts = 0;
-            dailyRejects = 0;
-            return;
-        }
-
-        if (ChallengeManager.Instance)
-            ChallengeManager.Instance.OnDayResolved(day);
         
         dailyAccepts = 0; dailyRejects = 0;
     }

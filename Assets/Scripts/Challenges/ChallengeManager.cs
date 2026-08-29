@@ -43,9 +43,6 @@ namespace Challenges
         {
             if (StatManager.Instance)
                 StatManager.Instance.OnStatChanged += OnStatChanged;
-
-            if (activeChallenge)
-                SelectChallenge(activeChallenge);
         }
 
         private void OnDestroy()
@@ -74,6 +71,8 @@ namespace Challenges
                 StatManager.Instance.SetCurrent(activeChallenge.startingStat, activeChallenge.startingValue);
                 StatManager.Instance.SetMax(activeChallenge.startingMaxStat, activeChallenge.startingMaxValue);
             }
+
+            ChallengeDealer.Instance.Close();
         }
 
         public void OnOfferAccepted()
@@ -329,6 +328,10 @@ namespace Challenges
                     StatManager.Instance.NormalizeToHalfOfMaximum(
                         activeChallenge.rewardStat
                     );
+                    break;
+                
+                case RewardType.CenterAllStats:
+                    StatManager.Instance.NormalizeAllStats();
                     break;
 
                 case RewardType.IgnoreUpkeep:

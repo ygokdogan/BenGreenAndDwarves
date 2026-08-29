@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Challenges;
 using Effects;
 using UnityEngine;
@@ -74,6 +75,14 @@ public class StatManager : MonoBehaviour
         stats[statType] = maxStats[statType] / 2;
 
         OnStatChanged?.Invoke(statType, stats[statType], oldValue);
+    }
+
+    public void NormalizeAllStats()
+    {
+        foreach (var stat in stats.Keys.ToList())
+        {
+            NormalizeToHalfOfMaximum(stat);
+        }
     }
 
     public void ApplyEffects(StatEffect[] effects, bool checkGameOver = true)

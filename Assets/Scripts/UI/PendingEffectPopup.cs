@@ -33,7 +33,6 @@ namespace UI
             }
             
             Instance = this;
-            DontDestroyOnLoad(gameObject);
 
             if (bodyText != null && typewriterEffect == null)
             {
@@ -59,8 +58,6 @@ namespace UI
 
             foreach (PendingEffect effect in effects)
             {
-                // Effects originating from one encounter share one popup. Effects from
-                // different encounters retain their own popup and apply independently.
                 if (effect.encounter == null)
                 {
                     groupsInDisplayOrder.Add(new List<PendingEffect> { effect });

@@ -16,10 +16,10 @@ MonoBehaviour:
   description: 
   hasStartingStatChange: 1
   startingStat: 0
-  startingValue: 60
+  startingValue: 35
   hasStartingMaxStatChange: 0
   startingMaxStat: 0
-  startingMaxValue: 0
+  startingMaxValue: 100
   objectiveType: 1
   durationInDays: 1
   trackedStat: 0
@@ -28,5 +28,5 @@ MonoBehaviour:
   requiredCount: 2
   countScope: 1
   rewardType: 0
-  rewardStat: 0
-  rewardValue: 150
+  rewardStat: 1
+  rewardValue: 175

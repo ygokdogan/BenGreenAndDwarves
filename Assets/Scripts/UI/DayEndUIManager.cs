@@ -42,6 +42,14 @@ namespace UI
 
         public bool ShowDayEndSummary(int completedDay, UpkeepEffects dailyUpkeep)
         {
+            // Effects are removed from PendingEffects as soon as they are queued for
+            // display, so checking the pending list alone is not enough here.
+            // Wait until their popup has closed before allowing the day transition.
+            if (EncounterManager.Instance != null && EncounterManager.Instance.IsWaitingForPendingEffects)
+            {
+                return false;
+            }
+
             if (PendingEffects.Instance != null && PendingEffects.Instance.HasPendingEffectsForCurrentTime())
             {
                 return false;
@@ -114,6 +122,9 @@ namespace UI
             }
 
             if (gameplayUI) gameplayUI.SetActive(true);
+            if (ChallengeManager.Instance)
+                ChallengeManager.Instance.OnDayResolved(TimeManager.Instance.CurrentDay);
+            
             TimeManager.Instance.StartNextDay();
             
             if (EncounterManager.Instance != null && !EncounterManager.Instance.IsWaitingForPendingEffects)

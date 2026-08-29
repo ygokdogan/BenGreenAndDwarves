@@ -9,7 +9,7 @@ namespace VendorAppearance
 {
     public class VendorGenerator : MonoBehaviour
     {
-        private Sprite[] bodies, faces, hairs, hats, mustaches, bags;
+        [SerializeField] private Sprite[] bodies, faces, hairs, hats, mustaches, bags;
         
         HashSet<VendorData> used = new HashSet<VendorData>();
 

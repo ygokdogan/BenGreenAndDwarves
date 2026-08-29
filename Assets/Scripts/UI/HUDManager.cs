@@ -68,6 +68,10 @@ namespace UI
             if (!StatManager.Instance) return;
             foreach (var stat in StatManager.Instance.stats)
             {
+                happinessBar.statType = StatType.Happiness;
+                healthBar.statType = StatType.Health;
+                storageBar.statType = StatType.Storage;
+                cashBar.statType = StatType.Cash;
                 SetBarValue(stat.Key, stat.Value, 0);
             }
         }
