@@ -324,14 +324,12 @@ namespace UI.Utilities
 
             if (isBeyondThreshold)
             {
-                // Card is being dismissed — cursor is no longer over anything interactive.
                 CursorManager.Instance?.OnDragEnd(stillOverCard: false);
                 AudioManager.Instance.PlayUISFX(triggerSound);
                 onSwipedUp?.Invoke();
             }
             else
             {
-                // Card snaps back — check if pointer is still over the card rect.
                 bool stillOverCard = RectTransformUtility.RectangleContainsScreenPoint(
                     rectTransform, eventData.position, eventData.pressEventCamera);
                 CursorManager.Instance?.OnDragEnd(stillOverCard);
