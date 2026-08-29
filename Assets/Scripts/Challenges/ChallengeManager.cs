@@ -71,8 +71,6 @@ namespace Challenges
                 StatManager.Instance.SetCurrent(activeChallenge.startingStat, activeChallenge.startingValue);
                 StatManager.Instance.SetMax(activeChallenge.startingMaxStat, activeChallenge.startingMaxValue);
             }
-
-            ChallengeDealer.Instance.Close();
         }
 
         public void OnOfferAccepted()

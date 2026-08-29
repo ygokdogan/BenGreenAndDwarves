@@ -7,9 +7,9 @@ using Random = UnityEngine.Random;
 
 namespace Challenges
 {
-    public class ChallengeDealer : MonoBehaviour
-    {
-        public static ChallengeDealer Instance;
+        public class ChallengeDealer : MonoBehaviour
+        {
+            public static ChallengeDealer Instance;
         
         [Header("Database")]
         public List<ChallengeData> allChallenges = new List<ChallengeData>();
@@ -35,8 +35,9 @@ namespace Challenges
             initialScale = transform.localScale;
         }
 
-        private void Start()
+        public void ShowDealer()
         {
+            gameObject.SetActive(true);
             DealRandomChallenges();
         }
 
@@ -44,6 +45,10 @@ namespace Challenges
         {
             transform.localScale = initialScale;
             isSelectingChallenge = false;
+            foreach (GameObject card in dealtCards)
+            {
+                if (card != null) Destroy(card);
+            }
             dealtCards.Clear();
 
             List<ChallengeData> tempDeck = new List<ChallengeData>(allChallenges);
@@ -95,7 +100,6 @@ namespace Challenges
                 if (card == null) continue;
 
                 card.transform.DOKill();
-                card.GetComponent<Button>().interactable = false;
 
                 if (card == selectedCard) continue;
 
@@ -106,7 +110,7 @@ namespace Challenges
 
             if (selectedCard == null)
             {
-                DOVirtual.DelayedCall(0.35f, Close);
+                DOVirtual.DelayedCall(0.35f, CloseAndBeginGameplay);
                 return;
             }
 
@@ -135,15 +139,19 @@ namespace Challenges
                 .SetEase(Ease.OutBack));
             selectionSequence.Join(shakeSequence);
             selectionSequence.AppendInterval(0.15f);
-            selectionSequence.AppendCallback(Close);
+            selectionSequence.AppendCallback(CloseAndBeginGameplay);
         }
 
-        public void Close()
+        private void CloseAndBeginGameplay()
         {
             transform.DOKill();
             transform.DOScale(Vector3.zero, 0.3f)
                 .SetEase(Ease.InBack)
-                .OnComplete(() => gameObject.SetActive(false));
+                .OnComplete(() =>
+                {
+                    gameObject.SetActive(false);
+                    GameFlowManager.Instance?.BeginGameplay();
+                });
         }
     }
 }

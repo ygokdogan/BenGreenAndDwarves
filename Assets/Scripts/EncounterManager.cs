@@ -47,19 +47,6 @@ public class EncounterManager : MonoBehaviour
         allEncounters = Resources.LoadAll<EncounterData>("Encounters/Truths").ToList();
         allEncounters.AddRange(Resources.LoadAll<EncounterData>("Encounters/Lies").ToList());
         
-        if (pendingEffects) pendingEffects.OnEffectsTriggered += ShowPendingEffects;
-    }
-
-    private void Start()
-    {
-        LoadRandomEncounter();
-    }
-
-    private void OnDestroy()
-    {
-        if (!pendingEffects) return;
-        
-        pendingEffects.OnEffectsTriggered -= ShowPendingEffects;
     }
 
     private void LoadRandomEncounter()
@@ -79,15 +66,21 @@ public class EncounterManager : MonoBehaviour
         
         var generatedVendor = vendorGenerator.Generate(); 
         generatedVendor.vendorName = currentEncounter.vendorName;
-        vendorController.ApplyAppearance(generatedVendor, vendorGenerator);
-        
         currentEncounter.vendor = generatedVendor;
-        
+
+        if (vendorController != null)
+        {
+            vendorController.ApplyAppearance(generatedVendor, vendorGenerator);
+            vendorController.AnimateEnter();
+        }
+
         encounterUI.ShowEncounterPanel(currentEncounter);
     }
     
     public EncounterData GetCurrentEncounter() => currentEncounter;
     public void LoadNextEncounter() => LoadRandomEncounter();
+    public void SetWaitingForPendingEffects(bool isWaiting) => waitingForPendingEffects = isWaiting;
+    public void HideEncounterUI() => encounterUI?.HideAllPanels();
     
     private void ResolveEncounter(bool accepted)
     {
@@ -104,6 +97,8 @@ public class EncounterManager : MonoBehaviour
             else
                 PendingEffects.Instance.Schedule(currentEncounter, effect, effect.revealDelay);
         }
+        
+        vendorController.AnimateExit();
     }
 
     public void AcceptOffer()
@@ -114,16 +109,16 @@ public class EncounterManager : MonoBehaviour
         GameManager.Instance.dailyAccepts++;
         ChallengeManager.Instance.OnOfferAccepted();
     }
-    
+
     public void RejectOffer()
     {
         ResolveEncounter(false);
         encounterUI.ShowResultPanel(currentEncounter.rejectResultText);
-        
+
         GameManager.Instance.dailyRejects++;
         ChallengeManager.Instance.OnOfferRejected();
     }
-    
+
     public void OnContinueButtonClicked()
     {
         if (StatManager.Instance != null && StatManager.Instance.CheckGameOver())
@@ -131,36 +126,6 @@ public class EncounterManager : MonoBehaviour
             return;
         }
 
-        timeManager.AdvanceHour();
-        
-        if (!waitingForPendingEffects && timeManager.CurrentHour < 21)
-        {
-            LoadRandomEncounter();
-        }
-    }
-
-    private void ShowPendingEffects(List<PendingEffect> effectsTriggered)
-    {
-        waitingForPendingEffects = true;
-        PendingEffectPopup.Instance.Show(effectsTriggered, OnPendingEffectsClosed);
-    }
-
-    private void OnPendingEffectsClosed()
-    {
-        waitingForPendingEffects = false;
-
-        if (StatManager.Instance != null && StatManager.Instance.CheckGameOver())
-        {
-            return;
-        }
-
-        if (timeManager != null && timeManager.CurrentHour < 21)
-        {
-            LoadRandomEncounter();
-        }
-        else if (timeManager != null && timeManager.CurrentHour >= 21)
-        {
-            GameManager.Instance.EndDay(timeManager.CurrentDay);
-        }
+        GameFlowManager.Instance?.ContinueEncounter();
     }
 }

@@ -5,14 +5,13 @@ using Effects;
 using ScriptableObjects;
 using UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public UpkeepEffects[] upkeepEffects;
     
-    public AudioSource uiButtonSource;
-
     public int dailyAccepts;
     public int dailyRejects;
 
@@ -28,22 +27,14 @@ public class GameManager : MonoBehaviour
 
         Instance = this;
 
+        if (GetComponent<GameFlowManager>() == null)
+            gameObject.AddComponent<GameFlowManager>();
+
         if (upkeepEffects != null && upkeepEffects.Length > 0)
         {
             upkeepEffects = upkeepEffects.OrderByDescending(u => u.minAvg).ToArray();
         }
     }
-
-    private void Start()
-    {
-        TimeManager.Instance.OnDayEnded += EndDay;
-    }
-
-    private void OnDestroy()
-    {
-        TimeManager.Instance.OnDayEnded -= EndDay;
-    }
-
 
     public void EndDay(int day)
     {
@@ -66,7 +57,7 @@ public class GameManager : MonoBehaviour
 
     private void WinGame()
     {
-        GameWonUIManager.Instance.ShowGameWon();
+        GameFlowManager.Instance?.ShowGameWon();
     }
 
     public void EndGame(StatType stat, bool isZero = true)
@@ -74,10 +65,7 @@ public class GameManager : MonoBehaviour
         Debug.Log($"Game Ended: {stat} (isZero: {isZero})");
         
         if (ChallengeManager.Instance) ChallengeManager.Instance.OnGameEnded();
-        if (GameOverUIManager.Instance != null)
-        {
-            GameOverUIManager.Instance.ShowGameOver(stat, isZero);
-        }
+        GameFlowManager.Instance?.ShowGameOver(stat, isZero);
     }
 
     private UpkeepEffects DecideUpkeepStats(float avg)

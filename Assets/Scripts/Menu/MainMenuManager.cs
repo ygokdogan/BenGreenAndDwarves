@@ -1,93 +1,88 @@
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI; // Slider ve Toggle için
-using TMPro; // Dropdown (Açılır menü) için
 using UnityEngine.SceneManagement;
-using System.Collections.Generic; // Listeler için
+using UnityEngine.UI;
 
-public class MainMenuManager : MonoBehaviour
+namespace Menu
 {
-    [Header("Menü Panelleri")]
-    public GameObject settingsPanel;
-
-    [Header("Ayarlar UI")]
-    public Slider volumeSlider;
-    public TMP_Dropdown resolutionDropdown;
-    public Toggle fullscreenToggle;
-
-    private Resolution[] resolutions; // Bilgisayarın desteklediği çözünürlükleri tutacak liste
-
-    private void Start()
+    public class MainMenuManager : MonoBehaviour
     {
-        if (settingsPanel != null) settingsPanel.SetActive(false);
+        [Header("Menü Panelleri")]
+        public GameObject settingsPanel;
 
-        // 1. Çözünürlük Ayarlarını Yükle
-        resolutions = Screen.resolutions; // Bilgisayarın tüm çözünürlüklerini al
-        resolutionDropdown.ClearOptions(); // Dropdown'un içindeki eski yazıları temizle
+        [Header("Ayarlar UI")]
+        public Slider volumeSlider;
+        public TMP_Dropdown resolutionDropdown;
+        public Toggle fullscreenToggle;
 
-        List<string> options = new List<string>();
-        int currentResIndex = 0;
+        private Resolution[] resolutions;
 
-        for (int i = 0; i < resolutions.Length; i++)
+        private void Start()
         {
-            // Genişlik x Yükseklik şeklinde metin oluştur (Örn: 1920 x 1080)
-            string option = resolutions[i].width + " x " + resolutions[i].height;
-            options.Add(option);
+            if (settingsPanel != null) settingsPanel.SetActive(false);
+        
+            resolutions = Screen.resolutions;
+            resolutionDropdown.ClearOptions();
 
-            // Mevcut ekran çözünürlüğünü bul
-            if (resolutions[i].width == Screen.currentResolution.width &&
-                resolutions[i].height == Screen.currentResolution.height)
+            List<string> options = new List<string>();
+            int currentResIndex = 0;
+
+            for (int i = 0; i < resolutions.Length; i++)
             {
-                currentResIndex = i;
+                string option = resolutions[i].width + " x " + resolutions[i].height;
+                options.Add(option);
+            
+                if (resolutions[i].width == Screen.currentResolution.width &&
+                    resolutions[i].height == Screen.currentResolution.height)
+                {
+                    currentResIndex = i;
+                }
             }
+
+            resolutionDropdown.AddOptions(options);
+            resolutionDropdown.value = currentResIndex;
+            resolutionDropdown.RefreshShownValue();
+        
+            fullscreenToggle.isOn = Screen.fullScreen;
+            volumeSlider.value = AudioListener.volume; // Oyunun ana ses seviyesini çeker (0 ile 1 arasıdır)
         }
 
-        resolutionDropdown.AddOptions(options); // Listeyi menüye ekle
-        resolutionDropdown.value = currentResIndex; // Mevcut çözünürlüğü seçili yap
-        resolutionDropdown.RefreshShownValue();
+        public void SetVolume(float volume)
+        {
+            AudioListener.volume = volume;
+        }
 
-        // 2. Tam Ekran ve Ses Ayarlarının Başlangıç Değerlerini Yükle
-        fullscreenToggle.isOn = Screen.fullScreen;
-        volumeSlider.value = AudioListener.volume; // Oyunun ana ses seviyesini çeker (0 ile 1 arasıdır)
-    }
+        public void SetFullscreen(bool isFullscreen)
+        {
+            Screen.fullScreen = isFullscreen;
+        }
 
-    // --- AYARLAR FONKSİYONLARI ---
+        public void SetResolution(int resolutionIndex)
+        {
+            Resolution res = resolutions[resolutionIndex];
+            Screen.SetResolution(res.width, res.height, Screen.fullScreen);
+        }
+    
 
-    public void SetVolume(float volume)
-    {
-        AudioListener.volume = volume; // Oyunun genel sesini ayarlar
-    }
+        public void PlayGame()
+        {
+            SceneManager.LoadScene(1);
+        }
 
-    public void SetFullscreen(bool isFullscreen)
-    {
-        Screen.fullScreen = isFullscreen; // Tam ekranı aç/kapat
-    }
+        public void QuitGame()
+        {
+            Application.Quit(); 
+        }
 
-    public void SetResolution(int resolutionIndex)
-    {
-        Resolution res = resolutions[resolutionIndex];
-        Screen.SetResolution(res.width, res.height, Screen.fullScreen); // Seçilen çözünürlüğü uygula
-    }
+        public void OpenSettings()
+        {
+            settingsPanel.SetActive(true); 
+        }
 
-    // --- MENÜ BUTON FONKSİYONLARI ---
-
-    public void PlayGame()
-    {
-        SceneManager.LoadScene(1); 
-    }
-
-    public void QuitGame()
-    {
-        Debug.Log("Oyundan çıkıldı!"); 
-        Application.Quit(); 
-    }
-
-    public void OpenSettings()
-    {
-        settingsPanel.SetActive(true); 
-    }
-
-    public void CloseSettings()
-    {
-        settingsPanel.SetActive(false); 
+        public void CloseSettings()
+        {
+            settingsPanel.SetActive(false); 
+        }
     }
 }

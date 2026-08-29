@@ -16,6 +16,7 @@ namespace UI
         public StatBar.StatBar cashBar;
         
         [Header("Day & Time ")]
+        public GameObject dayAndTimeHud;
         public TextMeshProUGUI dayText;
         public TextMeshProUGUI timeText;
 
@@ -117,6 +118,12 @@ namespace UI
                 case StatType.Storage: if (storageBar) storageBar.Highlight(active); break;
                 case StatType.Cash: if (cashBar) cashBar.Highlight(active); break;
             }
+        }
+
+        public void SetHUD(bool show)
+        {
+            bars.SetActive(show);
+            dayAndTimeHud.SetActive(show);
         }
 
         private void ChangeDayText(int day) => dayText.text = $"Day: {day}";
