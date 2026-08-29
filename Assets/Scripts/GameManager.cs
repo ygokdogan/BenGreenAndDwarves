@@ -84,4 +84,12 @@ public class GameManager : MonoBehaviour
         Debug.LogWarning($"No UpkeepEffects found for average: {avg}. Returning default.");
         return default;
     }
+
+    public void GoToMainMenu()
+    {
+        AudioManager.Instance?.StopChallengeSFX();
+        TimeManager.Instance?.ResetTime();
+        StatManager.Instance?.ResetStats();
+        SceneManager.LoadScene(0);
+    }
 }
