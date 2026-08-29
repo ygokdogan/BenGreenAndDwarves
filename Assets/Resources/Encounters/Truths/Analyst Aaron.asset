@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: Analyst Aaron
   m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.TrueEncounterData
   vendorName: Analyst Aaron
-  offerText: "The market is shifting. Pay my consultation fee now, and I\u2019ll
-    restructure your portfolio to ensure you sleep soundly tonight."
+  offerText: The market is shifting. Pay my consultation fee now, and I'll restructure
+    your portfolio to ensure you sleep soundly tonight.
   acceptResultText: You pay Aaron to handle the paperwork. Knowing your finances
     are secure lifts a massive weight off your shoulders.
   rejectResultText: You decide to manage your own money, saving the consulting fee.
   acceptedDelayedText: 
   rejectedDelayedText: You realize you made a terrible math error on your taxes.
     The stress causes a panic attack.
-  accepted: 0
+  accepted: 1
   rejectedEffects:
   - type: 0
     amount: 5

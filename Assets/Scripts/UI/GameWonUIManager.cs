@@ -41,6 +41,8 @@ namespace UI
         
         public void RestartGame()
         {
+            AudioManager.Instance?.StopChallengeSFX();
+
             if (typewriter != null && typewriter.IsTyping)
             {
                 typewriter.Skip();
@@ -55,6 +57,7 @@ namespace UI
 
         public void GoToMainMenu()
         {
+            AudioManager.Instance?.StopChallengeSFX();
             TimeManager.Instance?.ResetTime();
             StatManager.Instance?.ResetStats();
             SceneManager.LoadScene(0);

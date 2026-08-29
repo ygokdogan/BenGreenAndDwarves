@@ -152,7 +152,7 @@ namespace UI
         {
             if (currentEncounter != null && HUDManager.Instance != null)
             {
-                HUDManager.Instance.ShowPreview(currentEncounter.rejectedEffects);
+                //HUDManager.Instance.ShowPreview(currentEncounter.rejectedEffects);
             }
         }
 

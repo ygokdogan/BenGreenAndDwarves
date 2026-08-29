@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
 
     private int daysToSurvive = 7;
     
+    [SerializeField] private AudioClip gameWonClip;
     [SerializeField] private AudioClip gameOverClip;
 
     private void Awake()
@@ -60,6 +61,7 @@ public class GameManager : MonoBehaviour
     private void WinGame()
     {
         ChallengeManager.Instance?.OnDayResolved(TimeManager.Instance.CurrentDay);
+        AudioManager.Instance?.PlayChallengeSFX(gameWonClip);
         GameFlowManager.Instance?.ShowGameWon();
     }
 
@@ -68,7 +70,7 @@ public class GameManager : MonoBehaviour
         Debug.Log($"Game Ended: {stat} (isZero: {isZero})");
         
         GameFlowManager.Instance?.ShowGameOver(stat, isZero);
-        AudioManager.Instance.PlayChallengeSFX(gameOverClip);
+        AudioManager.Instance?.PlayChallengeSFX(gameOverClip);
         ChallengeManager.Instance?.OnGameEnded();
     }
 

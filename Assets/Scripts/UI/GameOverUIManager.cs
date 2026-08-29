@@ -69,7 +69,7 @@ namespace UI
 
             if (daysSurvivedText && TimeManager.Instance != null)
             {
-                daysSurvivedText.text = $"Survived: {TimeManager.Instance.CurrentDay} Days";
+                daysSurvivedText.text = $"Survived: {TimeManager.Instance.CurrentDay - 1} Days";
             }
 
             (string title, string reason) = GetGameOverReason(stat, isZero);
@@ -124,6 +124,8 @@ namespace UI
 
         public void RestartGame()
         {
+            AudioManager.Instance?.StopChallengeSFX();
+
             if (reasonTypewriter != null && reasonTypewriter.IsTyping)
             {
                 reasonTypewriter.Skip();
@@ -138,10 +140,10 @@ namespace UI
 
         public void GoToMainMenu()
         {
+            AudioManager.Instance?.StopChallengeSFX();
             TimeManager.Instance?.ResetTime();
             StatManager.Instance?.ResetStats();
             SceneManager.LoadScene(0);
         }
     }
 }
-
