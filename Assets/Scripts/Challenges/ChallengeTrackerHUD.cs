@@ -188,8 +188,8 @@ namespace UI
             RectTransform floatingRect = floatingResultText.rectTransform;
 
             Sequence sequence = DOTween.Sequence();
-            sequence.Append(floatingRect.DOAnchorPosY(90f, 0.75f).SetEase(Ease.OutCubic));
-            sequence.Join(floatingResultText.DOFade(0f, 0.75f));
+            sequence.Append(floatingRect.DOAnchorPosY(90f, 1.85f).SetEase(Ease.OutCubic));
+            sequence.Join(floatingResultText.DOFade(0f, 0.35f).SetDelay(1.5f));
             sequence.OnComplete(() => floatingResultText.gameObject.SetActive(false));
         }
 

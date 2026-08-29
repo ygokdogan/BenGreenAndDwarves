@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     public int dailyAccepts;
     public int dailyRejects;
 
-    private int daysToSurvive = 7;
+    private int daysToSurvive = 2;
     
     [SerializeField] private AudioClip gameWonClip;
     [SerializeField] private AudioClip gameOverClip;
@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
     private void WinGame()
     {
         ChallengeManager.Instance?.OnDayResolved(TimeManager.Instance.CurrentDay);
-        AudioManager.Instance?.PlayMusic(gameWonClip);
+        AudioManager.Instance?.PlayMusicInstantly(gameWonClip);
         GameFlowManager.Instance?.ShowGameWon();
     }
 

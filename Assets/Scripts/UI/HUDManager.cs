@@ -19,6 +19,9 @@ namespace UI
         public GameObject dayAndTimeHud;
         public TextMeshProUGUI dayText;
         public TextMeshProUGUI timeText;
+        
+        [Header("Settings Panel")]
+        public GameObject settingsPanel;
 
         private void Awake()
         {
@@ -124,6 +127,11 @@ namespace UI
         {
             bars.SetActive(show);
             dayAndTimeHud.SetActive(show);
+        }
+
+        public void ShowOrHideSettingsPanel()
+        {
+            settingsPanel.SetActive(!settingsPanel.activeInHierarchy);
         }
 
         private void ChangeDayText(int day) => dayText.text = $"Day: {day}";
