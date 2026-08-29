@@ -182,7 +182,6 @@ MonoBehaviour:
   uiSource: {fileID: 2014097917}
   challengeFX: {fileID: 1118109079}
   musicSource: {fileID: 1914881529}
-  gameOverClip: {fileID: 8300000, guid: af702883376e64cc9ac3765d5a6969e6, type: 3}
 --- !u!4 &309673872
 Transform:
   m_ObjectHideFlags: 0
@@ -929,6 +928,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 900675812251393010, guid: feecbe0d0a9644f42810d7d41b259eb5, type: 3}
+      propertyPath: gameOverClip
+      value: 
+      objectReference: {fileID: 8300000, guid: af702883376e64cc9ac3765d5a6969e6, type: 3}
     - target: {fileID: 3538262598012169826, guid: feecbe0d0a9644f42810d7d41b259eb5, type: 3}
       propertyPath: m_Name
       value: Game Manager
@@ -1107,14 +1110,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8302859492977119723, guid: 13a6a2ef4a44e458da5749bad29840bb, type: 3}
-      propertyPath: failedClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 9d1746fe870ce414cbcacb96fef220b4, type: 3}
-    - target: {fileID: 8302859492977119723, guid: 13a6a2ef4a44e458da5749bad29840bb, type: 3}
-      propertyPath: completeClip
-      value: 
-      objectReference: {fileID: 8300000, guid: c749c0a5e7b3c420882ffc845d3f2e6e, type: 3}
     - target: {fileID: 8343363481450501861, guid: 13a6a2ef4a44e458da5749bad29840bb, type: 3}
       propertyPath: m_Camera
       value: 
@@ -1197,7 +1192,7 @@ PrefabInstance:
       objectReference: {fileID: 859530405}
     - target: {fileID: 7792651680344324651, guid: 2e2d0119c3c2249cfb505c50d5a9891c, type: 3}
       propertyPath: endHour
-      value: 11
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     public int dailyRejects;
 
     private int daysToSurvive = 7;
+    
+    [SerializeField] private AudioClip gameOverClip;
 
     private void Awake()
     {
@@ -66,7 +68,7 @@ public class GameManager : MonoBehaviour
         Debug.Log($"Game Ended: {stat} (isZero: {isZero})");
         
         GameFlowManager.Instance?.ShowGameOver(stat, isZero);
-        AudioManager.Instance.PlayGameOverSFX();
+        AudioManager.Instance.PlayChallengeSFX(gameOverClip);
         ChallengeManager.Instance?.OnGameEnded();
     }
 
