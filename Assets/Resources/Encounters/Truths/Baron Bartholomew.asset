@@ -23,13 +23,13 @@ MonoBehaviour:
     chemicals! You feel terribly ill.
   rejectedDelayedText: 'You read the paper: the Baron''s crates weren''t copper;
     they were leaking toxic industrial chemicals! You feel yourself lucky.'
-  accepted: 0
+  accepted: 1
   rejectedEffects:
   - type: 0
     amount: 5
     revealDelay: 0
   - type: 0
-    amount: 10
+    amount: 5
     revealDelay: 1
   effects:
   - type: 1

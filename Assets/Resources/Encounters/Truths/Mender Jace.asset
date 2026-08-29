@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dc5331b40204628afa94f7e24f8e5c2, type: 3}
+  m_Name: Mender Jace
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.TrueEncounterData
+  vendorName: Mender Jace
+  offerText: Sell me your bulky water purification filters. I need the raw charcoal
+    for my forge. I will pay a heavy purse, but your drinking water will taste of
+    rust and grit.
+  acceptResultText: Jace hauls the filters away. Your room is spacious and your wallet
+    is thick, but drinking the foul, gritty tap water makes you sick to your stomach.
+  rejectResultText: You refuse to poison yourself for money. You enjoy a glass of
+    clean, pure water in your cramped room.
+  acceptedDelayedText: 
+  rejectedDelayedText: 
+  accepted: 0
+  rejectedEffects:
+  - type: 1
+    amount: 5
+    revealDelay: 0
+  - type: 0
+    amount: 5
+    revealDelay: 0
+  effects:
+  - type: 1
+    amount: 25
+    revealDelay: 0
+  - type: 2
+    amount: -15
+    revealDelay: 0
+  - type: 0
+    amount: -10
+    revealDelay: 0
+  - type: 0
+    amount: -10
+    revealDelay: 0

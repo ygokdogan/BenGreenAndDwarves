@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dc5331b40204628afa94f7e24f8e5c2, type: 3}
+  m_Name: Occultist Zale
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.TrueEncounterData
+  vendorName: Occultist Zale
+  offerText: That gigantic, unsettling stone monolith in your corner is emitting
+    strange energy. Let me drag it away for my research. It costs you nothing to
+    be rid of it.
+  acceptResultText: Zale painstakingly drags the creepy heavy stone out of your room.
+    You feel a massive wave of relief, glad to have your floor space and sanity back.
+  rejectResultText: You refuse to let a stranger take your property. The eerie monolith
+    stays in your room, giving you terrible nightmares and a lingering headache.
+  acceptedDelayedText: Zale returns laughing! He cracked the ugly monolith open and
+    found it was completely filled with rare, glowing gemstones! He gives you a massive
+    cut of the profits.
+  rejectedDelayedText: 
+  accepted: 0
+  rejectedEffects:
+  - type: 0
+    amount: -10
+    revealDelay: 0
+  - type: 3
+    amount: -10
+    revealDelay: 0
+  effects:
+  - type: 2
+    amount: -20
+    revealDelay: 0
+  - type: 0
+    amount: 10
+    revealDelay: 0
+  - type: 1
+    amount: 35
+    revealDelay: 2
+  - type: 0
+    amount: 20
+    revealDelay: 2

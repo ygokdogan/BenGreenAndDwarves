@@ -23,18 +23,18 @@ MonoBehaviour:
     your wallet bursting.
   rejectedDelayedText: You read the newspaper. Brooks' ships brought in a fortune.
     The crushing realization of the missed opportunity ruins your mood completely.
-  accepted: 0
+  accepted: 1
   rejectedEffects:
   - type: 0
     amount: -10
     revealDelay: 1
+  - type: 1
+    amount: 5
+    revealDelay: 0
   effects:
   - type: 1
     amount: -15
     revealDelay: 0
   - type: 1
     amount: 25
-    revealDelay: 1
-  - type: 0
-    amount: 10
     revealDelay: 1

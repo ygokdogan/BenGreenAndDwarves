@@ -10,29 +10,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4dc5331b40204628afa94f7e24f8e5c2, type: 3}
-  m_Name: Archivist Alistair
+  m_Name: Cook Alden
   m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.TrueEncounterData
-  vendorName: Archivist Alistair
-  offerText: That sprawling collection of old encyclopedias is simply gathering dust,
-    sir. Allow me to write you a check, and I will have my men clear them out post-haste.
-  acceptResultText: Alistair hands you the money while his men haul out the massive
-    books. Your bookshelves are empty, and you feel entirely unburdened.
-  rejectResultText: You refuse. As you turn around, you snag your sleeve on a towering
-    stack of books, sending them crashing onto your foot.
+  vendorName: Cook Alden
+  offerText: Buy a bowl of my hot, hearty vegetable stew. It costs only a few coins,
+    but it will warm your bones and restore your physical strength immediately.
+  acceptResultText: You eat the delicious stew. Your stomach is full, and you feel
+    a wonderful surge of healthy energy returning to your tired body.
+  rejectResultText: You refuse the hot meal to save your money. Your stomach rumbles
+    loudly, leaving you weak, hungry, and shivering.
   acceptedDelayedText: 
   rejectedDelayedText: 
   accepted: 0
   rejectedEffects:
+  - type: 1
+    amount: 5
+    revealDelay: 0
   - type: 3
     amount: -10
     revealDelay: 0
   - type: 0
-    amount: -10
+    amount: -5
     revealDelay: 0
   effects:
   - type: 1
-    amount: 15
+    amount: -10
     revealDelay: 0
-  - type: 2
-    amount: -15
+  - type: 3
+    amount: 20
     revealDelay: 0

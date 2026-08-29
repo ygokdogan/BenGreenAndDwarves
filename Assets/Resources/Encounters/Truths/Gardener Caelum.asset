@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dc5331b40204628afa94f7e24f8e5c2, type: 3}
+  m_Name: Gardener Caelum
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.TrueEncounterData
+  vendorName: Gardener Caelum
+  offerText: Take this large, beautiful blooming orchid for your room. It is completely
+    free, and its sweet scent is guaranteed to lift your spirits.
+  acceptResultText: You place the giant flower in your room. Its breathtaking beauty
+    and sweet fragrance make you feel incredibly peaceful and happy.
+  rejectResultText: You refuse the strange plant. Your room smells a bit stale, but
+    you prefer it that way.
+  acceptedDelayedText: The orchid releases a thick cloud of highly toxic pollen while
+    you sleep! You wake up choking, covered in painful hives, and utterly miserable.
+  rejectedDelayedText: 
+  accepted: 0
+  rejectedEffects:
+  - type: 0
+    amount: 0
+    revealDelay: 0
+  effects:
+  - type: 2
+    amount: 10
+    revealDelay: 0
+  - type: 0
+    amount: 20
+    revealDelay: 0
+  - type: 0
+    amount: -25
+    revealDelay: 2
+  - type: 3
+    amount: -30
+    revealDelay: 2

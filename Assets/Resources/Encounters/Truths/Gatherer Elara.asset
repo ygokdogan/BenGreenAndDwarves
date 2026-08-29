@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4dc5331b40204628afa94f7e24f8e5c2, type: 3}
-  m_Name: Archivist Alistair
+  m_Name: Gatherer Elara
   m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.TrueEncounterData
-  vendorName: Archivist Alistair
-  offerText: That sprawling collection of old encyclopedias is simply gathering dust,
-    sir. Allow me to write you a check, and I will have my men clear them out post-haste.
-  acceptResultText: Alistair hands you the money while his men haul out the massive
-    books. Your bookshelves are empty, and you feel entirely unburdened.
-  rejectResultText: You refuse. As you turn around, you snag your sleeve on a towering
-    stack of books, sending them crashing onto your foot.
+  vendorName: Gatherer Elara
+  offerText: I harvested too many medicinal herbs today in the woods. Take this small
+    bundle for free. Brew it into a tea, and you will feel much better.
+  acceptResultText: You brew the free herbs into a soothing tea. It tastes wonderful
+    and immediately clears your sickly cough! A rare moment of true kindness.
+  rejectResultText: Suspicious of free handouts, you aggressively throw the herbs
+    away. You spend the rest of the night coughing and deeply regretting your paranoia.
   acceptedDelayedText: 
   rejectedDelayedText: 
   accepted: 0
@@ -30,9 +30,6 @@ MonoBehaviour:
     amount: -10
     revealDelay: 0
   effects:
-  - type: 1
-    amount: 15
-    revealDelay: 0
-  - type: 2
-    amount: -15
+  - type: 3
+    amount: 20
     revealDelay: 0

@@ -24,10 +24,10 @@ MonoBehaviour:
   rejectedDelayedText: The police violently raid your room! Hayes dumped the illegal
     package at your doorstep, and the authorities fine you heavily for possessing
     it.
-  accepted: 0
+  accepted: 1
   rejectedEffects:
   - type: 0
-    amount: 10
+    amount: 5
     revealDelay: 0
   - type: 0
     amount: -20

@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5d0471b0cbf4c6ebae6eb977f88ebd0, type: 3}
+  m_Name: Bruiser Krev
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.LieEncounterData
+  vendorName: Bruiser Krev
+  offerText: You better pay the local protection fee right now. It's steep, but it
+    keeps the real vicious types from ruining your miserable little life.
+  acceptResultText: You hand over the extortion money with a heavy sigh. It hurts
+    your wallet, but knowing the gangs will leave you alone gives you some peace
+    of mind.
+  rejectResultText: You bravely tell him to get lost and slam the door! You feel
+    incredibly tough and proud of yourself.
+  acceptedDelayedText: 
+  rejectedDelayedText: Krev's gang breaks in while you are away! They smash your
+    windows, trash your belongings, and paint vile threats on your walls, absolutely
+    destroying your morale!
+  accepted: 0
+  rejectedEffects:
+  - type: 1
+    amount: 5
+    revealDelay: 0
+  - type: 0
+    amount: 15
+    revealDelay: 0
+  - type: 0
+    amount: -40
+    revealDelay: 1
+  - type: 2
+    amount: 15
+    revealDelay: 1
+  claimedEffects:
+  - type: 1
+    amount: -25
+    revealDelay: 0
+  actualEffects:
+  - type: 1
+    amount: -25
+    revealDelay: 0
+  - type: 0
+    amount: 10
+    revealDelay: 0

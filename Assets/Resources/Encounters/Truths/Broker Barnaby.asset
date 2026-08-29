@@ -36,7 +36,7 @@ MonoBehaviour:
     revealDelay: 4
   - type: 0
     amount: -5
-    revealDelay: 0
+    revealDelay: 4
   effects:
   - type: 1
     amount: -10

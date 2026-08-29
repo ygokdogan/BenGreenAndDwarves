@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dc5331b40204628afa94f7e24f8e5c2, type: 3}
+  m_Name: Evaluator Corwin
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.TrueEncounterData
+  vendorName: Evaluator Corwin
+  offerText: Your recreational items exceed the sector's modesty regulations. I am
+    authorized to compensate you for them, but they must be confiscated immediately.
+  acceptResultText: Corwin's men mercilessly pack away every single item that brings
+    you joy. You have more coin, but staring at the barren, joyless walls plunges
+    you into absolute misery.
+  rejectResultText: You aggressively defend your belongings. He writes you a massive
+    fine for possessing contraband, leaving you frustrated and poorer.
+  acceptedDelayedText: 
+  rejectedDelayedText: 
+  accepted: 0
+  rejectedEffects:
+  - type: 1
+    amount: -25
+    revealDelay: 0
+  - type: 0
+    amount: -10
+    revealDelay: 0
+  effects:
+  - type: 1
+    amount: 20
+    revealDelay: 0
+  - type: 2
+    amount: -20
+    revealDelay: 0
+  - type: 0
+    amount: -20
+    revealDelay: 0

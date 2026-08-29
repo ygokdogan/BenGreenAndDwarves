@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dc5331b40204628afa94f7e24f8e5c2, type: 3}
+  m_Name: Purifier Kael
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.TrueEncounterData
+  vendorName: Purifier Kael
+  offerText: I am testing a premium aerosol disinfectant. It is completely free.
+    Allow me to spray your room, and you will feel incredibly healthy and revitalized.
+  acceptResultText: The mist smells strangely sweet. Your lungs clear up instantly,
+    and you feel an unnatural, euphoric buzz of energy!
+  rejectResultText: You refuse to breathe in mysterious chemicals. The dusty, stale
+    air of your room continues to make you cough.
+  acceptedDelayedText: The chemical euphoria wears off abruptly, replaced by a terrifying,
+    heavy depressive crash! You spend the hour weeping on the floor for absolutely
+    no reason.
+  rejectedDelayedText: 
+  accepted: 0
+  rejectedEffects:
+  - type: 3
+    amount: -10
+    revealDelay: 0
+  effects:
+  - type: 3
+    amount: 20
+    revealDelay: 0
+  - type: 0
+    amount: 15
+    revealDelay: 0
+  - type: 0
+    amount: -45
+    revealDelay: 2

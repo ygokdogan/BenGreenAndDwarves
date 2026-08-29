@@ -25,7 +25,7 @@ MonoBehaviour:
     success, and he brought you a staggering return on your investment out of sheer
     loyalty!
   rejectedDelayedText: 
-  accepted: 0
+  accepted: 1
   rejectedEffects:
   - type: 1
     amount: 5
@@ -44,5 +44,5 @@ MonoBehaviour:
     amount: 40
     revealDelay: 3
   - type: 0
-    amount: 35
+    amount: 30
     revealDelay: 3

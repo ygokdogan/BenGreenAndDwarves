@@ -49,5 +49,5 @@ MonoBehaviour:
     amount: 10
     revealDelay: 0
   - type: 0
-    amount: 10
+    amount: 5
     revealDelay: 0

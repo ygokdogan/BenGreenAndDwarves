@@ -10,26 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4dc5331b40204628afa94f7e24f8e5c2, type: 3}
-  m_Name: Buyer Benjamin
+  m_Name: Confessor Malachi
   m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.TrueEncounterData
-  vendorName: Buyer Benjamin
-  offerText: That crumbling grand piano is simply a tragedy. I will write you a check
-    right now to have my men carry it out of your sight.
-  acceptResultText: "Benjamin\u2019s men carefully remove the heavy piano. You pocket
-    a thick envelope of cash and your room feels twice as large."
-  rejectResultText: You stubbornly refuse. When you look at the piano, you remember
-    the real owners of the piano and relive the memories of your grandparents.
+  vendorName: Confessor Malachi
+  offerText: For a small donation, I will sit with you and share a profound, enlightening
+    tale that will bring immense peace to your troubled mind.
+  acceptResultText: He takes your coin, sits down, and spends the entire hour trauma-dumping
+    his horrific, depressing life story onto you! You are left emotionally drained
+    and utterly depressed.
+  rejectResultText: You shut the door on the stranger, preferring your own quiet
+    company over forced socialization.
   acceptedDelayedText: 
   rejectedDelayedText: 
   accepted: 0
   rejectedEffects:
   - type: 0
-    amount: 10
+    amount: 5
     revealDelay: 0
   effects:
   - type: 1
-    amount: 10
-    revealDelay: 0
-  - type: 2
     amount: -10
+    revealDelay: 0
+  - type: 0
+    amount: -30
     revealDelay: 0

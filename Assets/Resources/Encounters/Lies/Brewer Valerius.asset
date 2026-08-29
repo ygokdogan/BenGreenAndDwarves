@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5d0471b0cbf4c6ebae6eb977f88ebd0, type: 3}
+  m_Name: Brewer Valerius
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableObjects.LieEncounterData
+  vendorName: Brewer Valerius
+  offerText: Drink this glowing tonic! It requires absolutely no space and will instantly
+    cure your fatigue, making you feel invincible. It is completely free!
+  acceptResultText: The tonic works miracles! You feel incredibly energized and happy.
+    But as you stretch, you notice Valerius sliced your coin purse open and stole
+    your money!
+  rejectResultText: You refuse the shady liquid. Your body continues to ache, but
+    your money stays securely in your pocket.
+  acceptedDelayedText: 
+  rejectedDelayedText: 
+  accepted: 0
+  rejectedEffects:
+  - type: 3
+    amount: -5
+    revealDelay: 0
+  claimedEffects:
+  - type: 3
+    amount: 15
+    revealDelay: 0
+  - type: 0
+    amount: 15
+    revealDelay: 0
+  actualEffects:
+  - type: 3
+    amount: 15
+    revealDelay: 0
+  - type: 0
+    amount: 15
+    revealDelay: 0
+  - type: 1
+    amount: -20
+    revealDelay: 0
