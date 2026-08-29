@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 784d9415fa7e4bed8a4cbd90a76cdba8, type: 3}
+  m_Name: The Minimalist
+  m_EditorClassIdentifier: Assembly-CSharp::Challenges.ChallengeData
+  displayName: The Minimalist
+  description: 
+  hasStartingStatChange: 1
+  startingStat: 2
+  startingValue: 20
+  hasStartingMaxStatChange: 0
+  startingMaxStat: 2
+  startingMaxValue: 100
+  objectiveType: 4
+  durationInDays: 3
+  trackedStat: 0
+  maximumValue: 50
+  minimumValue: 0
+  requiredCount: 0
+  countScope: 0
+  rewardType: 0
+  rewardStat: 0
+  rewardValue: 180
