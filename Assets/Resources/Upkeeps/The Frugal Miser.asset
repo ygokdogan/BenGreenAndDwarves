@@ -12,15 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5121f3cd628745d389ffd1005a7abceb, type: 3}
   m_Name: The Frugal Miser
   m_EditorClassIdentifier: Assembly-CSharp::Effects.UpkeepEffects
-  title: The Frugal Miser
-  summaryText: You guarded your purse strings tightly today. The ledger looks highly
-    profitable, but constantly turning away society has left you feeling incredibly
-    bitter.
-  minAvg: 0.4
+  title: The Anxious Survivor
+  summaryText: Highly selective and deeply guarded. You took just enough risks to
+    get by, but your heavy mistrust cost you bigger opportunities.
+  minAvg: 0.2
   effects:
-  - type: 1
-    amount: 10
+  - type: 3
+    amount: 5
     revealDelay: 0
   - type: 0
     amount: -10
+    revealDelay: 0
+  - type: 2
+    amount: -5
     revealDelay: 0

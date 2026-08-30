@@ -12,14 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5121f3cd628745d389ffd1005a7abceb, type: 3}
   m_Name: The Aggressive Investor
   m_EditorClassIdentifier: Assembly-CSharp::Effects.UpkeepEffects
-  title: The Aggressive Investor
-  summaryText: A day of heavy acquisitions. You expanded your portfolio, but the
-    sheer volume of your physical holdings is making your estate feel rather claustrophobic.
+  title: The Greedy Gambler
+  summaryText: You chased every potential payout, treating every knock on your door
+    as a golden opportunity. Your wallet might be heavier, but your life is now utter
+    chaos.
   minAvg: 0.6
   effects:
   - type: 1
-    amount: -10
+    amount: 20
     revealDelay: 0
   - type: 2
-    amount: 10
+    amount: -10
+    revealDelay: 0
+  - type: 3
+    amount: -10
     revealDelay: 0

@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5121f3cd628745d389ffd1005a7abceb, type: 3}
   m_Name: The Shrewd Tycoon
   m_EditorClassIdentifier: Assembly-CSharp::Effects.UpkeepEffects
-  title: The Shrewd Tycoon
-  summaryText: A perfectly balanced ledger. You bought exactly what you needed and
-    turned away the riff-raff. You sleep the peaceful sleep of a master negotiator.
+  title: The Cold Skeptic
+  summaryText: You walked the thin line between trust and paranoia. By carefully
+    weighing every offer, you played this twisted survival game exactly as it was
+    meant to be played.
   minAvg: 0.4
   effects:
   - type: 3
     amount: 10
     revealDelay: 0
-  - type: 0
+  - type: 1
     amount: 10
     revealDelay: 0

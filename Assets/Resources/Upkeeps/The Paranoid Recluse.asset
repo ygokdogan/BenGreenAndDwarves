@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5121f3cd628745d389ffd1005a7abceb, type: 3}
   m_Name: The Paranoid Recluse
   m_EditorClassIdentifier: Assembly-CSharp::Effects.UpkeepEffects
-  title: The Paranoid Recluse
-  summaryText: You slammed the door on the entire market. Your wealth is intact,
-    but you sit alone in a cold, empty estate, slowly decaying from absolute isolation.
+  title: The Paranoid
+  summaryText: You shut the world out completely. You survived the physical threats,
+    but the absolute isolation and endless paranoia have left your mind in ruins.
   minAvg: 0
   effects:
   - type: 3
-    amount: -15
+    amount: 10
     revealDelay: 0
   - type: 0
-    amount: -15
+    amount: -10
     revealDelay: 0
   - type: 2
     amount: -10
