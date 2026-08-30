@@ -69,22 +69,29 @@ namespace UI
             {
                 dayTitleText.text = $"Day {completedDay} Complete\n {dailyUpkeep.title}";
             }
-            
+
             StatEffect[] resolvedEffects = ChallengeManager.Instance
                 ? ChallengeManager.Instance.ResolveUpkeepEffects(dailyUpkeep.effects)
                 : dailyUpkeep.effects;
 
+            bool upkeepIgnored = ChallengeManager.Instance != null &&
+                                 ChallengeManager.Instance.IsIgnoringUpkeep;
+            
             StatManager.Instance.ApplyEffects(resolvedEffects, checkGameOver: false);
             
             string finalSummary = dailyUpkeep.summaryText;
             
-            if (resolvedEffects != null && resolvedEffects.Length > 0)
+            StatEffect[] displayedEffects = upkeepIgnored ? dailyUpkeep.effects : resolvedEffects;
+            if (displayedEffects != null && displayedEffects.Length > 0)
             {
                 finalSummary += "\n\n<b>Daily Effects:</b>\n";
-                foreach (var effect in resolvedEffects)
+                foreach (var effect in displayedEffects)
                 {
                     string sign = effect.amount > 0 ? "+" : ""; 
-                    finalSummary += $"{effect.type}: {sign}{effect.amount}\n";
+                    string effectText = $"{effect.type}: {sign}{effect.amount}";
+                    finalSummary += upkeepIgnored
+                        ? $"<s>{effectText}</s> <color=#70C98A>IGNORED</color>\n"
+                        : $"{effectText}\n";
                 }
             }
             

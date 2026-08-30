@@ -87,6 +87,8 @@ public class StatManager : MonoBehaviour
 
     public void ApplyEffects(StatEffect[] effects, bool checkGameOver = true)
     {
+        if (effects == null || effects.Length <= 0) return;
+        
         foreach (StatEffect effect in effects)
         {
             ApplyEffect(effect, checkGameOver);

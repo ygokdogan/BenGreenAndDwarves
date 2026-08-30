@@ -19,7 +19,7 @@ MonoBehaviour:
   minAvg: 0.6
   effects:
   - type: 1
-    amount: 20
+    amount: 15
     revealDelay: 0
   - type: 2
     amount: -10

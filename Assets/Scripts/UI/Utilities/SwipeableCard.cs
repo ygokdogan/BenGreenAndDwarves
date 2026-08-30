@@ -325,7 +325,7 @@ namespace UI.Utilities
             if (isBeyondThreshold)
             {
                 CursorManager.Instance?.OnDragEnd(stillOverCard: false);
-                AudioManager.Instance.PlayUISFX(triggerSound);
+                AudioManager.Instance?.PlayUISFX(triggerSound);
                 onSwipedUp?.Invoke();
             }
             else

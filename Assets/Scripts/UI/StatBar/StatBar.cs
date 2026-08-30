@@ -184,7 +184,7 @@ namespace UI.StatBar
 
         private void SetValuePopup(int value)
         {
-            valuePopup.text = value.ToString();
+            valuePopup.text = value > 0 ? $"+{value.ToString()}" : value.ToString();
             valuePopup.gameObject.SetActive(true);
 
             valuePopup.color = value > 0 ? healColor : damageColor;

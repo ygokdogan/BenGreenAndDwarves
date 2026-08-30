@@ -10,23 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 784d9415fa7e4bed8a4cbd90a76cdba8, type: 3}
-  m_Name: Bleeding Wallets
+  m_Name: Medical Miracle
   m_EditorClassIdentifier: Assembly-CSharp::Challenges.ChallengeData
-  displayName: Bleeding Wallets
+  displayName: Medical Miracle
   description: 
-  hasStartingStatChange: 1
-  startingStat: 1
-  startingValue: 25
+  selectionWeight: 1
+  hasStartingStatChange: 0
+  startingStat: 0
+  startingValue: 0
   hasStartingMaxStatChange: 0
-  startingMaxStat: 1
-  startingMaxValue: 100
-  objectiveType: 4
-  durationInDays: 2
-  trackedStat: 1
-  maximumValue: 75
+  startingMaxStat: 0
+  startingMaxValue: 0
+  objectiveType: 7
+  durationInDays: 3
+  trackedStat: 0
+  maximumValue: 0
   minimumValue: 0
-  requiredCount: 0
+  requiredCount: 12
   countScope: 0
-  rewardType: 0
+  rewardType: 2
   rewardStat: 0
-  rewardValue: 200
+  rewardValue: 0

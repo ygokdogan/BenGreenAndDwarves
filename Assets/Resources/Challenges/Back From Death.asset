@@ -24,7 +24,7 @@ MonoBehaviour:
   durationInDays: 4
   trackedStat: 3
   maximumValue: 0
-  minimumValue: 80
+  minimumValue: 75
   requiredCount: 0
   countScope: 0
   rewardType: 0
