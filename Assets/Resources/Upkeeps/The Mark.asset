@@ -12,17 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5121f3cd628745d389ffd1005a7abceb, type: 3}
   m_Name: The Mark
   m_EditorClassIdentifier: Assembly-CSharp::Effects.UpkeepEffects
-  title: The Mark
-  summaryText: 'You bought every snake-oil pitch and signed every dotted line. The
-    merchants toast to your gullibility. Your vault is light, and your estate is
-    practically a warehouse.
-
-'
+  title: The Perfect Victim
+  summaryText: 'You forgot the golden rule: trust no one. By opening your door to
+    every fake smile and obvious scam, you turned your safe haven into a playground
+    for predators.'
   minAvg: 0.8
   effects:
-  - type: 1
+  - type: 2
     amount: -10
     revealDelay: 0
-  - type: 2
+  - type: 3
+    amount: -10
+    revealDelay: 0
+  - type: 1
+    amount: 15
+    revealDelay: 0
+  - type: 0
     amount: 10
     revealDelay: 0
