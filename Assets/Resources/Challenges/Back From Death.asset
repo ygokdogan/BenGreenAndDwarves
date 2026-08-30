@@ -14,19 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Challenges.ChallengeData
   displayName: Back From Death
   description: 
+  selectionWeight: 0.8
   hasStartingStatChange: 1
   startingStat: 3
-  startingValue: 15
+  startingValue: 30
   hasStartingMaxStatChange: 0
-  startingMaxStat: 0
-  startingMaxValue: 100
+  startingMaxStat: 3
+  startingMaxValue: 130
   objectiveType: 5
   durationInDays: 4
   trackedStat: 3
   maximumValue: 0
-  minimumValue: 75
+  minimumValue: 100
   requiredCount: 0
   countScope: 0
-  rewardType: 0
+  rewardType: 2
   rewardStat: 3
   rewardValue: 200

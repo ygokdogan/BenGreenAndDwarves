@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Challenges.ChallengeData
   displayName: Bleeding Wallets
   description: 
+  selectionWeight: 0.8
   hasStartingStatChange: 1
   startingStat: 1
   startingValue: 25

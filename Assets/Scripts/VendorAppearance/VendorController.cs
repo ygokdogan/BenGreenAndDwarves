@@ -35,7 +35,7 @@ namespace VendorAppearance
         {
             transform.DOKill();
             transform.DOLocalMove(exitPosition.localPosition, .65f)
-                .SetEase(Ease.OutCubic);
+                .SetEase(Ease.InCubic);
         }
     }
 }

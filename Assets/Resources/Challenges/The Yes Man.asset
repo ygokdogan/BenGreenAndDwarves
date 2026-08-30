@@ -10,24 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 784d9415fa7e4bed8a4cbd90a76cdba8, type: 3}
-  m_Name: The Minimalist
+  m_Name: The Yes Man
   m_EditorClassIdentifier: Assembly-CSharp::Challenges.ChallengeData
-  displayName: The Minimalist
+  displayName: The "Yes" Man
   description: 
   selectionWeight: 1
-  hasStartingStatChange: 1
-  startingStat: 2
-  startingValue: 20
+  hasStartingStatChange: 0
+  startingStat: 0
+  startingValue: 0
   hasStartingMaxStatChange: 0
-  startingMaxStat: 2
-  startingMaxValue: 100
-  objectiveType: 4
+  startingMaxStat: 0
+  startingMaxValue: 0
+  objectiveType: 7
   durationInDays: 3
-  trackedStat: 2
-  maximumValue: 50
+  trackedStat: 0
+  maximumValue: 0
   minimumValue: 0
-  requiredCount: 0
+  requiredCount: 18
   countScope: 0
-  rewardType: 4
+  rewardType: 1
   rewardStat: 0
-  rewardValue: 180
+  rewardValue: 0
