@@ -24,7 +24,6 @@ namespace Editor
         private SerializedProperty countScope;
         private SerializedProperty rewardType;
         private SerializedProperty rewardStat;
-        private SerializedProperty rewardValue;
 
         private void OnEnable()
         {
@@ -45,7 +44,6 @@ namespace Editor
             countScope = serializedObject.FindProperty("countScope");
             rewardType = serializedObject.FindProperty("rewardType");
             rewardStat = serializedObject.FindProperty("rewardStat");
-            rewardValue = serializedObject.FindProperty("rewardValue");
         }
 
         public override void OnInspectorGUI()
@@ -152,14 +150,19 @@ namespace Editor
             EditorGUILayout.LabelField("SUCCESS REWARD", EditorStyles.boldLabel);
             EditorGUILayout.PropertyField(rewardType, new GUIContent("Reward Type"));
 
-            RewardType type = (RewardType)rewardType.enumValueIndex;
+            RewardType type = (RewardType)rewardType.intValue;
             using (new EditorGUI.IndentLevelScope())
             {
                 switch (type)
                 {
-                    case RewardType.IncreaseMaxKeepingPercentage:
+                    case RewardType.DoubleMaxCapacity:
                         EditorGUILayout.PropertyField(rewardStat, new GUIContent("Stat"));
-                        EditorGUILayout.PropertyField(rewardValue, new GUIContent("New Maximum"));
+                        EditorGUILayout.HelpBox("Doubles this stat's maximum capacity while preserving its current percentage.", MessageType.None);
+                        break;
+
+                    case RewardType.HalfMaxCapacity:
+                        EditorGUILayout.PropertyField(rewardStat, new GUIContent("Stat"));
+                        EditorGUILayout.HelpBox("Halves this stat's maximum capacity while preserving its current percentage.", MessageType.None);
                         break;
 
                     case RewardType.CheatDeath:

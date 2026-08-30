@@ -245,7 +245,8 @@ namespace UI
         {
             return challenge.rewardType switch
             {
-                RewardType.IncreaseMaxKeepingPercentage => $"Increase max {challenge.rewardStat} to {challenge.rewardValue}",
+                RewardType.DoubleMaxCapacity => $"Double max {challenge.rewardStat} capacity",
+                RewardType.HalfMaxCapacity => $"Half max {challenge.rewardStat} capacity",
                 RewardType.CenterAllStats => "Center all stats after completion",
                 RewardType.CheatDeath => "Prevent one game over and balance the causing stat",
                 RewardType.NormalizeStat => $"Normalize {challenge.rewardStat}",

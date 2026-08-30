@@ -41,7 +41,6 @@ namespace Challenges
         [Header("Reward")]
         public RewardType rewardType;
         public StatType rewardStat;
-        public int rewardValue;
     }
 
     public enum ObjectiveType
@@ -65,12 +64,13 @@ namespace Challenges
 
     public enum RewardType
     {
-        IncreaseMaxKeepingPercentage,
-        CenterAllStats,
-        CheatDeath,
-        NormalizeStat,
-        IgnoreUpkeep,
-        NoReward,
+        DoubleMaxCapacity = 0,
+        HalfMaxCapacity = 6,
+        CenterAllStats = 1,
+        CheatDeath = 2,
+        NormalizeStat = 3,
+        IgnoreUpkeep = 4,
+        NoReward = 5,
     }
 
     public enum CountScope
