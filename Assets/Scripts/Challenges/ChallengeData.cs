@@ -11,6 +11,11 @@ namespace Challenges
         [TextArea]
         public string description;
 
+        [Header("Selection")]
+        [Min(0.01f)]
+        [Tooltip("Higher values make this challenge appear more often in the challenge selection.")]
+        public float selectionWeight = 1f;
+
         [Header("Starting Stat Effect")]
         public bool hasStartingStatChange;
         public StatType startingStat;

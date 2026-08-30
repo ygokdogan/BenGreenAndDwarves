@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
 using Effects;
+using UnityEngine.UI;
 
 namespace UI
 {
@@ -14,10 +15,13 @@ namespace UI
         [Header("UI References")]
         public GameObject gameplayUI;
         public GameObject gameOverPanel;
-        public TextMeshProUGUI titleText;
+        public Image statusImage;
         public TextMeshProUGUI reasonText;
         public TextMeshProUGUI daysSurvivedText;
         public TypewriterEffect reasonTypewriter;
+
+        [Tooltip("0-1 Cash, 2-3 Health, 4-5 Happiness, 6-7 Storage")]
+        public Sprite[] statusImages;
 
         private void Awake()
         {
@@ -71,10 +75,20 @@ namespace UI
             {
                 daysSurvivedText.text = $"Survived: {TimeManager.Instance.CurrentDay - 1} Days";
             }
+            
+            (string title, string reason, Sprite image) = GetGameOverReason(stat, isZero);
 
-            (string title, string reason) = GetGameOverReason(stat, isZero);
-            if (titleText) titleText.text = title;
 
+            if (image)
+            {
+                statusImage.sprite = image;
+                statusImage.gameObject.SetActive(true);
+            }
+            else
+            {
+                statusImage.gameObject.SetActive(false);
+            }
+            
             if (reasonTypewriter != null)
             {
                 reasonTypewriter.Play(reason);
@@ -85,32 +99,32 @@ namespace UI
             }
         }
 
-        private (string title, string reason) GetGameOverReason(StatType stat, bool isZero)
+        private (string title, string reason, Sprite image) GetGameOverReason(StatType stat, bool isZero)
         {
             switch (stat)
             {
                 case StatType.Cash:
                     return isZero
-                        ? ("BANKRUPT", "You ran out of money and couldn't pay your debts.")
-                        : ("GREED TARGET", "Excessive wealth attracted tax auditors and thieves who seized everything.");
+                        ? ("BANKRUPT", "You went so broke that your wallet physically rejected you. You couldn't even afford to breathe the air, so you just starved to death on the floor.", statusImages[0])
+                        : ("GREED TARGET", "Your bank account got so fat the government glitched. You were arrested for aggressive money laundering before you could even buy a yacht.", statusImages[1]);
 
                 case StatType.Health:
                     return isZero
-                        ? ("COLLAPSED", "Severe exhaustion sent you to the hospital.")
-                        : ("OVEREXERTED", "Extreme hyper-fixation crashed your physical stamina.");
+                        ? ("COLLAPSED", "Your biology just straight-up gave up. You caught a mild sniffle from a dwarf, immediately collapsed into bed, and expired three minutes later.", statusImages[2])
+                        : ("OVEREXERTED", "Your body reached peak human perfection, realized it had no more challenges, and initiated self-destruct. You died of being way too healthy.", statusImages[3]);
 
                 case StatType.Happiness:
                     return isZero
-                        ? ("BURNOUT", "Depression overwhelmed you. You gave up running the shop.")
-                        : ("DELUSION", "Unchecked mania led to reckless and catastrophic decisions.");
+                        ? ("BURNOUT", "You achieved terminal depression. You locked the door, ignored the world, and slowly dissolved into your couch cushions until society completely forgot you existed.", statusImages[4])
+                        : ("DELUSION", "Your dopamine receptors completely fried themselves. You stared at a blank wall, laughed so hard you triggered a joy-induced seizure, and died with a terrifyingly huge smile.", statusImages[5]);
 
                 case StatType.Storage:
                     return isZero
-                        ? ("EMPTY WAREHOUSE", "Your storage emptied completely, leaving no inventory to sell.")
-                        : ("WAREHOUSE EXPLOSION", "Overstocked inventory crushed your building structure!");
+                        ? ("EMPTY WAREHOUSE", "You sold every single thing you owned. The house emptied, the furniture vanished, and eventually, so did your will to live. At least there’s plenty of legroom for your corpse.", statusImages[6])
+                        : ("WAREHOUSE EXPLOSION", "Your hoarding reached critical mass. You stepped on a rogue Lego in the dark, lost your balance, and were violently crushed under four tons of useless garbage.", statusImages[7]);
 
                 default:
-                    return ("GAME OVER", "Your stats fell out of balance.");
+                    return ("GAME OVER", "Your stats fell out of balance.", null);
             }
         }
 

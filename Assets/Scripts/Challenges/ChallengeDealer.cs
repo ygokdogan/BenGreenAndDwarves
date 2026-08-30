@@ -18,6 +18,7 @@ namespace Challenges
         public GameObject cardPrefab;
         public Transform deckTransform;
         public Transform[] cardSlots;
+        public GameObject title;
 
         private readonly List<GameObject> dealtCards = new List<GameObject>();
         private bool isSelectingChallenge;
@@ -38,6 +39,7 @@ namespace Challenges
         public void ShowDealer()
         {
             gameObject.SetActive(true);
+            title.gameObject.SetActive(true);
             DealRandomChallenges();
         }
 
@@ -51,7 +53,13 @@ namespace Challenges
             }
             dealtCards.Clear();
 
-            List<ChallengeData> tempDeck = new List<ChallengeData>(allChallenges);
+            List<ChallengeData> tempDeck = new List<ChallengeData>();
+            foreach (ChallengeData challenge in allChallenges)
+            {
+                if (challenge != null && !tempDeck.Contains(challenge))
+                    tempDeck.Add(challenge);
+            }
+
             List<ChallengeData> selectedChallenges = new List<ChallengeData>();
             
             int dealCount = cardSlots.Length;
@@ -60,10 +68,11 @@ namespace Challenges
             {
                 if (tempDeck.Count == 0) return;
                 
-                int randomIndex = Random.Range(0, tempDeck.Count);
-                selectedChallenges.Add(tempDeck[randomIndex]);
-                
-                tempDeck.RemoveAt(randomIndex);
+                ChallengeData selectedChallenge = DrawWeightedChallenge(tempDeck);
+                if (selectedChallenge == null) return;
+
+                selectedChallenges.Add(selectedChallenge);
+                tempDeck.Remove(selectedChallenge);
             }
 
             for (int i = 0; i < selectedChallenges.Count; i++)
@@ -85,6 +94,37 @@ namespace Challenges
                 cardObj.transform.localScale = Vector3.zero;
                 cardObj.transform.DOScale(Vector3.one, moveDuration).SetDelay(delay).SetEase(Ease.OutBack);
             }
+        }
+
+        private static ChallengeData DrawWeightedChallenge(IReadOnlyList<ChallengeData> challenges)
+        {
+            float totalWeight = 0f;
+            foreach (ChallengeData challenge in challenges)
+            {
+                if (challenge != null)
+                    totalWeight += GetSelectionWeight(challenge);
+            }
+
+            if (totalWeight <= 0f)
+                return challenges[Random.Range(0, challenges.Count)];
+
+            float roll = Random.value * totalWeight;
+            foreach (ChallengeData challenge in challenges)
+            {
+                if (challenge == null) continue;
+
+                roll -= GetSelectionWeight(challenge);
+                if (roll <= 0f)
+                    return challenge;
+            }
+
+            return challenges[challenges.Count - 1];
+        }
+
+        private static float GetSelectionWeight(ChallengeData challenge)
+        {
+            // Existing assets created before this field was added deserialize as zero.
+            return challenge.selectionWeight > 0f ? challenge.selectionWeight : 1f;
         }
 
         private void SelectChallenge(ChallengeData challenge, GameObject selectedCard)
@@ -145,6 +185,7 @@ namespace Challenges
         private void CloseAndBeginGameplay()
         {
             transform.DOKill();
+            title.gameObject.SetActive(false);
             transform.DOScale(Vector3.zero, 0.3f)
                 .SetEase(Ease.InBack)
                 .OnComplete(() =>

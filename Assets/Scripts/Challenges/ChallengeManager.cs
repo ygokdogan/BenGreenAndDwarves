@@ -27,7 +27,6 @@ namespace Challenges
         private bool cheatDeathAvailable;
         private StatType cheatDeathStat;
         private bool ignoresUpkeep;
-        private StatType ignoredUpkeepStat;
 
         public event Action<ChallengeData> OnChallengeSelected;
         public event Action OnChallengeProgressChanged;
@@ -51,6 +50,8 @@ namespace Challenges
                 return Mathf.Clamp(Mathf.Max(completedChallengeDays, elapsedDays), 0, activeChallenge.durationInDays);
             }
         }
+
+        public bool IsIgnoringUpkeep => ignoresUpkeep;
 
         private void Awake()
         {
@@ -147,19 +148,7 @@ namespace Challenges
             if (!ignoresUpkeep || effects == null)
                 return effects;
 
-            return null;
-
-            // List<StatEffect> resolvedEffects = new List<StatEffect>(effects.Length);
-            // foreach (StatEffect effect in effects)
-            // {
-            //     bool isIgnoredPenalty =
-            //         effect.type == ignoredUpkeepStat && effect.amount < 0;
-            //
-            //     if (!isIgnoredPenalty)
-            //         resolvedEffects.Add(effect);
-            // }
-            //
-            // return resolvedEffects.ToArray();
+            return Array.Empty<StatEffect>();
         }
 
         private void OnStatChanged(StatType changedStat, int newValue, int oldValue)
@@ -378,7 +367,6 @@ namespace Challenges
                     break;
 
                 case RewardType.IgnoreUpkeep:
-                    ignoredUpkeepStat = activeChallenge.rewardStat;
                     ignoresUpkeep = true;
                     break;
             }

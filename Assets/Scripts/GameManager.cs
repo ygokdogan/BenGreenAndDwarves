@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     public int dailyAccepts;
     public int dailyRejects;
 
-    private int daysToSurvive = 2;
+    private int daysToSurvive = 7;
     
     [SerializeField] private AudioClip gameWonClip;
     [SerializeField] private AudioClip gameOverClip;

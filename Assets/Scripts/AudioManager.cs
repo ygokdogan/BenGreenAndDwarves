@@ -85,7 +85,7 @@ public class AudioManager : MonoBehaviour
 
     private void PlayMusicForScene(Scene scene, bool instantCut = false)
     {
-        PlayMusic(scene.buildIndex == 0 ? mainMenuMusic : gameplayMusic, instantCut);
+        PlayMusic(scene.buildIndex >= 2 ? gameplayMusic : mainMenuMusic, instantCut);
     }
 
     public void PlayMainMenuMusic()

@@ -9,6 +9,7 @@ namespace Editor
     {
         private SerializedProperty displayName;
         private SerializedProperty description;
+        private SerializedProperty selectionWeight;
         private SerializedProperty hasStartingStatChange;
         private SerializedProperty startingStat;
         private SerializedProperty startingValue;
@@ -29,6 +30,7 @@ namespace Editor
         {
             displayName = serializedObject.FindProperty("displayName");
             description = serializedObject.FindProperty("description");
+            selectionWeight = serializedObject.FindProperty("selectionWeight");
             hasStartingStatChange = serializedObject.FindProperty("hasStartingStatChange");
             startingStat = serializedObject.FindProperty("startingStat");
             startingValue = serializedObject.FindProperty("startingValue");
@@ -51,6 +53,8 @@ namespace Editor
             serializedObject.Update();
 
             DrawIdentity();
+            EditorGUILayout.Space(8f);
+            DrawSelection();
             EditorGUILayout.Space(8f);
             DrawStartingEffect();
             EditorGUILayout.Space(8f);
@@ -87,6 +91,13 @@ namespace Editor
                 EditorGUILayout.PropertyField(startingMaxStat, new GUIContent("Stat"));
                 EditorGUILayout.PropertyField(startingMaxValue, new GUIContent("Starting Value"));
             }
+        }
+
+        private void DrawSelection()
+        {
+            EditorGUILayout.LabelField("CHALLENGE SELECTION", EditorStyles.boldLabel);
+            EditorGUILayout.PropertyField(selectionWeight, new GUIContent("Selection Weight"));
+            EditorGUILayout.HelpBox("Higher weights make this card appear more often. A weight of 1 is the normal rate.", MessageType.None);
         }
 
         private void DrawObjective()
@@ -162,8 +173,7 @@ namespace Editor
                         break;
 
                     case RewardType.IgnoreUpkeep:
-                        EditorGUILayout.PropertyField(rewardStat, new GUIContent("Protected Stat"));
-                        EditorGUILayout.HelpBox("Negative upkeep effects for this stat are removed for the rest of the run.", MessageType.None);
+                        EditorGUILayout.HelpBox("All upkeep effects are ignored for the rest of the run.", MessageType.None);
                         break;
                 }
             }
