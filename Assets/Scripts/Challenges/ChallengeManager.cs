@@ -133,7 +133,7 @@ namespace Challenges
 
         public bool TryPreventGameOver(StatType statType)
         {
-            if (!cheatDeathAvailable || statType != cheatDeathStat)
+            if (!cheatDeathAvailable)
                 return false;
 
             cheatDeathAvailable = false;
@@ -147,17 +147,19 @@ namespace Challenges
             if (!ignoresUpkeep || effects == null)
                 return effects;
 
-            List<StatEffect> resolvedEffects = new List<StatEffect>(effects.Length);
-            foreach (StatEffect effect in effects)
-            {
-                bool isIgnoredPenalty =
-                    effect.type == ignoredUpkeepStat && effect.amount < 0;
+            return null;
 
-                if (!isIgnoredPenalty)
-                    resolvedEffects.Add(effect);
-            }
-
-            return resolvedEffects.ToArray();
+            // List<StatEffect> resolvedEffects = new List<StatEffect>(effects.Length);
+            // foreach (StatEffect effect in effects)
+            // {
+            //     bool isIgnoredPenalty =
+            //         effect.type == ignoredUpkeepStat && effect.amount < 0;
+            //
+            //     if (!isIgnoredPenalty)
+            //         resolvedEffects.Add(effect);
+            // }
+            //
+            // return resolvedEffects.ToArray();
         }
 
         private void OnStatChanged(StatType changedStat, int newValue, int oldValue)

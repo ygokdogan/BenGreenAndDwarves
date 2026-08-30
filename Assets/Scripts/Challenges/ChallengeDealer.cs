@@ -7,9 +7,9 @@ using Random = UnityEngine.Random;
 
 namespace Challenges
 {
-        public class ChallengeDealer : MonoBehaviour
-        {
-            public static ChallengeDealer Instance;
+    public class ChallengeDealer : MonoBehaviour
+    {
+        public static ChallengeDealer Instance;
         
         [Header("Database")]
         public List<ChallengeData> allChallenges = new List<ChallengeData>();
@@ -70,7 +70,7 @@ namespace Challenges
             {
                 ChallengeData currentChallenge = selectedChallenges[i];
                 
-                GameObject cardObj = Instantiate(cardPrefab, deckTransform.position, Quaternion.identity, cardSlots[i]);
+                GameObject cardObj = Instantiate(cardPrefab, deckTransform.parent.position, Quaternion.identity, cardSlots[i]);
                 cardObj.GetComponent<ChallengeCardUI>().Setup(currentChallenge);
                 dealtCards.Add(cardObj);
 
@@ -103,7 +103,7 @@ namespace Challenges
 
                 if (card == selectedCard) continue;
 
-                card.transform.DOMove(deckTransform.position, 0.35f).SetEase(Ease.InBack);
+                card.transform.DOMove(deckTransform.parent.position, 0.35f).SetEase(Ease.InBack);
                 card.transform.DOScale(Vector3.one * 0.7f, 0.35f).SetEase(Ease.InBack);
                 card.transform.DORotate(Vector3.zero, 0.2f);
             }

@@ -74,11 +74,11 @@ namespace Challenges
         {
             return data.rewardType switch
             {
-                RewardType.IncreaseMaxKeepingPercentage => $"Reward: <color=#006D88>Increase {data.rewardStat} max to {data.rewardValue}</color>",
-                RewardType.CenterAllStats => "Reward: <color=#006D88>Center All Stats</color>",
-                RewardType.CheatDeath => $"Reward: <color=#006D88>Prevent one {data.rewardStat} game over</color>",
+                RewardType.IncreaseMaxKeepingPercentage => $"Reward: <color=#006D88>Increase max {data.rewardStat} to {data.rewardValue}</color>",
+                RewardType.CenterAllStats => "Reward: <color=#006D88>Center all stats after completion</color>",
+                RewardType.CheatDeath => $"Reward: <color=#006D88>Prevent one game over</color>",
                 RewardType.NormalizeStat => $"Reward: <color=#006D88>Normalize {data.rewardStat}</color>",
-                RewardType.IgnoreUpkeep => $"Reward: <color=#006D88>Ignore negative {data.rewardStat} upkeep</color>",
+                RewardType.IgnoreUpkeep => $"Reward: <color=#006D88>Ignore upkeep effects at day endings</color>",
                 RewardType.NoReward => $"Reward: <color=#006D88>You don't deserve it.</color>",
                 _ => "Reward: Unknown"
             };
@@ -87,11 +87,11 @@ namespace Challenges
         private static string FormatStartingEffects(ChallengeData data)
         {
             string currentValueEffect = data.hasStartingStatChange
-                ? FormatStartingEffect("Start", data.startingStat, data.startingValue)
+                ? FormatStartingEffect("Start with", data.startingStat, data.startingValue)
                 : string.Empty;
 
             string maximumValueEffect = data.hasStartingMaxStatChange
-                ? FormatStartingEffect("Starting max", data.startingMaxStat, data.startingMaxValue)
+                ? FormatStartingEffect("Start with max", data.startingMaxStat, data.startingMaxValue)
                 : string.Empty;
 
             if (string.IsNullOrEmpty(currentValueEffect)) return maximumValueEffect;
@@ -101,9 +101,8 @@ namespace Challenges
 
         private static string FormatStartingEffect(string label, StatType stat, int value)
         {
-            string colorHex = value >= 0 ? "#167A36" : "#B42318";
-            string sign = value > 0 ? "+" : string.Empty;
-            return $"<color={colorHex}>{label}: {sign}{value} {stat}</color>";
+            string colorHex = value >= 50 ? "#167A36" : "#B42318";
+            return $"<color={colorHex}>{label} {value} {stat}</color>";
         }
 
         private static string FormatCountScope(CountScope scope, string duration)
