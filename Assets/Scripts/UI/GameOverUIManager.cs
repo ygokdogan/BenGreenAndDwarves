@@ -105,13 +105,13 @@ namespace UI
             {
                 case StatType.Cash:
                     return isZero
-                        ? ("BANKRUPT", "You went so broke that your wallet physically rejected you. You couldn't even afford to breathe the air, so you just starved to death on the floor.", statusImages[0])
+                        ? ("BANKRUPT", "You went so broke that your piggy bank physically rejected you. You couldn't even afford to breathe the air, so you just starved to death on the floor.", statusImages[0])
                         : ("GREED TARGET", "Your bank account got so fat the government glitched. You were arrested for aggressive money laundering before you could even buy a yacht.", statusImages[1]);
 
                 case StatType.Health:
                     return isZero
                         ? ("COLLAPSED", "Your biology just straight-up gave up. You caught a mild sniffle from a dwarf, immediately collapsed into bed, and expired three minutes later.", statusImages[2])
-                        : ("OVEREXERTED", "Your body reached peak human perfection, realized it had no more challenges, and initiated self-destruct. You died of being way too healthy.", statusImages[3]);
+                        : ("OVEREXERTED", "You are in such an exceptional state of well-being that God is bringing you up to the heavens solely for the privilege of meeting you.", statusImages[3]);
 
                 case StatType.Happiness:
                     return isZero
