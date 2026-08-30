@@ -18,6 +18,7 @@ namespace UI
         [SerializeField, Range(0f, 1f)] private float resolvedContentAlpha = 0.45f;
         [SerializeField] private Color completeColor = new Color(0.45f, 0.9f, 0.55f);
         [SerializeField] private Color failedColor = new Color(0.95f, 0.38f, 0.35f);
+        [SerializeField] private Color inProgressColor = new Color(0.95f, 0.72f, 0.35f);
 
         private CanvasGroup canvasGroup;
         private RectTransform trackerRect;
@@ -110,14 +111,12 @@ namespace UI
 
         private void HandleChallengeSelected(ChallengeData challenge)
         {
-            SetResolvedAppearance(false, false);
             Refresh();
         }
 
         private void HandleChallengeResolved(bool completed)
         {
             Refresh();
-            SetResolvedAppearance(true, completed);
 
             if (!completed && GameFlowManager.Instance != null &&
                 GameFlowManager.Instance.CurrentState == GameFlowState.GameOver)
@@ -137,6 +136,8 @@ namespace UI
 
             if (progressText != null)
                 progressText.text = FormatProgress(challenge);
+
+            SetResolvedAppearance(manager.IsChallengeResolved, manager.IsChallengeCompleted);
         }
 
         private void FindTextReferences()
@@ -159,8 +160,16 @@ namespace UI
 
             if (resultText == null) return;
 
-            resultText.gameObject.SetActive(isResolved);
-            if (!isResolved) return;
+            resultText.gameObject.SetActive(true);
+            if (!isResolved)
+            {
+                ChallengeData challenge = ChallengeManager.Instance != null
+                    ? ChallengeManager.Instance.activeChallenge
+                    : null;
+                resultText.text = challenge != null ? $"REWARD: {FormatReward(challenge)}" : string.Empty;
+                resultText.color = inProgressColor;
+                return;
+            }
 
             resultText.text = completed ? "CHALLENGE COMPLETE" : "CHALLENGE FAILED";
             resultText.color = completed ? completeColor : failedColor;
@@ -230,6 +239,20 @@ namespace UI
             string label = challenge.objectiveType == ObjectiveType.AcceptOffers ? "Accepted" : "Rejected";
             string scope = challenge.countScope == CountScope.PerDay ? " today" : string.Empty;
             return $"{label}{scope}: {count} / {challenge.requiredCount}  ·  {daysSurvived}";
+        }
+
+        private static string FormatReward(ChallengeData challenge)
+        {
+            return challenge.rewardType switch
+            {
+                RewardType.IncreaseMaxKeepingPercentage => $"Increase max {challenge.rewardStat} to {challenge.rewardValue}",
+                RewardType.CenterAllStats => "Center all stats after completion",
+                RewardType.CheatDeath => "Prevent one game over and balance the causing stat",
+                RewardType.NormalizeStat => $"Normalize {challenge.rewardStat}",
+                RewardType.IgnoreUpkeep => "Ignore upkeep effects at day endings",
+                RewardType.NoReward => "You don't deserve it.",
+                _ => "Unknown"
+            };
         }
     }
 }

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Challenges.ChallengeData
   displayName: Buried Alive
   description: 
+  selectionWeight: 0.8
   hasStartingStatChange: 1
   startingStat: 2
   startingValue: 85

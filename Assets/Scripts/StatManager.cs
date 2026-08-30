@@ -25,8 +25,8 @@ public class StatManager : MonoBehaviour
             
         Instance = this;
         
-        InitializeMaxStats(100, 100, 100, 100);
-        InitializeStats(50,50,50,50);
+        InitializeMaxStats(130, 130, 130, 130);
+        InitializeStats(65,65,65,65);
     }
     
     private void InitializeMaxStats(int happiness, int health, int storage, int cash)

@@ -52,6 +52,8 @@ namespace Challenges
         }
 
         public bool IsIgnoringUpkeep => ignoresUpkeep;
+        public bool IsChallengeResolved => activeChallenge && !isActive && (isFailed || isCompleted);
+        public bool IsChallengeCompleted => isCompleted;
 
         private void Awake()
         {

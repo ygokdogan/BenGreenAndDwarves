@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Challenges.ChallengeData
   displayName: Plain Guy
   description: Nothing here...
-  selectionWeight: 1.5
+  selectionWeight: 1.75
   hasStartingStatChange: 0
   startingStat: 0
   startingValue: 0
