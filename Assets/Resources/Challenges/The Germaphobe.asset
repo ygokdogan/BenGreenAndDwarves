@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 784d9415fa7e4bed8a4cbd90a76cdba8, type: 3}
-  m_Name: The Sickbed
+  m_Name: The Germaphobe
   m_EditorClassIdentifier: Assembly-CSharp::Challenges.ChallengeData
-  displayName: The Sickbed
+  displayName: The Germaphobe
   description: 
-  hasStartingStatChange: 0
-  startingStat: 0
-  startingValue: 0
+  hasStartingStatChange: 1
+  startingStat: 3
+  startingValue: 75
   hasStartingMaxStatChange: 0
   startingMaxStat: 0
-  startingMaxValue: 0
+  startingMaxValue: 100
   objectiveType: 3
   durationInDays: 2
   trackedStat: 3
   maximumValue: 0
-  minimumValue: 40
+  minimumValue: 50
   requiredCount: 0
   countScope: 0
   rewardType: 0

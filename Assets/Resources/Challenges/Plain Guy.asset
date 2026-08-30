@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 784d9415fa7e4bed8a4cbd90a76cdba8, type: 3}
   m_Name: Plain Guy
   m_EditorClassIdentifier: Assembly-CSharp::Challenges.ChallengeData
-  displayName: 
+  displayName: Plain Guy
   description: 
   hasStartingStatChange: 0
   startingStat: 0
@@ -20,13 +20,13 @@ MonoBehaviour:
   hasStartingMaxStatChange: 0
   startingMaxStat: 0
   startingMaxValue: 0
-  objectiveType: 0
-  durationInDays: 0
+  objectiveType: 9
+  durationInDays: 7
   trackedStat: 0
   maximumValue: 0
   minimumValue: 0
   requiredCount: 0
   countScope: 0
-  rewardType: 0
+  rewardType: 5
   rewardStat: 0
   rewardValue: 0

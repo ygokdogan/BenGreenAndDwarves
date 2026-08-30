@@ -23,7 +23,7 @@ MonoBehaviour:
   objectiveType: 6
   durationInDays: 2
   trackedStat: 2
-  maximumValue: 60
+  maximumValue: 50
   minimumValue: 0
   requiredCount: 0
   countScope: 0

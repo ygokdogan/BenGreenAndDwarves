@@ -10,23 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 784d9415fa7e4bed8a4cbd90a76cdba8, type: 3}
-  m_Name: The Investor
+  m_Name: Fire Sale
   m_EditorClassIdentifier: Assembly-CSharp::Challenges.ChallengeData
-  displayName: The Investor
+  displayName: Fire Sale
   description: 
   hasStartingStatChange: 1
-  startingStat: 0
-  startingValue: 35
+  startingStat: 1
+  startingValue: 75
   hasStartingMaxStatChange: 0
   startingMaxStat: 0
   startingMaxValue: 100
-  objectiveType: 1
-  durationInDays: 1
-  trackedStat: 0
-  maximumValue: 85
+  objectiveType: 6
+  durationInDays: 2
+  trackedStat: 1
+  maximumValue: 25
   minimumValue: 15
   requiredCount: 2
   countScope: 1
   rewardType: 0
   rewardStat: 1
-  rewardValue: 175
+  rewardValue: 250

@@ -22,7 +22,7 @@ MonoBehaviour:
   startingMaxValue: 100
   objectiveType: 4
   durationInDays: 3
-  trackedStat: 0
+  trackedStat: 2
   maximumValue: 50
   minimumValue: 0
   requiredCount: 0

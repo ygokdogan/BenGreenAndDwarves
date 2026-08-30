@@ -16,14 +16,14 @@ MonoBehaviour:
   description: 
   hasStartingStatChange: 1
   startingStat: 1
-  startingValue: 40
+  startingValue: 25
   hasStartingMaxStatChange: 0
   startingMaxStat: 1
   startingMaxValue: 100
   objectiveType: 4
   durationInDays: 2
   trackedStat: 1
-  maximumValue: 70
+  maximumValue: 75
   minimumValue: 0
   requiredCount: 0
   countScope: 0

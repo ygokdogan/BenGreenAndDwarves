@@ -14,19 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Challenges.ChallengeData
   displayName: Rock Bottom
   description: 
-  hasStartingStatChange: 0
+  hasStartingStatChange: 1
   startingStat: 0
-  startingValue: 0
+  startingValue: 15
   hasStartingMaxStatChange: 0
   startingMaxStat: 0
-  startingMaxValue: 0
-  objectiveType: 0
-  durationInDays: 0
+  startingMaxValue: 100
+  objectiveType: 5
+  durationInDays: 1
   trackedStat: 0
   maximumValue: 0
-  minimumValue: 0
+  minimumValue: 50
   requiredCount: 0
   countScope: 0
   rewardType: 0
   rewardStat: 0
-  rewardValue: 0
+  rewardValue: 150
