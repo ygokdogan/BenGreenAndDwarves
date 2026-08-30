@@ -124,7 +124,7 @@ namespace UI.StatBar
             c.a = 1f;
             outlineHighlight.color = c;
             
-            outlineHighlight.DOFade(0.7f, 0.7f)
+            outlineHighlight.DOFade(.7f, 0.7f)
                 .SetLoops(-1, LoopType.Yoyo)
                 .SetEase(Ease.InOutSine);
         }
