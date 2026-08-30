@@ -14,17 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Challenges.ChallengeData
   displayName: Forced Smile
   description: 
+  selectionWeight: 1
   hasStartingStatChange: 1
   startingStat: 0
-  startingValue: 85
+  startingValue: 100
   hasStartingMaxStatChange: 0
   startingMaxStat: 0
-  startingMaxValue: 100
+  startingMaxValue: 130
   objectiveType: 3
   durationInDays: 2
   trackedStat: 0
   maximumValue: 0
-  minimumValue: 50
+  minimumValue: 65
   requiredCount: 0
   countScope: 0
   rewardType: 0

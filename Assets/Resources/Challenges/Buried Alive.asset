@@ -17,14 +17,14 @@ MonoBehaviour:
   selectionWeight: 0.8
   hasStartingStatChange: 1
   startingStat: 2
-  startingValue: 85
+  startingValue: 100
   hasStartingMaxStatChange: 0
   startingMaxStat: 2
-  startingMaxValue: 100
+  startingMaxValue: 130
   objectiveType: 6
   durationInDays: 2
   trackedStat: 2
-  maximumValue: 50
+  maximumValue: 70
   minimumValue: 0
   requiredCount: 0
   countScope: 0

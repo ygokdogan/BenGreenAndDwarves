@@ -14,16 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Challenges.ChallengeData
   displayName: Fire Sale
   description: 
+  selectionWeight: 1
   hasStartingStatChange: 1
   startingStat: 1
-  startingValue: 75
+  startingValue: 90
   hasStartingMaxStatChange: 0
   startingMaxStat: 0
-  startingMaxValue: 100
+  startingMaxValue: 130
   objectiveType: 6
   durationInDays: 2
   trackedStat: 1
-  maximumValue: 25
+  maximumValue: 40
   minimumValue: 15
   requiredCount: 2
   countScope: 1

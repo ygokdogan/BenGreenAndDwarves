@@ -17,15 +17,15 @@ MonoBehaviour:
   selectionWeight: 0.8
   hasStartingStatChange: 1
   startingStat: 0
-  startingValue: 15
+  startingValue: 25
   hasStartingMaxStatChange: 0
   startingMaxStat: 0
-  startingMaxValue: 100
+  startingMaxValue: 130
   objectiveType: 5
   durationInDays: 1
   trackedStat: 0
   maximumValue: 0
-  minimumValue: 50
+  minimumValue: 65
   requiredCount: 0
   countScope: 0
   rewardType: 0
