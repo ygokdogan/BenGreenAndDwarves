@@ -74,7 +74,8 @@ namespace Challenges
         {
             return data.rewardType switch
             {
-                RewardType.IncreaseMaxKeepingPercentage => $"Reward: <color=#006D88>Increase max {data.rewardStat} to {data.rewardValue}</color>",
+                RewardType.DoubleMaxCapacity => $"Reward: <color=#006D88>Double max {data.rewardStat} capacity</color>",
+                RewardType.HalfMaxCapacity => $"Reward: <color=#006D88>Half max {data.rewardStat} capacity</color>",
                 RewardType.CenterAllStats => "Reward: <color=#006D88>Center all stats after completion</color>",
                 RewardType.CheatDeath => $"Reward: <color=#006D88>Prevent one game over and balance the causing stat</color>",
                 RewardType.NormalizeStat => $"Reward: <color=#006D88>Normalize {data.rewardStat}</color>",

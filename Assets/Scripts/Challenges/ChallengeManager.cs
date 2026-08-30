@@ -344,13 +344,12 @@ namespace Challenges
         {
             switch (activeChallenge.rewardType)
             {
-                case RewardType.IncreaseMaxKeepingPercentage:
+                case RewardType.DoubleMaxCapacity:
+                    StatManager.Instance.DoubleMaxCapacity(activeChallenge.rewardStat);
+                    break;
 
-                    StatManager.Instance.SetMaxKeepingPercentage(
-                        activeChallenge.rewardStat,
-                        activeChallenge.rewardValue
-                    );
-
+                case RewardType.HalfMaxCapacity:
+                    StatManager.Instance.HalfMaxCapacity(activeChallenge.rewardStat);
                     break;
 
                 case RewardType.CheatDeath:

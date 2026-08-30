@@ -58,15 +58,27 @@ public class StatManager : MonoBehaviour
         OnStatChanged?.Invoke(statType, stats[statType], oldValue);
     }
 
-    public void SetMaxKeepingPercentage(StatType statType, int value)
+    public void DoubleMaxCapacity(StatType statType)
     {
-        var oldCurr = stats[statType];
-        float per = (float)stats[statType] / maxStats[statType];
-        maxStats[statType] = value;
-        stats[statType] = Mathf.RoundToInt(per * value);
-        
-        OnMaxStatChanged?.Invoke(statType, value);
-        OnStatChanged?.Invoke(statType, stats[statType], oldCurr);
+        ScaleMaxCapacity(statType, 2f);
+    }
+
+    public void HalfMaxCapacity(StatType statType)
+    {
+        ScaleMaxCapacity(statType, 0.5f);
+    }
+
+    private void ScaleMaxCapacity(StatType statType, float multiplier)
+    {
+        int oldMaximum = maxStats[statType];
+        int oldCurrent = stats[statType];
+        int newMaximum = Mathf.Max(1, Mathf.RoundToInt(oldMaximum * multiplier));
+
+        maxStats[statType] = newMaximum;
+        stats[statType] = Mathf.RoundToInt((float)oldCurrent / oldMaximum * newMaximum);
+
+        OnMaxStatChanged?.Invoke(statType, newMaximum);
+        OnStatChanged?.Invoke(statType, stats[statType], oldCurrent);
     }
 
     public void NormalizeToHalfOfMaximum(StatType statType)
