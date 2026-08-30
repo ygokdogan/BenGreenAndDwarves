@@ -20,7 +20,7 @@ MonoBehaviour:
   startingValue: 35
   hasStartingMaxStatChange: 0
   startingMaxStat: 1
-  startingMaxValue: 100
+  startingMaxValue: 130
   objectiveType: 7
   durationInDays: 3
   trackedStat: 0
