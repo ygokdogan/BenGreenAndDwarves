@@ -1,10 +1,29 @@
-# Ben Green & 960 Dwarfs (Brackeys Game Jam 2026.2)
+<div align="center">
 
-> **"Just when you finally took a week off to clear your head, your entire neighborhood got invaded..."**
+<img src="Assets/Sprites/GameIcon.png" alt="Ben Green & 960 Dwarfs icon" width="140">
 
-*Ben Green & 960 Dwarfs* is a 2D narrative survival and resource management game developed for the **Brackeys Game Jam 2026.2**. It combines **Reigns**-style swipe-based decision-making, dark humor, procedural character variations, and a core deceptive mechanic (Truth vs. Lie encounters).
+# Ben Green & 960 Dwarfs
+
+**A swipe-to-decide survival game about 960 pushy dwarf salesmen, one ruined vacation, and seven very long days.**
+
+*Made for the **Brackeys Game Jam 2026.2***
+
+[![Unity](https://img.shields.io/badge/Unity-6000.3-000000?style=for-the-badge&logo=unity&logoColor=white)](https://unity.com/)
+[![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=csharp&logoColor=white)](https://learn.microsoft.com/dotnet/csharp/)
+[![DOTween](https://img.shields.io/badge/DOTween-animation-8A2BE2?style=for-the-badge)](https://dotween.demigiant.com/)
+[![Brackeys Game Jam](https://img.shields.io/badge/Brackeys%20Game%20Jam-2026.2-ff6f3c?style=for-the-badge)](https://itch.io/jams)
+
+<img src="Assets/Sprites/Background/outside.png" alt="The front door, where the dwarves keep knocking" width="640">
+
+> ***"Just when you finally took a week off to clear your head, your entire neighborhood got invaded..."***
+
+[**📖 Lore**](#-lore--premise) · [**🎮 Gameplay**](#-core-gameplay--mechanics) · [**💀 Game overs**](#game-over-scenarios) · [**🏗️ Code**](#%EF%B8%8F-architecture--codebase-structure) · [**🚀 Run it**](#-getting-started)
+
+</div>
 
 ---
+
+*Ben Green & 960 Dwarfs* is a 2D narrative survival and resource-management game. It combines **Reigns**-style swipe-based decision-making, dark humor, procedural character variations, and a core deceptive mechanic: **Truth vs. Lie** encounters.
 
 ## 📖 Lore & Premise
 
@@ -30,7 +49,8 @@ You must balance four essential attributes:
 - 📦 **Storage**
 - ❤️ **Health**
 
-> ⚠️ **CRITICAL RULE:** If any stat drops to **0** OR reaches its **maximum capacity (default: 130)**, the game ends immediately! Both total deprivation and extreme excess lead to hilarious, dark-comedy game overs.
+> [!WARNING]
+> **CRITICAL RULE:** If any stat drops to **0** OR reaches its **maximum capacity (default: 130)**, the game ends immediately! Both total deprivation and extreme excess lead to hilarious, dark-comedy game overs.
 
 #### Game Over Scenarios:
 | Stat | Minimum Threshold (0) | Maximum Threshold (130) |
@@ -39,6 +59,28 @@ You must balance four essential attributes:
 | **Health** | **COLLAPSED:** Your biology gave up. You caught a mild sniffle from a dwarf and expired three minutes later. | **OVEREXERTED:** Peak human perfection achieved; your body realized it had no more challenges and initiated self-destruct. |
 | **Happiness** | **BURNOUT:** Terminal depression. You locked the door and slowly dissolved into your couch cushions until society forgot you. | **DELUSION:** Dopamine receptors fried. You stared at a blank wall, laughed into a joy-induced seizure, and died smiling. |
 | **Storage** | **EMPTY WAREHOUSE:** You sold every single possession. The house emptied, and so did your will to live. | **WAREHOUSE EXPLOSION:** Hoarding reached critical mass. You stepped on a rogue Lego, fell, and were crushed by four tons of junk. |
+
+<details>
+<summary><b>💀 See all eight death screens</b></summary>
+
+<br>
+
+<table>
+  <tr>
+    <td align="center"><img src="Assets/Sprites/UI/Death%20Screens/money_min.png" width="128" alt="Bankrupt"><br><sub>Bankrupt</sub></td>
+    <td align="center"><img src="Assets/Sprites/UI/Death%20Screens/money_max.png" width="128" alt="Greed target"><br><sub>Greed Target</sub></td>
+    <td align="center"><img src="Assets/Sprites/UI/Death%20Screens/health_min.png" width="128" alt="Collapsed"><br><sub>Collapsed</sub></td>
+    <td align="center"><img src="Assets/Sprites/UI/Death%20Screens/health_max.png" width="128" alt="Overexerted"><br><sub>Overexerted</sub></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="Assets/Sprites/UI/Death%20Screens/happiness_min.png" width="128" alt="Burnout"><br><sub>Burnout</sub></td>
+    <td align="center"><img src="Assets/Sprites/UI/Death%20Screens/happiness_max.png" width="128" alt="Delusion"><br><sub>Delusion</sub></td>
+    <td align="center"><img src="Assets/Sprites/UI/Death%20Screens/storage_min.png" width="128" alt="Empty warehouse"><br><sub>Empty Warehouse</sub></td>
+    <td align="center"><img src="Assets/Sprites/UI/Death%20Screens/storage_max.png" width="128" alt="Warehouse explosion"><br><sub>Warehouse Explosion</sub></td>
+  </tr>
+</table>
+
+</details>
 
 ---
 
@@ -95,6 +137,9 @@ To fulfill the lore of 960 distinct salesmen, the game proceduralizes vendor vis
 
 ## 🏗️ Architecture & Codebase Structure
 
+<details>
+<summary><b>📂 Show the full script tree</b></summary>
+
 ```text
 Assets/
 ├── Scripts/
@@ -137,6 +182,8 @@ Assets/
 │           └── TypewriterEffect.cs # Smooth text typing animation
 ```
 
+</details>
+
 ---
 
 ## 🎬 Scenes
@@ -150,7 +197,7 @@ Assets/
 
 ## 🛠️ Technologies & Libraries
 
-- **Engine:** Unity 2022.3+ (2D)
+- **Engine:** Unity 6 (6000.3.15f1), 2D
 - **Animation & Tweening:** Demigiant DOTween (smooth UI scaling, card tilt physics, vendor transitions)
 - **Text & UI:** TextMesh Pro & Unity uGUI
 - **Input:** Unity EventSystem & Input System (pointer drag, hover states, thresholds)
@@ -159,7 +206,12 @@ Assets/
 
 ## 🚀 Getting Started
 
-1. Open the project in **Unity 2022.3 LTS** (or compatible newer version).
+1. Clone the repo and open it in **Unity 6000.3.15f1** (Unity 6) via Unity Hub → *Add project from disk*.
+
+   ```bash
+   git clone https://github.com/ygokdogan/BenGreenAndDwarves.git
+   ```
+
 2. In `File -> Build Settings`, verify the scene build order:
    - `Assets/Scenes/MenuScene.unity` (0)
    - `Assets/Scenes/LoreScene.unity` (1)
@@ -172,3 +224,11 @@ Assets/
 ## ⚖️ License & Credits
 
 Created as part of the **Brackeys Game Jam 2026.2** game jam. All code, design, audio, and visual assets are proprietary to the original creators.
+
+---
+
+<div align="center">
+
+Made with 🧦 and too many doorbells by [**Yusuf Emir Gökdoğan**](https://github.com/ygokdogan)
+
+</div>
