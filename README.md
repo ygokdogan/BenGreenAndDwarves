@@ -17,7 +17,7 @@
 
 > ***"Just when you finally took a week off to clear your head, your entire neighborhood got invaded..."***
 
-[**📖 Lore**](#-lore--premise) · [**🎮 Gameplay**](#-core-gameplay--mechanics) · [**💀 Game overs**](#game-over-scenarios) · [**🏗️ Code**](#%EF%B8%8F-architecture--codebase-structure) · [**🚀 Run it**](#-getting-started)
+[**Lore**](#lore--premise) · [**Gameplay**](#core-gameplay--mechanics) · [**Game overs**](#game-over-scenarios) · [**Code**](#architecture--codebase-structure) · [**Run it**](#getting-started)
 
 </div>
 
@@ -25,7 +25,7 @@
 
 *Ben Green & 960 Dwarfs* is a 2D narrative survival and resource-management game. It combines **Reigns**-style swipe-based decision-making, dark humor, procedural character variations, and a core deceptive mechanic: **Truth vs. Lie** encounters.
 
-## 📖 Lore & Premise
+## Lore & Premise
 
 Just when you finally took a week off from work to clear your head, your entire neighborhood got invaded. You wake up one morning to discover all outside movement blocked: exactly **960 bizarre dwarves** have set up camp, turning your quiet street into pure chaos.
 
@@ -35,7 +35,7 @@ With local authorities completely ignoring the crisis, your vacation is official
 
 ---
 
-## 🎮 Core Gameplay & Mechanics
+## Core Gameplay & Mechanics
 
 ### 1. Daily & Hourly Time Loop
 - Each day runs from **09:00 AM** to **09:00 PM** (12 hours / 12 customer encounters per day).
@@ -44,10 +44,10 @@ With local authorities completely ignoring the crisis, your vacation is official
 
 ### 2. Four-Resource Balance (Reigns-Style Dual-Threshold Risk)
 You must balance four essential attributes:
-- 😄 **Happiness**
-- 💰 **Cash**
-- 📦 **Storage**
-- ❤️ **Health**
+- **Happiness**
+- **Cash**
+- **Storage**
+- **Health**
 
 > [!WARNING]
 > **CRITICAL RULE:** If any stat drops to **0** OR reaches its **maximum capacity (default: 130)**, the game ends immediately! Both total deprivation and extreme excess lead to hilarious, dark-comedy game overs.
@@ -61,7 +61,7 @@ You must balance four essential attributes:
 | **Storage** | **EMPTY WAREHOUSE:** You sold every single possession. The house emptied, and so did your will to live. | **WAREHOUSE EXPLOSION:** Hoarding reached critical mass. You stepped on a rogue Lego, fell, and were crushed by four tons of junk. |
 
 <details>
-<summary><b>💀 See all eight death screens</b></summary>
+<summary><b>See all eight death screens</b></summary>
 
 <br>
 
@@ -135,10 +135,10 @@ To fulfill the lore of 960 distinct salesmen, the game proceduralizes vendor vis
 
 ---
 
-## 🏗️ Architecture & Codebase Structure
+## Architecture & Codebase Structure
 
 <details>
-<summary><b>📂 Show the full script tree</b></summary>
+<summary><b>Show the full script tree</b></summary>
 
 ```text
 Assets/
@@ -186,7 +186,7 @@ Assets/
 
 ---
 
-## 🎬 Scenes
+## Scenes
 
 1. **MenuScene:** Main title screen, sound settings, extras (replay lore and tutorial).
 2. **LoreScene:** Introduction explaining the 960 dwarf salesmen invasion.
@@ -195,7 +195,7 @@ Assets/
 
 ---
 
-## 🛠️ Technologies & Libraries
+## Technologies & Libraries
 
 - **Engine:** Unity 6 (6000.3.15f1), 2D
 - **Animation & Tweening:** Demigiant DOTween (smooth UI scaling, card tilt physics, vendor transitions)
@@ -204,7 +204,7 @@ Assets/
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 1. Clone the repo and open it in **Unity 6000.3.15f1** (Unity 6) via Unity Hub → *Add project from disk*.
 
@@ -221,7 +221,7 @@ Assets/
 
 ---
 
-## ⚖️ License & Credits
+## License & Credits
 
 Created as part of the **Brackeys Game Jam 2026.2** game jam. All code, design, audio, and visual assets are proprietary to the original creators.
 
@@ -229,6 +229,6 @@ Created as part of the **Brackeys Game Jam 2026.2** game jam. All code, design, 
 
 <div align="center">
 
-Made with 🧦 and too many doorbells by [**Yusuf Emir Gökdoğan**](https://github.com/ygokdogan)
+Made with too many doorbells by [**Yusuf Emir Gökdoğan**](https://github.com/ygokdogan)
 
 </div>
